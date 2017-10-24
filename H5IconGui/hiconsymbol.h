@@ -11,7 +11,7 @@ class HIconTemplate;
 class HIconSymbol:public QObject
 {
 public:
-    HIconSymbol(QObject* parent = 0);
+    HIconSymbol(HIconTemplate* t);
     ~HIconSymbol();
 
 public:
@@ -63,7 +63,6 @@ public:
     int getCurrentPatternIndex();
     void setCurrentPatternPtr(HIconShowPattern* sp);
     HIconShowPattern* getCurrentPatternPtr();
-
     void resize(double w,double h);
 public:
     QVector<HIconShowPattern*> pShowPatternVector;
@@ -73,6 +72,7 @@ private:
     int nMaxPattern;
     int nCurPattern;
     HIconShowPattern* pCurPattern;
+    HIconTemplate* pIconTemplate;
 
 };
 
