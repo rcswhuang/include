@@ -154,6 +154,7 @@ typedef struct _tagSYSDBINFO
 //备注：等到测试结束以后，该结构还是需要进行扩展。但不用扩展很多。
 //有关五防厂站遥信遥测等数据结构定义
 //
+#define PTNAMELEN 256
 #define STATIONNAMELEN      64
 #define DIGITALNAMELEN      256
 #define ANALOGUENAMELEN     256
@@ -169,10 +170,11 @@ typedef struct _tagSYSDBINFO
 #define TYPE_STATION         1
 #define TYPE_ANALOGUE        2
 #define TYPE_DIGITAL         3
-#define TYPE_RELAY           4
-#define TYPE_GROUP           5
+#define TYPE_RELAY           4//遥控
+#define TYPE_GROUP           5//间隔
 #define TYPE_GROUPIP         6
-
+#define TYPE_SETPOINT        7 //遥调
+#define TYPE_PLUSE           8 //遥脉
 //实时库相关数据类型
 //厂站
 #define     ATTR_ST_NO          0x001

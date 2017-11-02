@@ -39,6 +39,8 @@ public:
 
     void clear();
 
+    QIcon getIcon();
+
     void setModify(bool modify);
     bool getModify();
 

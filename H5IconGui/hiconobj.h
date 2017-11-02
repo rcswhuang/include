@@ -395,6 +395,9 @@ public:
     HIconComplexObj(HIconTemplate* it);
     virtual ~HIconComplexObj();
 public:
+    /*
+     * 存储分为两个部分
+*/
 //二进制读写
     virtual void readData(QDataStream* data);
     virtual void writeData(QDataStream* data);
