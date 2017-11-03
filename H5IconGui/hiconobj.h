@@ -436,6 +436,15 @@ protected:
     HDynamicObj* pDynamicObj;//实际对象动态信息
 
     //每一个组合图元都是RectItem
+    //icontemplate的信息
+    QString catalogName;//目录名字
+    int catalogType;//类型
+    QString uuid;//uuid
+
+    //iconsymbol的信息
+    QString symbolName;
+    int symbolType;
+
     QPointF topLeft;
     //QPointF rectTop;
     double rectWidth;
