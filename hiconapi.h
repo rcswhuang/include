@@ -77,7 +77,7 @@ enum DRAWSHAPE
     enumCircle,
     enumPie,
     enumText,
-    enumIconComplex
+    enumComplex
 };
 
 //选择状态
