@@ -18,6 +18,9 @@ public:
     void readXml(QDomElement* dom);
     void writeXml(QDomElement *dom);
 
+    void readData(int,QDataStream* d);
+    void writeData(int,QDataStream *d);
+
     void copyTo(HIconTemplate *temp);
 
     void setVersion(int version);

@@ -19,6 +19,10 @@ public:
     void readXml(QDomElement* dom);
     void writeXml(QDomElement *dom);
 
+    void readData(int,QDataStream* d);
+    void writeData(int,QDataStream *d);
+
+
     //新建一个图元元素(按类型)
     HBaseObj* newObj(int nObjType);
     HBaseObj* newObj(QString tagName);
