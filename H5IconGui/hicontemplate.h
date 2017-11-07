@@ -5,9 +5,9 @@
 #include <QUuid>
 #include <QtXml/QDomElement>
 #include <QSizeF>
-#include "H5IconGui/hiconsymbol.h"
+#include "hiconsymbol.h"
 //存放ICON图元显示单元信息
-class HIconTemplate : public QObject
+class H5ICONGUI_EXPORT HIconTemplate : public QObject
 {
 public:
     HIconTemplate(const QUuid& uuid,QObject* parent = 0);

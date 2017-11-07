@@ -1,10 +1,10 @@
 ﻿#ifndef HICONSHOWPATTERN_H
 #define HICONSHOWPATTERN_H
 
-#include "H5IconGui/hiconsymbol.h"
-#include "H5IconGui/hbaseobj.h"
+#include "hiconsymbol.h"
+#include "hbaseobj.h"
 //图元显示单元(分,合，双位置分错，双位置合错)
-class HIconShowPattern
+class H5ICONGUI_EXPORT HIconShowPattern
 {
 public:
     HIconShowPattern(HIconSymbol* symbol);

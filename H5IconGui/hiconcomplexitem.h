@@ -16,7 +16,7 @@ class QGraphicsSceneMouseEvent;
 class H5ICONGUI_EXPORT HIconComplexItem : public HIconGraphicsItem
 {
 public:
-    enum {Type = enumIconComplex};
+    enum {Type = enumComplex};
 
     HIconComplexItem(HIconGraphicsItem *parent = Q_NULLPTR);
     HIconComplexItem(const QRectF &rectF, HIconGraphicsItem *parent = Q_NULLPTR);
