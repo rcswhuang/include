@@ -417,6 +417,9 @@ public:
     virtual void resize(qreal w,qreal h);
     virtual void paint(QPainter* painter);
 public:
+    void setUuid(const QString&);
+    QString getUuid();
+
     void setTopLeft(const QPointF& pointF);
     QPointF getTopLeft();
     void setRectWidth(double width);
