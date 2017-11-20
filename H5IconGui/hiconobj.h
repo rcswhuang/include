@@ -79,9 +79,12 @@ public:
 
     virtual DRAWSHAPE getShapeType();
     virtual void moveBy(qreal dx,qreal dy);
-    virtual void paint(QPainter* painter);
-
     virtual void resize(double w,double h);
+    virtual void paint(QPainter* painter);
+    virtual QRectF boundingRect() const;
+    virtual bool contains(const QPointF &point) const;
+    virtual QPainterPath shape() const;
+
 public:
     QPointF topLeft;
     //QPointF rectTop;
@@ -416,6 +419,9 @@ public:
     virtual void moveBy(qreal dx,qreal dy);
     virtual void resize(qreal w,qreal h);
     virtual void paint(QPainter* painter);
+    virtual QRectF boundingRect() const;
+    virtual bool contains(const QPointF &point) const;
+    virtual QPainterPath shape() const;
 public:
     void setUuid(const QString&);
     QString getUuid();
@@ -434,8 +440,13 @@ public:
     void clearDynamicData();
 
 protected:
+    //模板主要是引用其他对象，或者拷贝过来
     HIconTemplate* pIconTemplate;//模板信息
+
+    //将模板里iconsymbol对象的内容拷贝过来
     HIconSymbol* pIconSymbol;//实际对象Icon信息
+
+    //动态信息
     HDynamicObj* pDynamicObj;//实际对象动态信息
 
     //每一个组合图元都是RectItem

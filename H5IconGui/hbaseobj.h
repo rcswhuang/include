@@ -150,10 +150,13 @@ public:
     virtual HIconGraphicsItem* getIconGraphicsItem();
 
     //改变大写
-    void resize(double w,double h);
+    virtual void resize(double w,double h);
 
 public:
     virtual void paint(QPainter* painter);
+    virtual QRectF boundingRect() const;
+    virtual bool contains(const QPointF &point) const;
+    virtual QPainterPath shape() const;
 
 //绘制对象的属性
 public:
