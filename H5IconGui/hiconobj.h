@@ -29,6 +29,10 @@ public:
     virtual void paint(QPainter* painter);
 
     virtual void resize(double w,double h);
+    virtual QRectF boundingRect() const;
+    virtual bool contains(const QPointF &point) const;
+    virtual QPainterPath shape() const;
+
 
 public:
 
@@ -118,6 +122,10 @@ public:
     virtual void paint(QPainter* painter);
 
     virtual void resize(double w,double h);
+    virtual QRectF boundingRect() const;
+    virtual bool contains(const QPointF &point) const;
+    virtual QPainterPath shape() const;
+
 public:
     QPointF topLeft;
     //QPointF rectTop;
@@ -151,6 +159,10 @@ public:
     virtual void paint(QPainter* painter);
 
     virtual void resize(double w,double h);
+    virtual QRectF boundingRect() const;
+    virtual bool contains(const QPointF &point) const;
+    virtual QPainterPath shape() const;
+
 public:
     QPointF topLeft;
     //QPointF rectTop;
@@ -183,6 +195,10 @@ public:
     virtual void paint(QPainter* painter);
 
     virtual void resize(double w,double h);
+    virtual QRectF boundingRect() const;
+    virtual bool contains(const QPointF &point) const;
+    virtual QPainterPath shape() const;
+
 public:
    QVector<QPointF> pylist;
    qreal width;
@@ -214,6 +230,10 @@ public:
     virtual void paint(QPainter* painter);
 
     virtual void resize(double w,double h);
+    virtual QRectF boundingRect() const;
+    virtual bool contains(const QPointF &point) const;
+    virtual QPainterPath shape() const;
+
 public:
    QVector<QPointF> pylist;
    qreal width;
@@ -246,6 +266,10 @@ public:
     virtual void paint(QPainter* painter);
 
     virtual void resize(double w,double h);
+    virtual QRectF boundingRect() const;
+    virtual bool contains(const QPointF &point) const;
+    virtual QPainterPath shape() const;
+
 public:
     void setStartAngle(int sAngle);
     int getStartAngle();
@@ -289,6 +313,10 @@ public:
     virtual void paint(QPainter* painter);
 
     virtual void resize(double w,double h);
+    virtual QRectF boundingRect() const;
+    virtual bool contains(const QPointF &point) const;
+    virtual QPainterPath shape() const;
+
 public:
     void setStartAngle(int sAngle);
     int getStartAngle();
@@ -332,6 +360,10 @@ public:
     virtual void paint(QPainter* painter);
 
     virtual void resize(double w,double h);
+    virtual QRectF boundingRect() const;
+    virtual bool contains(const QPointF &point) const;
+    virtual QPainterPath shape() const;
+
 public:
     void setTopLeftPoint(QPointF topLeft);
     QPointF getTopLeftPoint();
