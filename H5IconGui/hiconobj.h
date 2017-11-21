@@ -165,7 +165,6 @@ public:
 
 public:
     QPointF topLeft;
-    //QPointF rectTop;
     double rectWidth;
     double rectHeight;
 };

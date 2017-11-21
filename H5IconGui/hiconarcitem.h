@@ -25,7 +25,7 @@ public:
 public:
     virtual void setRect(const QRectF& rect);
     virtual QRectF rect()const;
-    void refreshBaseObj();
+    void refreshBaseObj(const QRectF& rect);
 public:
     virtual QRectF boundingRect() const;
     virtual bool contains(const QPointF &point) const;
