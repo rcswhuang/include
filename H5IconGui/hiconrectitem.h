@@ -22,7 +22,7 @@ public:
     HIconRectItem(const QRectF &rectF, HIconGraphicsItem *parent = Q_NULLPTR);
 public:
     virtual void setRect(const QRectF& rect);
-    virtual QRectF rect()const;
+    virtual QRectF rect() const;
     void refreshBaseObj();
 public:
     virtual QRectF boundingRect() const;

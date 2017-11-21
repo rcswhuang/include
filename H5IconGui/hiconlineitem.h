@@ -35,8 +35,8 @@ public:
     HIconLineItem(HIconGraphicsItem *parent = Q_NULLPTR);
     HIconLineItem(const QLineF &line, HIconGraphicsItem *parent = Q_NULLPTR);
 public:
-    QLineF line() const;
-    void setLine(const QLineF& lineF);
+    virtual QLineF line() const;
+    virtual void setLine(const QLineF& lineF);
     void refreshBaseObj();
     void resizeItem(const QPolygonF& polygonF);
 public:

@@ -11,7 +11,7 @@ class H5ICONGUI_EXPORT HIconGraphicsItem :public QGraphicsItem
 public:
     HIconGraphicsItem(QGraphicsItem * parent = 0);
     //virtual ~HIconGraphicsItem();
-protected:
+public:
     virtual QRectF boundingRect() const;
     virtual bool contains(const QPointF &point) const;
     virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = Q_NULLPTR);

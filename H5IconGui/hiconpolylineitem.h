@@ -39,7 +39,7 @@ public:
     virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
     virtual void keyPressEvent(QKeyEvent *event);
 
-protected:
+public:
     virtual ushort pointInRect(QPointF& point);
     virtual void setItemCursor(int position);
     virtual void setItemObj(HBaseObj*);
