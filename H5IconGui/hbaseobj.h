@@ -119,8 +119,8 @@ public:
     void setTurn(bool bHorizon,bool bVertical);
 
     //是否可见
-    virtual void setVisible(qint8 vis,int nFlag = 0);
-    qint8 isVisible();
+    virtual void setVisible(bool,int nFlag = 0);
+    virtual bool isVisible();
 
     //是否删除
     virtual void setDeleted(bool bDel);
@@ -206,7 +206,7 @@ public:
 
     bool bVerticalTurn;//垂直翻转
 
-    quint8 bVisible;//是否显示
+    bool bVisible;//是否显示
 
     bool bDeleted;//是否删除
 

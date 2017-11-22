@@ -21,7 +21,7 @@ class QPolygonF;
 class H5ICONGUI_EXPORT HIconPolygonItem : public HIconGraphicsItem
 {
 public:
-    enum {Type = enumEllipse};
+    enum {Type = enumPolygon};
     HIconPolygonItem(HIconGraphicsItem *parent = Q_NULLPTR);
     HIconPolygonItem(const QPolygonF &polygonF, HIconGraphicsItem *parent = Q_NULLPTR);
 public:

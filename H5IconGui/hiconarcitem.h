@@ -18,7 +18,7 @@ class QGraphicsSceneMouseEvent;
 class H5ICONGUI_EXPORT HIconArcItem : public HIconGraphicsItem
 {
 public:
-    enum {Type = enumEllipse};
+    enum {Type = enumArc};
     HIconArcItem(HIconGraphicsItem *parent = Q_NULLPTR);
     HIconArcItem(const QRectF &rectF, HIconGraphicsItem *parent = Q_NULLPTR);
     ~HIconArcItem();
