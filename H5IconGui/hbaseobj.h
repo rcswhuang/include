@@ -68,8 +68,8 @@ public:
     virtual quint8 getFillWay();
 
     //填充方式(风格)
-    virtual void setFillStyle(Qt::BrushStyle style);
-    virtual Qt::BrushStyle getFillStyle();
+    virtual void setFillStyle(quint8 style);
+    virtual quint8 getFillStyle();
 
     //填充色
     virtual void setFillColorName(QString clrName);
