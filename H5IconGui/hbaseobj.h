@@ -99,6 +99,16 @@ public:
     virtual void setTextColor(const QColor* c);
     virtual QColor getTextColor();
 
+    //矩形框的x,y轴弯曲度
+    virtual void setRound(bool bcheck);
+    virtual bool getRound();
+
+    virtual void setXAxis(int xAxis);
+    virtual int getXAxis();
+
+    virtual void setYAxis(int yAxis);
+    virtual int getYAxis();
+
     //是否旋转
     bool isRotated(qint8 nFlag);
 
@@ -209,6 +219,12 @@ public:
     bool bVisible;//是否显示
 
     bool bDeleted;//是否删除
+
+    bool bRound;
+
+    int nxAxis;//x轴弯曲度
+
+    int nyAxis;//y轴
 
     qint64 nStackOrder;
 
