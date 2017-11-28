@@ -77,6 +77,7 @@ enum DRAWSHAPE
     enumCircle,
     enumPie,
     enumText,
+    enumGroup,
     enumComplex
 };
 

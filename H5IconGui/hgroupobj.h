@@ -2,10 +2,11 @@
 #define HGROUPOBJ_H
 
 #include "hbaseobj.h"
+class HIconSymbol;
 class H5ICONGUI_EXPORT HGroupObj : public HBaseObj
 {
 public:
-    HGroupObj();
+    HGroupObj(HIconSymbol* symbol);
     ~HGroupObj();
 public:
 
@@ -14,8 +15,8 @@ public:
     virtual void writeData(QDataStream* data);
 
     //xml文件读写
-    virtual void readXml(QDomElement* data);
-    virtual void writeXml(QDomElement* data);
+    virtual void readXml(QDomElement* dom);
+    virtual void writeXml(QDomElement* dom);
 
     virtual QString TagName();
 
@@ -31,7 +32,20 @@ public:
     virtual bool contains(const QPointF &point) const;
     virtual QPainterPath shape() const;
 
-public:
+    void setTopLeft(const QPointF &pointF);
+    QPointF getTopLeft();
+    void setGroupWidth(double width);
+    double getGroupWidth();
+    void setGroupHeight(double height);
+    double getGroupHeight();
+
+    void addObj(HBaseObj* pObj);
+    void delObj(HBaseObj* pObj);
+
+private:
+    HIconSymbol* pIconSymbol;
+    QList<HBaseObj*> pObjList;
+private:
     QPointF topLeft;
     double rectWidth;
     double rectHeight;
