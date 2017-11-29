@@ -30,8 +30,6 @@ public:
     virtual void setItemCursor(int position);
     virtual void moveItemBy(qreal dx,qreal dy);
     virtual void resizeItem(const QPolygonF& polygonF);
-
-
 };
 
 #endif // HICONGRAPHICSITEM_H
