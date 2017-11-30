@@ -26,11 +26,10 @@ public:
     HBaseObj* newObj(int nObjType);
     HBaseObj* newObj(QString tagName);
 
-    //增加一个图元元素
+    //增加删除一个图元元素
     void addObj(HBaseObj* pObj);
-
-    //删除一个图元元素
     void delObj(HBaseObj* pObj);
+    void takeObj(HBaseObj* pObj);
 
     void copyTo(HIconSymbol* isymbol);
     void setSymbolName(const QString& strName);

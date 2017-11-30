@@ -15,6 +15,7 @@ public:
     void writeXml(QDomElement *dom);
     void addObj(HBaseObj* pObj,bool badd=true);
     void delObj(HBaseObj* pObj);
+    void takeObj(HBaseObj* pObj);
     void copyTo(HIconShowPattern* sp);
     void clear();
     void resize(double w,double h);

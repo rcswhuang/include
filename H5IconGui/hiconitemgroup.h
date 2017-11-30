@@ -3,6 +3,7 @@
 #include <QtGlobal>
 #include "hiconapi.h"
 #include "hicongraphicsitem.h"
+#include <QGraphicsItemGroup>
 class HBaseObj;
 class HGroupObj;
 class QObject;
@@ -26,9 +27,9 @@ public:
     void refreshBaseObj(const QRectF& rect);
 
     virtual QRectF boundingRect() const;
-    //virtual bool contains(const QPointF &point) const;
+    virtual bool contains(const QPointF &point) const;
     virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = Q_NULLPTR);
-    //virtual QPainterPath shape() const;
+    virtual QPainterPath shape() const;
     virtual int type() const;
     virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
     virtual void mousePressEvent(QGraphicsSceneMouseEvent *event);
