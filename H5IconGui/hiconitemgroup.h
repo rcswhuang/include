@@ -43,6 +43,10 @@ public:
     virtual void moveItemBy(qreal dx,qreal dy);
     virtual void resizeItem(const QPolygonF& polygonF);
 
+    //此函数只有group组合和complexObj组合有
+    void resetTopLeftPoint(const QPointF& point);
+
+
 private:
     QRectF rectF;
     HGroupObj* pGroupObj;

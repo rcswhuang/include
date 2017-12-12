@@ -84,6 +84,7 @@ public:
     virtual DRAWSHAPE getShapeType();
     virtual void moveBy(qreal dx,qreal dy);
     virtual void resize(double w,double h);
+    virtual void setTopLeftPoint(const QPointF& point);
     virtual void paint(QPainter* painter);
     virtual QRectF boundingRect() const;
     virtual bool contains(const QPointF &point) const;
