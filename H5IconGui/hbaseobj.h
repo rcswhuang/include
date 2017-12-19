@@ -161,7 +161,7 @@ public:
 
     //改变大写
     virtual void resize(double w,double h);
-    virtual void setTopLeftPoint(const QPointF& point);
+	virtual void resetRectPoint(qreal dx, qreal dy);
 
 public:
     virtual void paint(QPainter* painter);

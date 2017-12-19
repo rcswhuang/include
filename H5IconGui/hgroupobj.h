@@ -32,8 +32,11 @@ public:
     virtual bool contains(const QPointF &point) const;
     virtual QPainterPath shape() const;
 
+	void resetRectPoint(qreal dx, qreal dy);
+
     void setTopLeft(const QPointF &pointF);
     QPointF getTopLeft();
+	
     void setGroupWidth(double width);
     double getGroupWidth();
     void setGroupHeight(double height);
