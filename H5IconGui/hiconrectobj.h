@@ -34,8 +34,16 @@ public:
     virtual bool contains(const QPointF &point) const;
     virtual QPainterPath shape() const;
     virtual void resetRectPoint(qreal dx, qreal dy);
-    virtual void setRectObj(const QRectF& rect);
-    virtual QRectF RectObj();
+    virtual void setObjRect(const QRectF& rect);
+    virtual QRectF getObjRect();
+
+    virtual void setTopLeft(const QPointF& point);
+    virtual QPointF getTopLeft();
+    virtual void setRectWidth(double width);
+    virtual double getRectWidth();
+    virtual void setRectHeight(double height);
+    virtual double getRectHeigth();
+
 
 protected:
     QPointF topLeft;
