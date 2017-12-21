@@ -3,7 +3,7 @@
 
 #include <QtGlobal>
 #include "hiconapi.h"
-#include "hicongraphicsitem.h"
+#include "hiconrectitem.h".h"
 class HBaseObj;
 class HCircleObj;
 class QObject;
@@ -15,12 +15,12 @@ class QStyleOptionGraphicsItem;
 class QKeyEvent;
 class QGraphicsSceneMouseEvent;
 
-class  H5ICONGUI_EXPORT HIconCircleItem : public HIconGraphicsItem
+class  H5ICONGUI_EXPORT HIconCircleItem : public HIconRectItem
 {
 public:
     enum {Type = enumCircle};
-    HIconCircleItem(HIconGraphicsItem *parent = Q_NULLPTR);
-    HIconCircleItem(const QRectF &rectF, HIconGraphicsItem *parent = Q_NULLPTR);
+    HIconCircleItem(HIconRectItem *parent = Q_NULLPTR);
+    HIconCircleItem(const QRectF &rectF, HIconRectItem *parent = Q_NULLPTR);
 public:
     virtual void setRect(const QRectF& rect);
     virtual QRectF rect()const;
@@ -32,23 +32,23 @@ public:
     virtual QPainterPath shape() const;
     virtual int type() const;
     virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
-    virtual void mousePressEvent(QGraphicsSceneMouseEvent *event);
-    virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
-    virtual void keyPressEvent(QKeyEvent *event);
+    //virtual void mousePressEvent(QGraphicsSceneMouseEvent *event);
+    //virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
+    //virtual void keyPressEvent(QKeyEvent *event);
 
 public:
-    virtual ushort pointInRect(QPointF& point);
-    virtual void setItemCursor(int position);
+    //virtual ushort pointInRect(QPointF& point);
+    //virtual void setItemCursor(int position);
     virtual void setItemObj(HBaseObj*);
     virtual HBaseObj* getItemObj();
-    virtual void moveItemBy(qreal dx,qreal dy);
-    virtual void resizeItem(const QPolygonF& polygonF);
+    //virtual void moveItemBy(qreal dx,qreal dy);
+    //virtual void resizeItem(const QPolygonF& polygonF);
 public:
-    QRectF rectF;
+    //QRectF rectF;
     HCircleObj* pCircleObj;
-    ushort rectMode;
-    ushort pointLocation;
-    QPointF pointStart;
+    //ushort rectMode;
+    //ushort pointLocation;
+    //QPointF pointStart;
 };
 
 #endif // HICONCIRCLEITEM_H
