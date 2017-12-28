@@ -37,6 +37,7 @@ public:
     virtual void setObjRect(const QRectF& rect);
     virtual QRectF getObjRect();
 
+
     virtual void setTopLeft(const QPointF& point);
     virtual QPointF getTopLeft();
     virtual void setRectWidth(double width);

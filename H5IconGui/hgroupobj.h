@@ -33,7 +33,9 @@ public:
     virtual QPainterPath shape() const;
 
 	void resetRectPoint(qreal dx, qreal dy);
-
+    virtual void setObjRect(const QRectF& rect);
+    virtual QRectF getObjRect();
+    virtual void setSubObjRect(qreal dx,qreal dy);
     void setTopLeft(const QPointF &pointF);
     QPointF getTopLeft();
 	
