@@ -3,7 +3,7 @@
 
 #include <QtGlobal>
 #include "hiconapi.h"
-#include "hiconrectitem.h".h"
+#include "hiconrectitem.h"
 class HBaseObj;
 class HCircleObj;
 class QObject;

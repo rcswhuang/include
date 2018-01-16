@@ -21,32 +21,32 @@ public:
     HIconRectItem(HIconGraphicsItem *parent = Q_NULLPTR);
     HIconRectItem(const QRectF &rectF, HIconGraphicsItem *parent = Q_NULLPTR);
 public:
-    virtual void setRect(const QRectF& rect);
-    virtual QRectF rect() const;
-    void refreshBaseObj(const QRectF& rect);
+    virtual void setRect(const QRectF& rect);//no
+    virtual QRectF rect() const; //no
+    void refreshBaseObj(const QRectF& rect);//no
 public:
     virtual QRectF boundingRect() const;
     virtual bool contains(const QPointF &point) const;
     virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = Q_NULLPTR);
     virtual QPainterPath shape() const;
     virtual int type() const;
-    virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
-    virtual void mousePressEvent(QGraphicsSceneMouseEvent *event);
-    virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
-    virtual void keyPressEvent(QKeyEvent *event);
+    virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event);//ok?
+    virtual void mousePressEvent(QGraphicsSceneMouseEvent *event);//ok?
+    virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);//ok
+    virtual void keyPressEvent(QKeyEvent *event);//ok
 public:
-    virtual ushort pointInRect(QPointF& point);
-    virtual void setItemCursor(int position);
+    virtual ushort pointInRect(QPointF& point);//ok
+    virtual void setItemCursor(int position);//ok
     virtual HBaseObj* getItemObj();
     virtual void setItemObj(HBaseObj*);
-    virtual void moveItemBy(qreal dx,qreal dy);
-    virtual void resizeItem(const QPolygonF& polygonF);
+    virtual void moveItemBy(qreal dx,qreal dy);//ok
+    virtual void resizeItem(const QPolygonF& polygonF);//ok
 public:
     QRectF rectF;
     HRectObj* pRectObj;
-    ushort rectMode;
-    ushort pointLocation;
-    QPointF pointStart;
+    ushort rectMode;//ok
+    ushort pointLocation;//ok
+    QPointF pointStart;//ok
   //  bool bSelected;
 };
 

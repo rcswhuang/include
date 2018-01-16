@@ -1,4 +1,4 @@
-#ifndef HRECTOBJ_H
+﻿#ifndef HRECTOBJ_H
 #define HRECTOBJ_H
 
 #include <H5IconGui/hbaseobj.h>
@@ -36,7 +36,7 @@ public:
     virtual void resetRectPoint(qreal dx, qreal dy);
     virtual void setObjRect(const QRectF& rect);
     virtual QRectF getObjRect();
-
+    //virtual void setSubObjRect(qreal dx,qreal dy);
 
     virtual void setTopLeft(const QPointF& point);
     virtual QPointF getTopLeft();
