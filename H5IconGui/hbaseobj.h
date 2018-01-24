@@ -34,7 +34,7 @@ public:
     virtual void copyTo(HBaseObj* obj);
     virtual void clone(HBaseObj* obj);
 
-    virtual void setObjName(const QString strName);
+    virtual void setObjName(const QString strName);//
     virtual QString getObjName();
     //形状类型
     virtual DRAWSHAPE getShapeType();
@@ -161,7 +161,7 @@ public:
 
     //改变大写
     virtual void resize(double w,double h);
-	virtual void resetRectPoint(qreal dx, qreal dy);
+    virtual void resetRectPoint(const QPointF& pt1,const QPointF& pt2);
     //void setSubObjRect(qreal dx,qreal dy);
 
 public:

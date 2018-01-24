@@ -32,7 +32,7 @@ public:
     virtual bool contains(const QPointF &point) const;
     virtual QPainterPath shape() const;
 
-	void resetRectPoint(qreal dx, qreal dy);
+    void resetRectPoint(QPointF pt1, QPointF pt2);
     virtual void setObjRect(const QRectF& rect);
     virtual QRectF getObjRect();
     virtual void setSubObjRect(qreal dx,qreal dy);

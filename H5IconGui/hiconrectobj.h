@@ -33,7 +33,7 @@ public:
     virtual QRectF boundingRect() const;
     virtual bool contains(const QPointF &point) const;
     virtual QPainterPath shape() const;
-    virtual void resetRectPoint(qreal dx, qreal dy);
+    virtual void resetRectPoint(const QPointF& pt1,const QPointF& pt2);
     virtual void setObjRect(const QRectF& rect);
     virtual QRectF getObjRect();
     //virtual void setSubObjRect(qreal dx,qreal dy);
@@ -46,6 +46,9 @@ public:
     virtual double getRectHeigth();
 
 
+public:
+    double w;
+    double h;
 protected:
     QPointF topLeft;
     double rectWidth;
