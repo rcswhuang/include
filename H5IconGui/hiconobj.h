@@ -32,6 +32,7 @@ public:
     virtual QRectF boundingRect() const;
     virtual bool contains(const QPointF &point) const;
     virtual QPainterPath shape() const;
+    virtual void resetRectPoint(const QPointF& pt1,const QPointF& pt2);
 
 
 public:
@@ -54,6 +55,7 @@ private:
     quint8 arrowEnd;//箭尾的类型
     double arrowWidth;
     double arrowHeight;
+    QPointF ptOld,ptNew;
 public:
     QPointF pfHeadPoint;
     QPointF pfTailPoint;

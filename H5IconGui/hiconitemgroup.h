@@ -32,20 +32,12 @@ public:
     virtual QPainterPath shape() const;
     virtual int type() const;
     virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
-    virtual void mousePressEvent(QGraphicsSceneMouseEvent *event);
-    virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
-    virtual void keyPressEvent(QKeyEvent *event);
+    //virtual void mousePressEvent(QGraphicsSceneMouseEvent *event);
+    //virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
+    //virtual void keyPressEvent(QKeyEvent *event);
 
     virtual void setItemObj(HBaseObj*);
     virtual HBaseObj* getItemObj();
-    virtual ushort pointInRect(QPointF& point);
-    virtual void setItemCursor(int position);
-    virtual void moveItemBy(qreal dx,qreal dy);
-    virtual void resizeItem(const QPolygonF& polygonF);
-
-    //此函数只有group组合和complexObj组合有
-    void resetRectPoint(qreal dx,qreal dy);
-
 
 private:
     QRectF rectF;

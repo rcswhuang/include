@@ -55,6 +55,7 @@ public:
     virtual void setItemObj(HBaseObj*);
     virtual HBaseObj* getItemObj();
     virtual void moveItemBy(qreal dx, qreal dy);
+    virtual QRectF rect() const;
 public:
     QLineF lineF;
     HLineObj* pLineObj;

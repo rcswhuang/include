@@ -36,7 +36,6 @@ public:
     virtual void resetRectPoint(const QPointF& pt1,const QPointF& pt2);
     virtual void setObjRect(const QRectF& rect);
     virtual QRectF getObjRect();
-    //virtual void setSubObjRect(qreal dx,qreal dy);
 
     virtual void setTopLeft(const QPointF& point);
     virtual QPointF getTopLeft();
@@ -47,8 +46,7 @@ public:
 
 
 public:
-    double w;
-    double h;
+    QPointF ptOld,ptNew;
 protected:
     QPointF topLeft;
     double rectWidth;
