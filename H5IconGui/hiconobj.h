@@ -49,6 +49,11 @@ public:
     void setArrowHeight(quint16 height);
     quint16 getArrowHeight();
 
+    void setHeadPoint(QPointF pt){pfHeadPoint = pt;}
+    void setTailPoint(QPointF pt){pfTailPoint = pt;}
+    QPointF getHeadPoint(){return pfHeadPoint;}
+    QPointF getTailPoint(){return pfTailPoint;}
+
 private:
     bool bModify;
     quint8 arrowStart;//箭头的类型
@@ -56,7 +61,7 @@ private:
     double arrowWidth;
     double arrowHeight;
     QPointF ptOld,ptNew;
-public:
+//public:
     QPointF pfHeadPoint;
     QPointF pfTailPoint;
 };
@@ -91,11 +96,13 @@ public:
     virtual QRectF boundingRect() const;
     virtual bool contains(const QPointF &point) const;
     virtual QPainterPath shape() const;
+    virtual void resetRectPoint(const QPointF& pt1,const QPointF& pt2);
 
 public:
    QVector<QPointF> pylist;
    qreal width;
    qreal height;
+   QPointF ptOld,ptNew;
 };
 
 //折线
@@ -126,11 +133,13 @@ public:
     virtual QRectF boundingRect() const;
     virtual bool contains(const QPointF &point) const;
     virtual QPainterPath shape() const;
+    virtual void resetRectPoint(const QPointF& pt1,const QPointF& pt2);
 
 public:
    QVector<QPointF> pylist;
    qreal width;
    qreal height;
+   QPointF ptOld,ptNew;
 };
 
 

@@ -32,12 +32,16 @@ public:
     virtual QPainterPath shape() const;
     virtual int type() const;
     virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
-    //virtual void mousePressEvent(QGraphicsSceneMouseEvent *event);
-    //virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
-    //virtual void keyPressEvent(QKeyEvent *event);
+    virtual void mousePressEvent(QGraphicsSceneMouseEvent *event);
+    virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
+    virtual void keyPressEvent(QKeyEvent *event);
 
+    virtual ushort pointInRect(QPointF& point);
+    virtual void setItemCursor(int position);
     virtual void setItemObj(HBaseObj*);
     virtual HBaseObj* getItemObj();
+    virtual void moveItemBy(qreal dx,qreal dy);
+    virtual void resizeItem(const QPolygonF& polygonF);
 
 private:
     QRectF rectF;

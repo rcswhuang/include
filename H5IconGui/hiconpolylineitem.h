@@ -46,6 +46,7 @@ public:
     virtual HBaseObj* getItemObj();
     virtual void moveItemBy(qreal dx,qreal dy);
     virtual void resizeItem(const QPolygonF& polygonF);
+    virtual QRectF rect() const;
 
 public:
     HPolylineObj* pPolylineObj;

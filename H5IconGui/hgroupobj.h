@@ -36,6 +36,10 @@ public:
     virtual void setObjRect(const QRectF& rect);
     virtual QRectF getObjRect();
     virtual void setSubObjRect(qreal dx,qreal dy);
+    //setstackobj
+
+
+
     void setTopLeft(const QPointF &pointF);
     QPointF getTopLeft();
 	
@@ -46,6 +50,8 @@ public:
 
     void addObj(HBaseObj* pObj);
     void delObj(HBaseObj* pObj);
+    bool isEmpty();
+    HBaseObj* takeFirst();
 
 private:
     HIconSymbol* pIconSymbol;
