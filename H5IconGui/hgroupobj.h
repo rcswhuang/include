@@ -39,7 +39,7 @@ public:
     //setstackobj
 
 
-
+    void clear();
     void setTopLeft(const QPointF &pointF);
     QPointF getTopLeft();
 	

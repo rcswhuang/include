@@ -4,7 +4,11 @@
 #include <QObject>
 #include <QtXml/QDomElement>
 //存放每个一个图元内部的信息和图元本身的显示信息
-#include "hbaseobj.h"
+#include "H5IconGui/hbaseobj.h"
+#include "H5IconGui/hiconobj.h"
+#include "H5IconGui/hiconrectobj.h"
+#include "H5IconGui/hgroupobj.h"
+#include "hiconapi.h"
 class HIconShowPattern;
 class HIconTemplate;
 class H5ICONGUI_EXPORT HIconSymbol:public QObject

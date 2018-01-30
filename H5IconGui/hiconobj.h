@@ -4,6 +4,8 @@
 #include "hicontemplate.h"
 #include "hiconsymbol.h"
 #include "hdynamicobj.h"
+class HIconTemplate;
+class HIconSymbol;
 class H5ICONGUI_EXPORT HLineObj : public HBaseObj
 {
 public:
