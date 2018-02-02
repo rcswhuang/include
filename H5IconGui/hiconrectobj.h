@@ -327,6 +327,7 @@ public:
     virtual QRectF boundingRect() const;
     virtual bool contains(const QPointF &point) const;
     virtual QPainterPath shape() const;
+    virtual void resetRectPoint(const QPointF& pt1,const QPointF& pt2);
 public:
     void setUuid(const QString&);
     QString getUuid();

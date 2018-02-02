@@ -18,6 +18,7 @@ public:
     void takeObj(HBaseObj* pObj);
     void copyTo(HIconShowPattern* sp);
     void clear();
+    void resetRectPoint(const QPointF& pt1,const QPointF& pt2);
     void resize(double w,double h);
 public:
     int nPattern;
@@ -25,8 +26,6 @@ public:
     QString strAlias;
     QList<HBaseObj*> pObjList;
     HIconSymbol* pSymbol;
-
-
 };
 
 #endif // HICONSHOWPATTERN_H

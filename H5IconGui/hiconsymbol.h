@@ -69,6 +69,7 @@ public:
     int getCurrentPatternIndex();
     void setCurrentPatternPtr(HIconShowPattern* sp);
     HIconShowPattern* getCurrentPatternPtr();
+    void resetRectPoint(const QPointF& pt1,const QPointF& pt2);
     void resize(double w,double h);
 public:
     QVector<HIconShowPattern*> pShowPatternVector;
