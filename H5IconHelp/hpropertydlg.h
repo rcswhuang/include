@@ -9,7 +9,6 @@
 #include "hiconobj.h"
 #include "hiconrectobj.h"
 #include "hgroupobj.h"
-#include "h5iconhelpexport.h"
 namespace Ui {
 class PropertyDlg;
 }
@@ -27,7 +26,7 @@ public:
 
 
 
-class H5ICONHELP_EXPORT HPropertyDlg : public QDialog
+class HPropertyDlg : public QDialog
 {
     Q_OBJECT
 

@@ -39,11 +39,11 @@ public:
     ushort getFormula();
 
 protected:
-    uchar btFiledType;
-    ushort wFormula;
-    ushort wStation;
-    ushort wPoint;
-    ushort wAttrib;
+    uchar btFiledType;//测点类型
+    ushort wFormula;//公式
+    ushort wStation;//厂站
+    ushort wPoint;//测点
+    ushort wAttrib;//属性
 };
 
 #endif // HDYNAMICOBJ_H
