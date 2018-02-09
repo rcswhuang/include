@@ -63,6 +63,7 @@ public:
     void clearPattern();
 
     //查找和设置
+    int iconShowPatternCount(){return pShowPatternVector.count();}
     HIconShowPattern* findPatternById(int id);
     void setCurrentPattern(int id);
     int getCurrentPattern();

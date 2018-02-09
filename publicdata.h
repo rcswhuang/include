@@ -211,7 +211,7 @@ typedef struct _tagSYSDBINFO
 #define     ATTR_DGT_RSNO        0x053
 #define     ATTR_DGT_RNO         0x054
 #define     ATTR_DGT_MEASURE     0x055
-#define     ATTR_DGT_4_VALUE     0x056 //4态遥信
+#define     ATTR_DGT_4_STATE_VALUE     0x056 //4态遥信
 
 //遥测
 #define     ATTR_ANA_SNO          0x096 //150

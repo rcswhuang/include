@@ -139,6 +139,9 @@ public:
     //叠放次序
     qint64 getStackOrder();
     virtual void setStackOrder(qint64 nStack);
+	
+	void setPattern(quint8 pattern);
+    quint8 getPattern();
 
     virtual void setOX(double x);
     virtual double getOX();

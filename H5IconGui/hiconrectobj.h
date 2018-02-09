@@ -332,16 +332,20 @@ public:
     void setUuid(const QString&);
     QString getUuid();
 
+    void setCatalogName(const QString&);
+    QString getCatalogName();
    // void setTopLeft(const QPointF& pointF);
    // QPointF getTopLeft();
    // void setRectWidth(double width);
    // double getRectWidth();
     //void setRectHeight(double height);
    // double getRectHeight();
+    int getObjType(){return catalogType;}
     void initIconTemplate();
     void setIconTemplate(HIconTemplate* t);
     HIconTemplate* iconTemplate();
     HIconSymbol* getIconSymbol();
+    HDynamicObj* getDynamicObj();
     void initDynamicData();
     void clearDynamicData();
 
