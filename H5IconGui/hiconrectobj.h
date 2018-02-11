@@ -287,6 +287,10 @@ private:
     ushort layout;
     int horizontalAlign;
     int verticalAlign;
+    QString strPrefix;//前缀
+    QString strSuffix;//后缀
+    QString strFormat;//格式
+
     QString textColorName;
     QString textFontName;
     int pointSize;//字体大小
