@@ -101,15 +101,17 @@ enum SELECTMODE
 #define DIRECT_VER_TO_IN     106 //垂直向里
 #define DIRECT_HORI_TO_IN    107 //垂直向里
 
-
 //文字布局
 #define LAYOUT_TEXT_NULL 00
 #define LAYOUT_TEXT_FULL 01
 #define LAYOUT_TEXT_VERTICAL 02
 #define LAYOUT_TEXT_HORIZON 03
 
-
-
+//数字小数点后缀
+#define TEXT_NO_POINT    0x01 //无小数点
+#define TEXT_ONE_POINT   0x02 //1位小数点
+#define TEXT_TWO_POINT   0x03 //2位小数点
+#define TEXT_THREE_POINT 0x04 //3位小数点
 
 
 

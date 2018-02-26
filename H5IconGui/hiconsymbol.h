@@ -72,6 +72,9 @@ public:
     HIconShowPattern* getCurrentPatternPtr();
     void resetRectPoint(const QPointF& pt1,const QPointF& pt2);
     void resize(double w,double h);
+
+    //获取特定图元
+    HTextObj* getFirstTextObj();
 public:
     QVector<HIconShowPattern*> pShowPatternVector;
 private:
