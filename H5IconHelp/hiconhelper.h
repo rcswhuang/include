@@ -1,11 +1,9 @@
 ﻿#ifndef HICONHELPER_H
 #define HICONHELPER_H
 
-#include "h5iconhelpexport.h"
 #include <QPixmap>
 #include <QString>
-class HBaseObj;
-//属性对话框信息要并入到IconHelp里面
+#include "h5iconhelpexport.h"
 class H5ICONHELP_EXPORT HIconHelper
 {
 public:
@@ -16,8 +14,7 @@ public:
     static HIconHelper* Instance();
 
 public:
-    QPixmap iconPixmap(const QString& strType,const QString& uuid);
-    void setObjAttribute(HBaseObj* pObj);
+    QPixmap iconPixmap(const QString& strType,const QString& uuid,const QSizeF &size = QSizeF(0,0),int nCurPattern = 0);
 
 };
 

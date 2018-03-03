@@ -1,11 +1,11 @@
 ﻿#ifndef HFONTHELPER_H
 #define HFONTHELPER_H
 
-#include "h5iconhelpexport.h"
 #include <QStringList>
 #include <QFont>
 #include <QFontInfo>
 #include <QFontDatabase>
+#include "h5iconhelpexport.h"
 class H5ICONHELP_EXPORT HFontHelper
 {
 public:

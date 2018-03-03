@@ -1,7 +1,16 @@
 ﻿#ifndef HSTATION_H
 #define HSTATION_H
 #include <QObject>
+#include <QList>
 #include "publicdata.h"
+#include "h5iconhelpexport.h"
+typedef struct _tagATTRINFO
+{
+    unsigned short wAttrib;
+    char* szName;
+}ATTRINFO;
+
+
 //厂站类
 //class HWord;
 class HAnalogue;
@@ -13,7 +22,7 @@ class HGroup;
 class HStation;
 
 ///////////////////////////测点基类///////////////////////////////
-class HWord: public QObject
+class H5ICONHELP_EXPORT HWord: public QObject
 {
 public:
     HWord(){};
@@ -33,7 +42,7 @@ public:
 };
 
 /////////////////////////////////////遥测//////////////////////////////////////
-class HAnalogue:public HWord
+class H5ICONHELP_EXPORT HAnalogue:public HWord
 {
 public:
     HAnalogue(){};
@@ -54,7 +63,7 @@ public:
 };
 
 ////////////////////////////////////遥调///////////////////////////////////////
-class HSetPoint : public HWord
+class H5ICONHELP_EXPORT HSetPoint : public HWord
 {
 public:
     HSetPoint(){};
@@ -65,7 +74,7 @@ public:
 };
 
 ///////////////////////////////////遥信//////////////////////////////////////////
-class HDigital : public HWord
+class H5ICONHELP_EXPORT HDigital : public HWord
 {
 public:
     HDigital(){};
@@ -84,7 +93,7 @@ public:
 };
 
 /////////////////////////////////////遥控/////////////////////////////////////////
-class HRelay : public HWord
+class H5ICONHELP_EXPORT HRelay : public HWord
 {
 public:
     HRelay(){};
@@ -105,7 +114,7 @@ public:
 };
 
 /////////////////////////////////////遥脉///////////////////////////////////////////
-class HPulse : public HWord
+class H5ICONHELP_EXPORT HPulse : public HWord
 {
 public:
     HPulse(){};
@@ -126,7 +135,7 @@ public:
 };
 
 /////////////////////////////////////间隔///////////////////////////////////////////
-class HGroup : public HWord
+class H5ICONHELP_EXPORT HGroup : public HWord
 {
 public:
     HGroup(){};
@@ -146,7 +155,7 @@ public:
 };
 
 //////////////////////////////////////厂站////////////////////////////////////////////
-class HStation
+class H5ICONHELP_EXPORT HStation
 {
 public:
     HStation();
@@ -203,11 +212,11 @@ public:
     STATION station;
 
 private:
-    HAnalogue* pAnalogue;
-    HDigital* pDigital;
-    HRelay* pRelay;
-    HSetPoint* pSetPoint;
-    HPulse* pPulse;
+    HAnalogue* pAnalogue;//遥测
+    HDigital* pDigital;//遥信
+    HRelay* pRelay;//遥控
+    HSetPoint* pSetPoint;//遥调
+    HPulse* pPulse;//遥脉
     HGroup* pGroup;
 
     quint16 wTotalAnalogue;
@@ -218,10 +227,51 @@ private:
     quint16 wTotalGroup;
 };
 
-class HStationList
+class H5ICONHELP_EXPORT HStationList
 {
 public:
-    void addStation(HStation* station);
+    HStationList();
+    ~HStationList();
+
+public:
+
+    //加载厂站信息
+    void loadStation();
+
+    //厂站ID获取厂站
+    HStation* getStation(quint16 wStationID);
+
+    //厂站地址获取厂站
+    HStation* getRtu(quint16 wStationAddress);
+
+    //索引厂站
+    HStation* findStation(int nIndex);
+
+    //获取厂站列表
+    //QList<HStation*>* getStationList();
+
+public:
+    QList<HStation*> pStationList;
 };
+
+class H5ICONHELP_EXPORT HStationHelper
+{
+public:
+    HStationHelper();
+    ~HStationHelper();
+
+public:
+    static HStationHelper* m_pInstance;
+    static HStationHelper* Instance();
+    void loadStation();
+    QList<HStation*> getStationList();
+    HStation* getStation(quint16 wStationID);
+
+public:
+    HStationList stationList;
+};
+
+
+
 
 #endif // HSTATION_H

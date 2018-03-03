@@ -1,16 +1,16 @@
-﻿#ifndef HPROPERTYDLG_H
-#define HPROPERTYDLG_H
-
+﻿#ifndef HICONPROPERTY_H
+#define HICONPROPERTY_H
 #include <QDialog>
 #include <QAbstractItemDelegate>
 #include <QGraphicsItem>
 #include <QButtonGroup>
+#include "h5iconhelpexport.h"
 #include "hbaseobj.h"
 #include "hiconobj.h"
 #include "hiconrectobj.h"
 #include "hgroupobj.h"
 namespace Ui {
-class PropertyDlg;
+class IconProperty;
 }
 
 /*
@@ -26,7 +26,7 @@ public:
 
 
 
-class HPropertyDlg : public QDialog
+class H5ICONHELP_EXPORT HPropertyDlg : public QDialog
 {
     Q_OBJECT
 
@@ -79,8 +79,7 @@ private:
     QString strTextColor;//文字颜色
     QFont font;
     HBaseObj* pCurObj;
-    Ui::PropertyDlg *ui;
+    Ui::IconProperty *ui;
     QButtonGroup *btnGroup;
 };
-
-#endif // HPROPERTYDLG_H
+#endif // HICONPROPERTY_H
