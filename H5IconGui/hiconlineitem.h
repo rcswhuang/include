@@ -5,11 +5,11 @@
 #include "hiconapi.h"
 #include "hicongraphicsitem.h"
 class HBaseObj;
-class HLineObj;
-class QObject;
-class QRectF;
+class HLine;
+//class QObject;
+//class QRectF;
 class QPainterPath;
-class QPointF;
+//class QPointF;
 class QPainter;
 class QStyleOptionGraphicsItem;
 class QKeyEvent;
@@ -58,7 +58,7 @@ public:
     virtual QRectF rect() const;
 public:
     QLineF lineF;
-    HLineObj* pLineObj;
+    HLine* pLineObj;
     ushort lineMode;
     bool bSelected;
 

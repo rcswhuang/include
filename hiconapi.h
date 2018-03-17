@@ -3,21 +3,36 @@
 
 
 //图元类型
-#define TEMPLATE_TYPE_NULL 0x00
-#define TEMPLATE_TYPE_DIGITAL 0x01
-#define TEMPLATE_TYPE_ANALOGUE 0x02
-#define TEMPLATE_TYPE_YK 0x03
-#define TEMPLATE_TYPE_PLUSE 0x04
-#define TEMPLATE_TYPE_TAP 0x05
-#define TEMPLATE_TYPE_LIGHT 0x06
-#define TEMPLATE_TYPE_JDPAI 0x07
-#define TEMPLATE_TYPE_MAX 0x08
+//#define TEMPLATE_TYPE_NORMAL  0x64 //普通类
+//#define TEMPLATE_TYPE_MEASURE 0x65 //测点类
+//#define TEMPLATE_TYPE_OTHER   0x66 //其他类
+
+#define TEMPLATE_TYPE_NULL            0x00
+#define TEMPLATE_TYPE_DIGITAL         0x01 //遥信
+#define TEMPLATE_TYPE_ANALOGUE        0x02 //遥测
+#define TEMPLATE_TYPE_RELAY           0x03 //遥控 TEMPLATE_TYPE_YK
+#define TEMPLATE_TYPE_PLUSE           0x04 //遥脉
+#define TEMPLATE_TYPE_TAP             0x05 // 档位
+#define TEMPLATE_TYPE_LIGHT           0x06 //光字牌
+#define TEMPLATE_TYPE_JDPAI           0x07 //接地牌
+#define TEMPLATE_TYPE_CONTROL         0x08 //控制点
+//#define TEMPLATE_TYPE_NORMAL            0x09 //普通图符
+#define TEMPLATE_TYPE_TRANSFORMER2      0x0A //两卷变
+#define TEMPLATE_TYPE_TRANSFORMER3      0x0B //三卷变
+#define TEMPLATE_TYPE_GENERATOR         0x0C//发电机
+#define TEMPLATE_TYPE_CAPACITOR         0x0D //电容器
+#define TEMPLATE_TYPE_OTHERDEVICE       0x0E //其他设备(消弧线圈)
+#define TEMPLATE_TYPE_PT                0x0F //电压互感器
+#define TEMPLATE_TYPE_CT                0x10 //电流互感器
+#define TEMPLATE_TYPE_ARRESTER          0x11 //避雷器
+#define TEMPLATE_TYPE_REACTOR           0x12//容抗器
+#define TEMPLATE_TYPE_OTHER             0x13 //其他
+#define TEMPLATE_TYPE_MAX            0x14
 
 //具体某一个图元
 #define TEMPLATE_TYPE_CHILD 0x20
 
-#define ICON_TYPE_STATE 0x05
-#define ICON_TYPE_VALUE 0x06
+
 
 
 //定义设备类型元素
@@ -107,15 +122,20 @@ enum SELECTMODE
 #define LAYOUT_TEXT_VERTICAL 02
 #define LAYOUT_TEXT_HORIZON 03
 
-//数字小数点后缀
+//数字小数点后缀 遥测图元
 #define TEXT_NO_POINT    0x01 //无小数点
 #define TEXT_ONE_POINT   0x02 //1位小数点
 #define TEXT_TWO_POINT   0x03 //2位小数点
 #define TEXT_THREE_POINT 0x04 //3位小数点
 
 
+//画面操作方式
+#define MODE_OPEN_GRAPH     0x01
+#define MODE_OPERATOR_GRAPH 0x02
 
-
+//画面确认方式
+#define COMFIRM_MODE_STATION 0x01
+#define COMFIRM_MODE_GRAPH   0x02
 
 
 

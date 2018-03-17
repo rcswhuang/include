@@ -1,0 +1,32 @@
+﻿#ifndef HELLIPSE_H
+#define HELLIPSE_H
+#include "hrectangle.h"
+
+class H5ICONGUI_EXPORT HEllipse : public HRectangle
+{
+public:
+    friend class HRectangle;
+    HEllipse();
+    virtual ~HEllipse();
+
+    //二进制读写
+    //virtual void readData(QDataStream* data);
+    //virtual void writeData(QDataStream* data);
+
+
+    //xml文件读写
+    //virtual void readXml(QDomElement* data);
+    //virtual void writeXml(QDomElement* data);
+
+    virtual QString TagName();
+    //拷贝克隆
+    virtual void copyTo(HBaseObj* obj);
+
+    virtual DRAWSHAPE getShapeType();
+    virtual void paint(QPainter* painter);
+
+    virtual QRectF boundingRect() const;
+    virtual bool contains(const QPointF &point) const;
+    virtual QPainterPath shape() const;
+};
+#endif // HELLIPSE_H

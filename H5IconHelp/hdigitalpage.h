@@ -4,7 +4,7 @@
 #include <QDialog>
 #include "h5iconhelpexport.h"
 class HBaseObj;
-class HIconComplexObj;
+class HIconObj;
 class HDigital;
 namespace Ui {
 class digitalPage;
@@ -30,7 +30,7 @@ public slots:
     void onCancel();
 private:
     Ui::digitalPage *ui;
-    HIconComplexObj* pCurObj;
+    HIconObj* pCurObj;
     ushort wStation;//厂站
     ushort wPoint;//测点
     ushort wAttrib;//属性

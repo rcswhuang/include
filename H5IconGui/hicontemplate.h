@@ -6,9 +6,6 @@
 #include <QtXml/QDomElement>
 #include <QSizeF>
 #include "hiconsymbol.h"
-#include "H5IconGui/hbaseobj.h"
-#include "H5IconGui/hiconobj.h"
-#include "H5IconGui/hiconcomplexobj.h"
 class HIconSymbol;
 //存放ICON图元显示单元信息
 class H5ICONGUI_EXPORT HIconTemplate : public QObject

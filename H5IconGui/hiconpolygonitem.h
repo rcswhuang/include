@@ -4,18 +4,19 @@
 #include <QtGlobal>
 #include "hiconapi.h"
 #include "hicongraphicsitem.h"
+#include <QVector>
+
 class HBaseObj;
-class HPolygonObj;
-class QObject;
-class QRectF;
+class HPolygon;
+//class QObject;
+//class QRectF;
 class QPainterPath;
-class QPointF;
+//class QPointF;
 class QPainter;
 class QStyleOptionGraphicsItem;
 class QKeyEvent;
 class QGraphicsSceneMouseEvent;
 class QPolygonF;
-#include <QVector>
 
 
 class H5ICONGUI_EXPORT HIconPolygonItem : public HIconGraphicsItem
@@ -50,7 +51,7 @@ public:
     virtual void resizeItem(const QPolygonF& polygonF);
     virtual QRectF rect() const;
 public:
-    HPolygonObj* pPolygonObj;
+    HPolygon* pPolygonObj;
     ushort rectMode;
     ushort pointLocation;
     QPolygonF pyVector;

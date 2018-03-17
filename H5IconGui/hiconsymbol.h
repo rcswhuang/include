@@ -4,13 +4,22 @@
 #include <QObject>
 #include <QtXml/QDomElement>
 //存放每个一个图元内部的信息和图元本身的显示信息
-#include "H5IconGui/hbaseobj.h"
-#include "H5IconGui/hiconobj.h"
-#include "H5IconGui/hiconrectobj.h"
-#include "H5IconGui/hgroupobj.h"
+#include "hbaseobj.h"
 #include "hiconapi.h"
+#include "hline.h"
+#include "hpolygon.h"
+#include "hpolyline.h"
+#include "harc.h"
+#include "hpie.h"
+#include "htext.h"
+#include "hcircle.h"
+#include "hiconobj.h"
+#include "hellipse.h"
+#include "hgroupobj.h"
+
 class HIconShowPattern;
 class HIconTemplate;
+class HText;
 class H5ICONGUI_EXPORT HIconSymbol:public QObject
 {
 public:
@@ -62,6 +71,9 @@ public:
     void delPattern(int id);
     void clearPattern();
 
+    //查找
+    int getMaxPattern(){return nMaxPattern;}
+
     //查找和设置
     int iconShowPatternCount(){return pShowPatternVector.count();}
     HIconShowPattern* findPatternById(int id);
@@ -74,7 +86,7 @@ public:
     void resize(double w,double h);
 
     //获取特定图元
-    HTextObj* getFirstTextObj();
+    HText* getFirstTextObj();
 public:
     QVector<HIconShowPattern*> pShowPatternVector;
 private:

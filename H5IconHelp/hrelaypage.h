@@ -5,7 +5,7 @@
 #include "h5iconhelpexport.h"
 class QListWidgetItem;
 class HBaseObj;
-class HIconComplexObj;
+class HIconObj;
 class HRelay;
 namespace Ui {
 class relayPage;
@@ -43,7 +43,7 @@ public slots:
 
 private:
     Ui::relayPage *ui;
-    HIconComplexObj* pCurObj;
+    HIconObj* pCurObj;
     QFont font;
     QString strTextColor;
     QString strBgColor;

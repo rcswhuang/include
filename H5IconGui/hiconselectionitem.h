@@ -4,10 +4,10 @@
 #include <QtGlobal>
 #include "hicongraphicsitem.h"
 #include "hiconapi.h"
-class QObject;
-class QRectF;
+//class QObject;
+//class QRectF;
 class QPainterPath;
-class QPointF;
+//class QPointF;
 class QPainter;
 class QStyleOptionGraphicsItem;
 class QKeyEvent;

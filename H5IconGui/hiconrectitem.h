@@ -4,11 +4,11 @@
 #include "hiconapi.h"
 #include "hicongraphicsitem.h"
 class HBaseObj;
-class HRectObj;
-class QObject;
-class QRectF;
+class HRectangle;
+//class QObject;
+//class QRectF;
 class QPainterPath;
-class QPointF;
+//class QPointF;
 class QPainter;
 class QStyleOptionGraphicsItem;
 class QKeyEvent;
@@ -43,7 +43,7 @@ public:
     virtual void resizeItem(const QPolygonF& polygonF);//ok
 public:
     QRectF rectF;
-    HRectObj* pRectObj;
+    HRectangle* pRectObj;
     ushort rectMode;//ok
     ushort pointLocation;//ok
     QPointF pointStart;//ok

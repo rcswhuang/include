@@ -5,11 +5,10 @@
 #include "hiconapi.h"
 #include "hiconrectitem.h"
 class HBaseObj;
-class HArcObj;
-class QObject;
-class QRectF;
+class HArc;
+//class QRectF;
 class QPainterPath;
-class QPointF;
+//class QPointF;
 class QPainter;
 class QStyleOptionGraphicsItem;
 class QKeyEvent;
@@ -46,7 +45,7 @@ public:
 public:
     //QRectF rectF;
     //bool bSelected;
-    HArcObj* pArcObj;
+    HArc* pArcObj;
     //ushort rectMode;
     //ushort pointLocation;
     //QPointF pointStart;

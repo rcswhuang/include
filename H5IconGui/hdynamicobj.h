@@ -5,6 +5,7 @@
 #include <QDataStream>
 #include <QDomElement>
 #include "h5iconguiexport.h"
+
 class H5ICONGUI_EXPORT HDynamicObj : public QObject
 {
 public:

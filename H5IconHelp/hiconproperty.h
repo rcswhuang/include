@@ -5,10 +5,7 @@
 #include <QGraphicsItem>
 #include <QButtonGroup>
 #include "h5iconhelpexport.h"
-#include "hbaseobj.h"
-#include "hiconobj.h"
-#include "hiconrectobj.h"
-#include "hgroupobj.h"
+#include "hiconsymbol.h"
 namespace Ui {
 class IconProperty;
 }

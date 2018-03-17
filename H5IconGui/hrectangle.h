@@ -1,21 +1,22 @@
-﻿#ifndef HGROUPOBJ_H
-#define HGROUPOBJ_H
+﻿#ifndef HRECTANGLE_H
+#define HRECTANGLE_H
 #include "hbaseobj.h"
-class HIconSymbol;
-class H5ICONGUI_EXPORT HGroupObj : public HBaseObj
+
+///////////////////////////////////////////HRectangleObj///////////////////////////////////////////
+class H5ICONGUI_EXPORT HRectangle : public HBaseObj
 {
 public:
-    HGroupObj(HIconSymbol* symbol);
-    ~HGroupObj();
-public:
+    HRectangle();
+    virtual ~HRectangle();
 
     //二进制读写
     virtual void readData(QDataStream* data);
     virtual void writeData(QDataStream* data);
 
+
     //xml文件读写
-    virtual void readXml(QDomElement* dom);
-    virtual void writeXml(QDomElement* dom);
+    virtual void readXml(QDomElement* data);
+    virtual void writeXml(QDomElement* data);
 
     virtual QString TagName();
 
@@ -27,38 +28,27 @@ public:
     virtual void moveBy(qreal dx,qreal dy);
     virtual void resize(double w,double h);
     virtual void paint(QPainter* painter);
+    virtual void setPainter(QPainter* painter,const QRectF& rect);
     virtual QRectF boundingRect() const;
     virtual bool contains(const QPointF &point) const;
     virtual QPainterPath shape() const;
-
     virtual void resetRectPoint(const QPointF& pt1,const QPointF& pt2);
     virtual void setObjRect(const QRectF& rect);
     virtual QRectF getObjRect();
-    virtual void setSubObjRect(qreal dx,qreal dy);
-    //setstackobj
 
-
-    void clear();
-    void setTopLeft(const QPointF &pointF);
-    QPointF getTopLeft();
-	
-    void setGroupWidth(double width);
-    double getGroupWidth();
-    void setGroupHeight(double height);
-    double getGroupHeight();
-
-    void addObj(HBaseObj* pObj);
-    void delObj(HBaseObj* pObj);
-    bool isEmpty();
-    HBaseObj* takeFirst();
-
-private:
-    HIconSymbol* pIconSymbol;
-    QList<HBaseObj*> pObjList;
-private:
+    virtual void setTopLeft(const QPointF& point);
+    virtual QPointF getTopLeft();
+    virtual void setRectWidth(double width);
+    virtual double getRectWidth();
+    virtual void setRectHeight(double height);
+    virtual double getRectHeight();
+public:
+    QPointF ptOld,ptNew;
+protected:
     QPointF topLeft;
     double rectWidth;
     double rectHeight;
 };
 
-#endif // HGROUPOBJ_H
+
+#endif // HRECTANGLE_H

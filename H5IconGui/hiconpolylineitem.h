@@ -5,11 +5,11 @@
 #include "hiconapi.h"
 #include "hicongraphicsitem.h"
 class HBaseObj;
-class HPolylineObj;
-class QObject;
-class QRectF;
+class HPolyline;
+//class QObject;
+//class QRectF;
 class QPainterPath;
-class QPointF;
+//class QPointF;
 class QPainter;
 class QStyleOptionGraphicsItem;
 class QKeyEvent;
@@ -49,7 +49,7 @@ public:
     virtual QRectF rect() const;
 
 public:
-    HPolylineObj* pPolylineObj;
+    HPolyline* pPolylineObj;
     ushort rectMode;
     ushort pointLocation;
     QPolygonF pyVector;

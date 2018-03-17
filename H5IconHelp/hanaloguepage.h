@@ -4,7 +4,7 @@
 #include <QDialog>
 #include "h5iconhelpexport.h"
 class HBaseObj;
-class HIconComplexObj;
+class HIconObj;
 class HAnalogue;
 class QListWidgetItem;
 namespace Ui {
@@ -34,11 +34,12 @@ public slots:
     void fontBtn_clicked();
     void textClrBtn_clicked();
     void bgClrBtn_clicked();
+    void formatCombo_clicked();
     void onOk();
     void onCancel();
 private:
     Ui::analoguePage *ui;
-    HIconComplexObj* pCurObj;
+    HIconObj* pCurObj;
     QFont font;
     QString strTextColor;
     QString strBgColor;
