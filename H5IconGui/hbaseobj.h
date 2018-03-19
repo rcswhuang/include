@@ -167,6 +167,16 @@ public:
     virtual void resetRectPoint(const QPointF& pt1,const QPointF& pt2);
     //void setSubObjRect(qreal dx,qreal dy);
 
+    virtual void setImagePath(const QString& path);
+    virtual QString getImagePath();
+    virtual bool isValidImagePath() const;
+
+    virtual void setKeepImageRatio(bool bcheck);
+    virtual bool getKeepImageRatio();
+
+    virtual void setImageDirect(quint8 direct);
+    virtual quint8 getImageDirect();
+
 public:
     virtual void paint(QPainter* painter);
     virtual QRectF boundingRect() const;
@@ -236,6 +246,11 @@ public:
     quint8 nPattern;
 
     bool bModify;
+
+    //图片
+    QString strImagePath;//图片路径
+    bool bKeepImageRatio; //保持图片比例
+    quint8 nImageDirect; //图片的方向
 private:
     HIconGraphicsItem* pIconGraphicsItem;
 protected:

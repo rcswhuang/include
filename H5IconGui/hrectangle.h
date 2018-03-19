@@ -42,6 +42,8 @@ public:
     virtual double getRectWidth();
     virtual void setRectHeight(double height);
     virtual double getRectHeight();
+    virtual QPainterPath getPath();//只提供矩形，圆，椭圆，文字三种支持图片
+
 public:
     QPointF ptOld,ptNew;
 protected:
