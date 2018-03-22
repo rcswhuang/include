@@ -26,6 +26,7 @@ public:
 public slots:
     void onStationCurrentIndexChanged(int index);
     void onIntervalCurrentIndexChanged(int index);
+    void onPointList_clicked();
     void onOk();
     void onCancel();
 private:

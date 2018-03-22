@@ -77,18 +77,18 @@ public:
 class H5ICONHELP_EXPORT HDigital : public HWord
 {
 public:
-    HDigital(){};
+    HDigital(){wDoubleDNo = (ushort)-1;};
     friend class HStation;
 public:
     quint8 getType(){return btType;}
     quint8 getWordType() {return TYPE_DIGITAL;}
-    quint32 getDoubleDNo(){return wDoubleDNo;}
+    ushort getDoubleDNo(){return wDoubleDNo;}
     HWord* getNext(){return this+1;}
     quint16 getGroupID(){return wGroupID;}
 
 public:
     quint8 btType;
-    quint16 wDoubleDNo;
+    ushort wDoubleDNo;
     quint16 wGroupID;
 };
 
@@ -143,10 +143,10 @@ public:
 public:
     quint8 getType(){return btType;}
     quint8 getWordType() {return TYPE_GROUP;}
-    quint16 getPFlag(){return wPFlag;}
-    quint32 getSaveFlag(){return dwSFlag;}
+    //quint16 getPFlag(){return wPFlag;}
+    //quint32 getSaveFlag(){return dwSFlag;}
     HWord* getNext(){return this+1;}
-    quint16 getGroupID(){return wGroupID;}
+    //quint16 getGroupID(){return wGroupID;}
 public:
     quint8 btType;
     quint16 wPFlag;
