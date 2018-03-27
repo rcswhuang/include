@@ -92,8 +92,8 @@ protected:
     QString strUuid;//uuid
 
     //iconsymbol的信息
-    QString strSymbolName;
-    int nSymbolType;
+    //QString strSymbolName;
+    //int nSymbolType;
 
     //画面ID
     int nGraphID;
@@ -103,6 +103,8 @@ protected:
 
     //画面确认方式
     uchar btGraphComfirm;
+
+    HText* pText;
 };
 
 #endif // HICONOBJ_H

@@ -6,6 +6,7 @@
 class QListWidgetItem;
 class HBaseObj;
 class HIconObj;
+class QButtonGroup;
 class HRelay;
 namespace Ui {
 class relayPage;
@@ -39,10 +40,16 @@ public slots:
     void onFillClrBtn_clicked();
     void onPicSelect_clicked();
     //void onAlignPicCombo_clicked(int index);
+    void btnGroup_clicked(int id);
+    void relayGroup_clicked(int id);
     void changePage(QListWidgetItem* curItem,QListWidgetItem* preItem);
+    void onOk();
+    void onCancel();
 
 private:
     Ui::relayPage *ui;
+    QButtonGroup* btnGroup;
+    QButtonGroup* relayGroup;
     HIconObj* pCurObj;
     QFont font;
     QString strTextColor;

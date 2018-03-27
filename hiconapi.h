@@ -132,6 +132,7 @@ enum SELECTMODE
 //画面操作方式
 #define MODE_OPEN_GRAPH     0x01
 #define MODE_OPERATOR_GRAPH 0x02
+#define MODE_RELAY_CONTROL  0x03
 
 //画面确认方式
 #define COMFIRM_MODE_STATION 0x01
