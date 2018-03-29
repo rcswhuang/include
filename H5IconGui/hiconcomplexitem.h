@@ -21,6 +21,7 @@ public:
 
     HIconComplexItem(HIconGraphicsItem *parent = Q_NULLPTR);
     HIconComplexItem(const QRectF &rectF, HIconGraphicsItem *parent = Q_NULLPTR);
+    ~HIconComplexItem();
 public:
     virtual void setRect(const QRectF& rect);
     virtual QRectF rect()const;
