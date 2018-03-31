@@ -123,6 +123,25 @@ typedef struct _tagSYSDBINFO
 }SYSDBINFO;
 
 
+//定义画面结构
+typedef struct _tagGRAPHINFO
+{
+    QString strGraphName;
+    int nGraphID;//画面ID
+    int nGraphWidth; //长度，
+    int nGraphHeight; //高度
+    int nRefreshInterval; //刷新间隔
+    QString strFillColor;//背景填充颜色
+	QString strFillPicture;//填充图片路径
+    bool bStartGraph;//是不是启动画面
+    uchar btType;//画面类型
+    ushort wStationNo;//厂站ID
+    int nReserver1;
+    int nReserver2;
+    int nReserver3;
+    int nReserver4;
+}GRAPHINFO;
+
 //多个类型 --树形结构 厂站  间隔 电压等级 遥信 遥测
 //每个类型的列 厂站--值 间隔(名称和电压等级) 电压等级(名称和电压等级) 单个间隔(名称和电压等级)
 //遥信
