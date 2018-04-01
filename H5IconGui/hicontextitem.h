@@ -1,4 +1,4 @@
-﻿#ifndef HICONTEXTITEM_H
+#ifndef HICONTEXTITEM_H
 #define HICONTEXTITEM_H
 
 /*
@@ -24,6 +24,7 @@ public:
     enum {Type = enumText};
     HIconTextItem(HIconRectItem *parent = Q_NULLPTR);
     HIconTextItem(const QRectF &rectF, HIconRectItem *parent = Q_NULLPTR);
+    virtual ~HIconTextItem();
 public:
     virtual void setRect(const QRectF& rect);
     virtual QRectF rect()const;

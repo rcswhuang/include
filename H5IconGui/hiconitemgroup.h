@@ -1,4 +1,4 @@
-﻿#ifndef HICONITEMGROUP_H
+#ifndef HICONITEMGROUP_H
 #define HICONITEMGROUP_H
 #include <QtGlobal>
 #include "hiconapi.h"
@@ -21,6 +21,7 @@ public:
 
     HIconItemGroup(HIconGraphicsItem *parent = Q_NULLPTR);
     HIconItemGroup(const QRectF &rectF, HIconGraphicsItem *parent = Q_NULLPTR);
+    virtual ~HIconItemGroup();
 public:
     virtual void setRect(const QRectF& rect);
     virtual QRectF rect() const;
@@ -46,7 +47,6 @@ public:
 private:
     QRectF rectF;
     HGroupObj* pGroupObj;
-    ushort rectMode;
     ushort pointLocation;
     QPointF pointStart;
 };

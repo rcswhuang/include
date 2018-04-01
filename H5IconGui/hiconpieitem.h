@@ -1,4 +1,4 @@
-﻿#ifndef HICONPIEITEM_H
+#ifndef HICONPIEITEM_H
 #define HICONPIEITEM_H
 
 #include <QtGlobal>
@@ -21,6 +21,7 @@ public:
     enum {Type = enumPie};
     HIconPieItem(HIconRectItem *parent = Q_NULLPTR);
     HIconPieItem(const QRectF &rectF, HIconRectItem *parent = Q_NULLPTR);
+    virtual ~HIconPieItem();
 public:
     virtual void setRect(const QRectF& rect);
     virtual QRectF rect()const;

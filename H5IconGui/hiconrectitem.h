@@ -1,4 +1,4 @@
-﻿#ifndef HICONRECTITEM_H
+#ifndef HICONRECTITEM_H
 #define HICONRECTITEM_H
 #include <QtGlobal>
 #include "hiconapi.h"
@@ -20,6 +20,7 @@ public:
 
     HIconRectItem(HIconGraphicsItem *parent = Q_NULLPTR);
     HIconRectItem(const QRectF &rectF, HIconGraphicsItem *parent = Q_NULLPTR);
+    virtual ~HIconRectItem();
 public:
     virtual void setRect(const QRectF& rect);//no
     virtual QRectF rect() const; //no

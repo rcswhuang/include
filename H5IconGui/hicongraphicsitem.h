@@ -1,7 +1,7 @@
-﻿#ifndef HICONGRAPHICSITEM_H
+#ifndef HICONGRAPHICSITEM_H
 #define HICONGRAPHICSITEM_H
 #include <QGraphicsItem>
-#include "H5IconGui/h5iconguiexport.h"
+#include "h5iconguiexport.h"
 class QPointF;
 class HBaseObj;
 class QGraphicsItem;
@@ -10,7 +10,7 @@ class H5ICONGUI_EXPORT HIconGraphicsItem :public QGraphicsItem
 {
 public:
     HIconGraphicsItem(QGraphicsItem * parent = 0);
-    //virtual ~HIconGraphicsItem();
+    virtual ~HIconGraphicsItem();
 public:
     virtual QRectF boundingRect() const;
     virtual bool contains(const QPointF &point) const;

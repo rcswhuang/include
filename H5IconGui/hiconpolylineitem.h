@@ -1,4 +1,4 @@
-﻿#ifndef HICONPOLYLINEITEM_H
+#ifndef HICONPOLYLINEITEM_H
 #define HICONPOLYLINEITEM_H
 
 #include <QtGlobal>
@@ -22,6 +22,7 @@ public:
     enum {Type = enumPolyline};
     HIconPolylineItem(HIconGraphicsItem *parent = Q_NULLPTR);
     HIconPolylineItem(const QPolygonF &polygonF, HIconGraphicsItem *parent = Q_NULLPTR);
+    virtual ~HIconPolylineItem();
 public:
     virtual void setPolygon(const QPolygonF & polygon);
     QPolygonF	polygon() const;

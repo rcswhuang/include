@@ -1,4 +1,4 @@
-﻿#ifndef HICONCIRCLEITEM_H
+#ifndef HICONCIRCLEITEM_H
 #define HICONCIRCLEITEM_H
 
 #include <QtGlobal>
@@ -21,6 +21,7 @@ public:
     enum {Type = enumCircle};
     HIconCircleItem(HIconRectItem *parent = Q_NULLPTR);
     HIconCircleItem(const QRectF &rectF, HIconRectItem *parent = Q_NULLPTR);
+    virtual ~HIconCircleItem();
 public:
     virtual void setRect(const QRectF& rect);
     virtual QRectF rect()const;

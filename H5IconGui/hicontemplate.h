@@ -1,4 +1,4 @@
-﻿#ifndef HICONTEMPLATE_H
+#ifndef HICONTEMPLATE_H
 #define HICONTEMPLATE_H
 
 #include <QObject>
@@ -43,7 +43,7 @@ public:
 
     void clear();
 
-    QIcon getIcon();
+    //QIcon getIcon();
 
     void setModify(bool modify);
     bool getModify();

@@ -1,6 +1,6 @@
-﻿#ifndef HBASEOBJ_H
+#ifndef HBASEOBJ_H
 #define HBASEOBJ_H
-
+#include <qmath.h>
 #include <QObject>
 #include <QColor>
 #include <QVector>

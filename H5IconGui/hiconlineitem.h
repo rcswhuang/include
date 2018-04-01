@@ -1,4 +1,4 @@
-﻿#ifndef HICONLINEITEM_H
+#ifndef HICONLINEITEM_H
 #define HICONLINEITEM_H
 
 #include <QtGlobal>
@@ -34,6 +34,7 @@ public:
     };
     HIconLineItem(HIconGraphicsItem *parent = Q_NULLPTR);
     HIconLineItem(const QLineF &line, HIconGraphicsItem *parent = Q_NULLPTR);
+    virtual ~HIconLineItem();
 public:
     virtual QLineF line() const;
     virtual void setLine(const QLineF& lineF);

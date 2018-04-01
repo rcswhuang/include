@@ -1,4 +1,4 @@
-﻿#ifndef HICONELLIPSEITEM_H
+#ifndef HICONELLIPSEITEM_H
 #define HICONELLIPSEITEM_H
 
 #include <QtGlobal>
@@ -21,6 +21,7 @@ public:
     enum {Type = enumEllipse};
     HIconEllipseItem(HIconRectItem *parent = Q_NULLPTR);
     HIconEllipseItem(const QRectF &rectF, HIconRectItem *parent = Q_NULLPTR);
+    virtual ~HIconEllipseItem();
 public:
     virtual void setRect(const QRectF& rect);
     virtual QRectF rect()const;
