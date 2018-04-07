@@ -193,7 +193,7 @@ typedef struct _tagGRAPHINFO
 #define TYPE_GROUP           5//间隔
 #define TYPE_GROUPIP         6
 #define TYPE_SETPOINT        7 //遥调
-#define TYPE_PLUSE           8 //遥脉
+#define TYPE_PULSE           8 //遥脉
 //实时库相关数据类型
 //厂站
 #define     ATTR_ST_NO          0x001
@@ -231,7 +231,21 @@ typedef struct _tagGRAPHINFO
 #define     ATTR_DGT_RNO         0x054
 #define     ATTR_DGT_MEASURE     0x055
 #define     ATTR_DGT_4_STATE_VALUE     0x056 //4态遥信
+#define     ATTR_DGT_TOTALNORMALCLOSE 0x030D   //正常合闸总数
+#define     ATTR_DGT_TOTALNORMALOPEN   0x030E //,       "正常分闸总数"},
+#define     ATTR_DGT_TOTALFAULTSWITCH  0x030F //,      "事故变位总数"},
 
+#define     ATTR_DGT_TOTALFAULTSWITCH  0x030F //,      "事故变位总数"},
+#define     ATTR_DGT_DAYNORMALCLOSE    0x0310 //,        "日正常合闸次数"},
+#define     ATTR_DGT_DAYNORMALOPEN     0x0311 //         "日正常分闸次数"},
+#define     ATTR_DGT_DAYFAULTSWITCH    0x0312 //,		"日事故变位次数"},
+#define     ATTR_DGT_MONNORMALCLOSE    0x0313 //,        "月正常合闸次数"},
+#define     ATTR_DGT_MONNORMALOPEN     0x0314 //,         "月正常分闸次数"},
+#define     ATTR_DGT_MONFAULTSWITCH    0x0315 //,		"月事故变位次数"},
+#define     ATTR_DGT_YEARNORMALCLOSE   0x0316 //,       "年正常合闸次数"},
+#define     ATTR_DGT_YEARNORMALOPEN    0x0317 //,        "年正常分闸次数"},
+#define     ATTR_DGT_YEARFAULTSWITCH   0x0318 //,       "年事故变位次数"},
+   
 //遥测
 #define     ATTR_ANA_SNO          0x096 //150
 #define     ATTR_ANA_NO           0x097
@@ -249,6 +263,41 @@ typedef struct _tagGRAPHINFO
 #define     ATTR_ANA_POWERGRADE   0x109
 #define     ATTR_ANA_RELDIGITALID 0x110
 #define     ATTR_ANA_VALUE        0x111
+
+#define     ATTR_ANA_DAYMAXVALUE  0x120
+#define     ATTR_ANA_DAYMINVALUE  0x121
+#define     ATTR_ANA_DAYAVEVALUE  0x122
+#define     ATTR_ANA_MONMAXVALUE  0x123
+#define     ATTR_ANA_MONMINVALUE  0x124
+#define     ATTR_ANA_MONAVEVALUE  0x125
+#define     ATTR_ANA_YEARMAXVALUE  0x126
+#define     ATTR_ANA_YEARMINVALUE  0x127
+#define     ATTR_ANA_YEARAVEVALUE  0x128
+#define     ATTR_VOLTAGE_DAYNORMALTIME 0x153
+#define     ATTR_VOLTAGE_DAYLOWTIME 0x154
+#define     ATTR_VOLTAGE_DAYHIGHTIME 0x155
+#define     ATTR_VOLTAGE_MONNORMALTIME 0x156
+#define     ATTR_VOLTAGE_MONLOWTIME 0x157
+#define     ATTR_VOLTAGE_MONHIGHTIME 0x158
+#define     ATTR_VOLTAGE_DAYQUALIFIEDRATE 0x159
+#define     ATTR_VOLTAGE_MONQUALIFIEDRATE 0x160
+
+
+//pulse
+#define     ATTR_PUL_RAW            0x532     //"原始值"},
+#define     ATTR_PUL_COUNTERVALUE   0x50F   //,    "工程值"},
+#define     ATTR_PUL_COUNTERMIN     0x509   //,      "分钟电量"},
+#define     ATTR_PUL_COUNTERHOUR    0x50A   //,     "小时电量"},
+#define     ATTR_PUL_COUNTERDAY     0x50B   //,      "日总电量"},
+#define     ATTR_PUL_COUNTERMON     0x50D   //,      "月总电量"},
+
+
+#define     ATTR_POWER_DAYPEKVALUE  0x0610  //,   "日峰电量"},
+#define     ATTR_POWER_DAYVOLVALUE  0x0611  //,   "日谷电量"},
+#define     ATTR_POWER_DAYPINVALUE  0x0612  //,   "日平电量"},
+#define     ATTR_POWER_MONPEKVALUE  0x0617  //,   "月峰电量"},
+#define     ATTR_POWER_MONVOLVALUE  0x0618  //,   "月谷电量"},
+#define     ATTR_POWER_MONPINVALUE  0x0619  //,   "月平电量"},
 
 //标志
 #define ENABLE_ABS         ((ushort)0x0001) //模拟量 绝对值
@@ -320,7 +369,7 @@ typedef struct _tagDigital
     char    szDigitalName[DIGITALNAMELEN];
     char    szDigitalOriginalName[DIGITALNAMELEN];
     ushort  wPointTermID;//在测点类型全局表中的ID
-    ulong   ulEuipmentID;//待定
+    ulong   ulEquipmentID;//待定
     char    szEquipmentID[EQUIPMENTLEN];//设备编号
     ushort  wGroupID;//设备组
     int     nPowerGrade;//电压等级
@@ -405,7 +454,7 @@ typedef struct _tagAnalogue
     ushort  wRFlag; //结果标志 正常变位等
     quint8 btFUN;
     quint8 btINF;
-	float fValue;
+	  float fValue;
     ushort  wToScadaIndex; //转发索引 到监控
     ushort  wFromScadaIndex; //从监控
     ushort  wToSimIndex; //发给第三方
@@ -601,7 +650,7 @@ extern "C"
 //	BOOL WriteEventTicketToFile(time_t tEventTime,EventTicketData* pEventTicketData);// 将操作票事件写入文件
 #ifdef __cplusplus
 }
-#endif*/
+#endif
 
 }
 #endif
