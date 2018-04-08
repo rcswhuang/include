@@ -1,9 +1,11 @@
-#ifndef FORMULAPI_H
-#define FORMULAPI_H
-#include "hformulaexport.h"
+﻿#ifndef HFORMULAPI_H
+#define HFORMULAPI_H
 #include "publicdata.h"
+#include "hformulaexport.h"
 #include <QList>
 #include <QString>
+extern "C"
+{
 typedef unsigned int WPARAM;
 typedef long LPARAM;
 
@@ -249,12 +251,16 @@ typedef struct _tagITEMDATA
 #define ITEM_RELAY     11 //遥控项
 #define ITEM_TUNE      12 //
 //回调函数
-typedef bool (FORMULA_EXPORT *LPFORMULAPROC)(int nMsgType,WPARAM wParam,LPARAM lParam,int nDBID);
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+typedef FORMULA_EXPORT bool (*LPFORMULAPROC)(int nMsgType,WPARAM wParam,LPARAM lParam,int nDBID);
 
-bool FORMULA_EXPORT initFormula(LPFORMULAPROC lpFormulaProc,uchar btModuleType = MODULE_ID);
+FORMULA_EXPORT bool initFormula(LPFORMULAPROC lpFormulaProc,uchar btModuleType /*= MODULE_ID*/);
 void FORMULA_EXPORT exitFormula();
 
-FORMULA* FORMULA_EXPORT getFormula(ushort wNo);
+FORMULA_EXPORT FORMULA* getFormula(ushort wNo);
 
 bool FORMULA_EXPORT loadFormulaData(QList<FORMULA*> pFormulaList,QList<ITEM*> pItemList);
 bool FORMULA_EXPORT saveFormulaData();
@@ -268,12 +274,16 @@ void FORMULA_EXPORT deleteFormula(ushort wNo);
 bool FORMULA_EXPORT createFormula(FORMULA* pFormula,ushort wNo);//创建某个测点wNo的公式
 bool FORMULA_EXPORT compileFormula(const char* szFormula,FORMULA* pFormula);//编译公式
 
-QString FORMULA_EXPORT getFormulaText(FORMULA* formula,bool bValue);
+FORMULA_EXPORT const char*  getFormulaText(FORMULA* formula,bool bValue);
 void FORMULA_EXPORT replaceFormulaItem(FORMULA* pFormula,ITEM* pOld,ITEM* pNew);
 void FORMULA_EXPORT onFormulaIdle();
 
 bool FORMULA_EXPORT doFormula(ushort wNo,ITEM* item,bool bHst,struct tm* ptm,uchar btEType = ITEM_NULL,QList<FORMULACONDITION*>* pList = NULL,int nDBID = 0);
 bool FORMULA_EXPORT doRuleFormula(ushort wNo,QStringList* pList = NULL,int nDBID = 0);
 bool FORMULA_EXPORT checkRuleFormulaConflict(ushort wNo,ushort wStation,ushort wDigitalNo);
+#ifdef __cplusplus
+}
+#endif
 
+}
 #endif // FORMULAPI_H

@@ -1,7 +1,7 @@
-#ifndef HFORMULAEXPORT_H
+﻿#ifndef HFORMULAEXPORT_H
 #define HFORMULAEXPORT_H
 
-#if defined(WIN32)
+#if defined (_WIN32) || defined (WIN32)
 #if defined(FORMULA_DLL)
     #define FORMULA_EXPORT __declspec(dllexport)
 #else

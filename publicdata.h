@@ -5,6 +5,7 @@
 #include "time.h"
 
 #include "fileexport.h"
+#include "hformulaexport.h"
 /*
  * 命名规则:类型统一采用qt定义的方式，对于变量bt表示1个字节,w表示2个字节,n表示4个字节,dw表示8个字节,sz表示字符串数组,str表示QString类
  * quint8 <-> BYTE<->uchar  quint16 <-> WORD <-> ushort  ulong <-> DWORD  uint <-> UINT <-> quint32
@@ -610,7 +611,7 @@ typedef struct _tagWfDigitalLockNo
 }DIGITALLOCKNO;
 
 ////////////////////////////////////////////////////////////////重写了
-
+//typedef bool (*LPFORMULAPROC)(int nMsgType,long wParam,long lParam,int nDBID);
 /////////////////////////////////////////对外接口///////////////////////////////////////
 #ifdef __cplusplus
 extern "C"
