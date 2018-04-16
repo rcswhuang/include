@@ -11,6 +11,7 @@
 #include "hiconapi.h"
 #include "h5iconguiexport.h"
 #include "hicongraphicsitem.h"
+
 class H5ICONGUI_EXPORT HBaseObj: public QObject
 {
 public:

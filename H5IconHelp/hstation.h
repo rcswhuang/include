@@ -121,7 +121,7 @@ public:
     friend class HStation;
 public:
     quint8 getType(){return btType;}
-    quint8 getWordType() {return TYPE_PLUSE;}
+    quint8 getWordType() {return TYPE_PULSE;}
     quint16 getPFlag(){return wPFlag;}
     quint32 getSaveFlag(){return dwSFlag;}
     HWord* getNext(){return this+1;}
