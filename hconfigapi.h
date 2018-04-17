@@ -1,10 +1,10 @@
 ﻿#ifndef HCONFIGAPI_H
 #define HCONFIGAPI_H
-#include "hconfigexport.h"
 #include <QList>
 #include <QString>
 #include <QVariant>
 
+#include "hconfigexport.h"
 typedef struct _tagSysSet
 {
     QString strObjName;
@@ -25,6 +25,7 @@ typedef QList<SETTING*> HSettingList;
 
 
 //定义功能
+#define SYS_SET_START   0x000
 #define SYS_SET_NET     0x001
 #define SYS_SET_NORMAL  0x002
 #define SYS_SET_FUN     0x003
@@ -32,6 +33,7 @@ typedef QList<SETTING*> HSettingList;
 #define SYS_SET_TICKET  0x005
 #define SYS_SET_FORMAT  0x006
 #define SYS_SET_OTHER   0x007
+#define SYS_SET_MAX     0x007
 
 //通讯设置
 //电脑钥匙通讯
@@ -184,9 +186,11 @@ extern "C"
 #endif
 
     //系统配置对外接口
-    void SYSCONFIG_EXPORT initSysConfig(const char* file);
-    void SYSCONFIG_EXPORT exitSysConfig();
-    void SYSCONFIG_EXPORT getSettingValue(int  nSettingID,int nSysSetID,QVariant* &value);
+     void  SYSCONFIG_EXPORT initSysConfig(const char* file);
+     void  SYSCONFIG_EXPORT exitSysConfig();
+     void  SYSCONFIG_EXPORT getSysConfigByID(int nSettingID,HSysSetList* &sysSetList);
+     void  SYSCONFIG_EXPORT getSettingValue(int  nSettingID,int nSysSetID,QVariant* &value);
+     bool  SYSCONFIG_EXPORT applySysConfig();
   
 
 #ifdef __cplusplus
