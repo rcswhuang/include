@@ -49,8 +49,8 @@ public:
     void setSymbolName(const QString& strName);
     QString getSymolName();
 
-    void setSymbolType(const int& type);
-    int getSymbolType();
+    //void setSymbolType(const int& type);
+    //int getSymbolType();
 
     void setIconSymbolWidth(double width);
     void setIconSymbolHeight(double height);
