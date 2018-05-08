@@ -1,8 +1,8 @@
 #ifndef RULEEDITAPI_H
 #define RULEEDITAPI_H
 #include <QtGlobal>
+#include <QString>
 #include "hruleexport.h"
-class QWidget;
 #define MAXSTRINGLEN 256
 
 enum DRAWSHAPE
