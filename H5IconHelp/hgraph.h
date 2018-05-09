@@ -137,11 +137,6 @@ protected:
     //所有模板信息
     QList<HIconTemplate*> pIconTemplateList;
     //QList<HStation> stationList;
-
-
-
-
-
 };
 
 #endif // HGRAPH_H

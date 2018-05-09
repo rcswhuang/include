@@ -25,7 +25,7 @@ class HStation;
 class H5ICONHELP_EXPORT HWord: public QObject
 {
 public:
-    HWord(){};
+    HWord(){}
     friend class HStation;
 
 public:
@@ -45,7 +45,7 @@ public:
 class H5ICONHELP_EXPORT HAnalogue:public HWord
 {
 public:
-    HAnalogue(){};
+    HAnalogue(){}
     friend class HStation;
 
 public:
@@ -66,7 +66,7 @@ public:
 class H5ICONHELP_EXPORT HSetPoint : public HWord
 {
 public:
-    HSetPoint(){};
+    HSetPoint(){}
     friend class HStation;
 public:
     quint8 getWordType(){return TYPE_SETPOINT;}
@@ -77,7 +77,7 @@ public:
 class H5ICONHELP_EXPORT HDigital : public HWord
 {
 public:
-    HDigital(){wDoubleDNo = (ushort)-1;};
+    HDigital(){wDoubleDNo = (ushort)-1;}
     friend class HStation;
 public:
     quint8 getType(){return btType;}
@@ -96,7 +96,7 @@ public:
 class H5ICONHELP_EXPORT HRelay : public HWord
 {
 public:
-    HRelay(){};
+    HRelay(){}
     friend class HStation;
 public:
     quint8 getType(){return btType;}
@@ -117,7 +117,7 @@ public:
 class H5ICONHELP_EXPORT HPulse : public HWord
 {
 public:
-    HPulse(){};
+    HPulse(){}
     friend class HStation;
 public:
     quint8 getType(){return btType;}
@@ -138,7 +138,7 @@ public:
 class H5ICONHELP_EXPORT HGroup : public HWord
 {
 public:
-    HGroup(){};
+    HGroup(){}
     friend class HStation;
 public:
     quint8 getType(){return btType;}
