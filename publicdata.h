@@ -215,23 +215,26 @@ typedef struct _tagGRAPHINFO
 #define     ATTR_DGT_EQUIPMENTID 0x037
 #define     ATTR_DGT_GROUPID     0x038
 #define     ATTR_DGT_POWERGRADE  0x039
-#define     ATTR_DGT_GLOSSARYID  0x040
-#define     ATTR_DGT_RULEFENID   0x041
-#define     ATTR_DGT_RULEHEID    0x042
-#define     ATTR_DGT_RULEJXFENID 0x043
-#define     ATTR_DGT_RULEJXHEID  0x044
-#define     ATTR_DGT_LOCKNO      0x045
-#define     ATTR_DGT_HELOCKNO    0x046
-#define     ATTR_DGT_FENLOCKNO   0x047
-#define     ATTR_DGT_SENDFLAG    0x048
-#define     ATTR_DGT_DOUBLEDGTID 0x049
-#define     ATTR_DGT_OPFLAG      0x050
-#define     ATTR_DGT_FORMULAID   0x051
-#define     ATTR_DGT_VALUE       0x052
-#define     ATTR_DGT_RSNO        0x053
-#define     ATTR_DGT_RNO         0x054
-#define     ATTR_DGT_MEASURE     0x055
-#define     ATTR_DGT_4_STATE_VALUE     0x056 //4态遥信
+#define     ATTR_DGT_GLOSSARYID  0x03A
+#define     ATTR_DGT_RULEFENID   0x03B
+#define     ATTR_DGT_RULEHEID    0x03C
+#define     ATTR_DGT_RULEJXFENID 0x03D
+#define     ATTR_DGT_RULEJXHEID  0x03E
+#define     ATTR_DGT_LOCKNO      0x03F
+#define     ATTR_DGT_HELOCKNO    0x040
+#define     ATTR_DGT_FENLOCKNO   0x041
+#define     ATTR_DGT_SENDFLAG    0x042
+#define     ATTR_DGT_DOUBLEDGTID 0x043
+#define     ATTR_DGT_OPFLAG      0x044
+#define     ATTR_DGT_FORMULAID   0x045
+#define     ATTR_DGT_VALUE       0x046
+#define     ATTR_DGT_RSNO        0x047
+#define     ATTR_DGT_RNO         0x048
+#define     ATTR_DGT_MEASURE     0x049
+#define     ATTR_DGT_4_STATE_VALUE     0x04A //4态遥信
+#define     ATTR_DGT_PFLAG       0x4B
+#define     ATTR_DGT_RFLAG       0x4C
+
 #define     ATTR_DGT_TOTALNORMALCLOSE 0x030D   //正常合闸总数
 #define     ATTR_DGT_TOTALNORMALOPEN   0x030E //,       "正常分闸总数"},
 #define     ATTR_DGT_TOTALFAULTSWITCH  0x030F //,      "事故变位总数"},
@@ -317,11 +320,11 @@ typedef struct _tagGRAPHINFO
 //结果
 #define RESULT_MANUAL      ((ushort)0x0001) //人工置数
 #define RESULT_ACK         ((ushort)0x0002) //确认
-#define ENABLE_WARNINGHI   ((ushort)0x0004) //模拟量 越上限
-#define ENABLE_WARNINGLO   ((ushort)0x0008) //数字量 越下线
-#define ENABLE_STOP        ((ushort)0x00010) //无效值
+#define RESULT_WARNINGHI   ((ushort)0x0004) //模拟量 越上限
+#define RESULT_WARNINGLO   ((ushort)0x0008) //数字量 越下线
+#define RESULT_STOP        ((ushort)0x00010) //无效值
 #define RESULT_CHANGE      ((ushort)0x0004) //数字量 正常变位
-#define ENABLE_ACCIDENT    ((ushort)0x0008) //数字量 事故变位
+#define RESULT_ACCIDENT    ((ushort)0x0008) //数字量 事故变位
 
 
 
@@ -387,14 +390,14 @@ typedef struct _tagDigital
     ushort  wDoubleDgtID;//双点遥信
     uchar   btOPFlag;//操作标志 遥控/就地
     ushort  wFormulaID;//公式ID
-    ushort  wPFlag; //允许标志 遥控、遥调、取反、计算等允许标志
-    ushort  wRFlag; //结果标志 正常变位等
+    int     wPFlag; //允许标志 遥控、遥调、取反、计算等允许标志
+    int     wRFlag; //结果标志 正常变位等
     uchar   btFUN;
     uchar   btINF;
     uchar   btRunValue; //实际运行值
-	time_t  tLastRunChange;//最后一次实际运行值改变时间
+	  time_t  tLastRunChange;//最后一次实际运行值改变时间
     uchar   btPreviewValue;
-	time_t  tLastPreviewChange;
+	  time_t  tLastPreviewChange;
     ushort  wRSNo; //相关遥控点厂ID
     ushort  wRNo; //相关遥控点ID
     ushort  wDigitalLock;//遥信闭锁标志
