@@ -104,12 +104,12 @@ enum SELECTMODE
 
 
 //比较符定义
-#define OP_GREATER      0x01 //>
-#define OP_LOWER        0x02  // <
-#define OP_EQUAL        0x03 // =
-#define OP_GEQUAL       0x04 //>=
-#define OP_LEQUAL       0x05 //<=
-#define OP_NEQUAL       0x06 // !=
+#define OP_RGREATER      0x01 //>
+#define OP_RLOWER        0x02  // <
+#define OP_REQUAL        0x03 // =
+#define OP_RGEQUAL       0x04 //>=
+#define OP_RLEQUAL       0x05 //<=
+#define OP_RNEQUAL       0x06 // !=
 
 #define TYPE_COMPARE_ANALOGUE 0x01
 #define TYPE_COMPARE_CONST    0x02
