@@ -40,7 +40,7 @@ public:
     ushort getFormula();
 
 protected:
-    uchar btFiledType;//测点类型
+    uchar btFieldType;//测点类型
     ushort wFormula;//公式
     ushort wStation;//厂站
     ushort wPoint;//测点
