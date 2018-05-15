@@ -106,7 +106,8 @@ public:
     //qreal zoomScale();
 
     //void setZoomScale(qreal f);
-
+public:
+    QList<HIconTemplate*> pIconTemplateList;
 protected:
     QString sName; //名称
 
@@ -135,7 +136,7 @@ protected:
     //缩放比例
 
     //所有模板信息
-    QList<HIconTemplate*> pIconTemplateList;
+
     //QList<HStation> stationList;
 };
 
