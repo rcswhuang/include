@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "h5iconhelpexport.h"
+#include "hgraph.h"
 class QListWidgetItem;
 class HBaseObj;
 class HIconObj;
@@ -25,7 +26,7 @@ public:
     void initRelayPorperty();
     void createIcons();
     QIcon createBrushStyleIcon(Qt::BrushStyle brushStyle);
-
+    void loadAllGraph();
 public slots:
     void onTextClrBtn_clicked();
     void onFontBtn_clicked();
@@ -58,6 +59,7 @@ private:
     ushort wStation;//厂站
     ushort wPoint;//测点
     ushort wAttrib;//属性
+    QList<HGraph*> m_pGraphList;//没有提供graphlist直接获取的方式，只能从xml文件中捞一把
 };
 
 #endif // HRELAYPAGE_H
