@@ -24,6 +24,7 @@ public:
     virtual void copyTo(HBaseObj* obj);
     virtual void clone(HBaseObj* obj);
 
+    //与QGraphicsItem相关
     virtual DRAWSHAPE getShapeType();
     virtual void moveBy(qreal dx,qreal dy);
     virtual void resize(double w,double h);
@@ -36,13 +37,24 @@ public:
     virtual void setObjRect(const QRectF& rect);
     virtual QRectF getObjRect();
 
+
+
+    //设置相关属性
     virtual void setTopLeft(const QPointF& point);
     virtual QPointF getTopLeft();
     virtual void setRectWidth(double width);
     virtual double getRectWidth();
     virtual void setRectHeight(double height);
     virtual double getRectHeight();
+
+    //设置其他功能
     virtual QPainterPath getPath();//只提供矩形，圆，椭圆，文字三种支持图片
+
+
+    //设置绘制选择状态
+    virtual void drawSelect(QPainter* painter);//单个选择
+    virtual void drawMulSelect(QPainter* painter,bool benchmark); //多选择
+    virtual void test();
 
 public:
     QPointF ptOld,ptNew;

@@ -30,6 +30,11 @@ public:
     virtual void setItemCursor(int position);
     virtual void moveItemBy(qreal dx,qreal dy);
     virtual void resizeItem(const QPolygonF& polygonF);
+
+public:
+    bool bMulSelect; //处于多选状态
+    bool bBenchmark; //基准Item
+
 };
 
 #endif // HICONGRAPHICSITEM_H
