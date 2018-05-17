@@ -54,7 +54,6 @@ public:
     //设置绘制选择状态
     virtual void drawSelect(QPainter* painter);//单个选择
     virtual void drawMulSelect(QPainter* painter,bool benchmark); //多选择
-    virtual void test();
 
 public:
     QPointF ptOld,ptNew;

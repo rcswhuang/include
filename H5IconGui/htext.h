@@ -5,7 +5,6 @@
 class H5ICONGUI_EXPORT HText : public HRectangle
 {
 public:
-    friend class HRectObj;
     HText();
     virtual ~HText();
 public:
@@ -29,9 +28,9 @@ public:
     virtual void paint(QPainter* painter);
 
     //virtual void resize(double w,double h);
-    //virtual QRectF boundingRect() const;
-    //virtual bool contains(const QPointF &point) const;
-    //virtual QPainterPath shape() const;
+  /*  virtual QRectF boundingRect() const;
+    virtual bool contains(const QPointF &point) const;
+    virtual QPainterPath shape() const;*/
 
 public:
     void setTopLeftPoint(QPointF topLeft);
