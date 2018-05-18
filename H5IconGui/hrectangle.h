@@ -46,11 +46,8 @@ public:
     virtual double getRectWidth();
     virtual void setRectHeight(double height);
     virtual double getRectHeight();
-
     //设置其他功能
     virtual QPainterPath getPath();//只提供矩形，圆，椭圆，文字三种支持图片
-
-
     //设置绘制选择状态
     virtual void drawSelect(QPainter* painter);//单个选择
     virtual void drawMulSelect(QPainter* painter,bool benchmark); //多选择

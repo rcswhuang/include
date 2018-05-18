@@ -30,7 +30,8 @@ public:
     virtual bool contains(const QPointF &point) const;
     virtual QPainterPath shape() const;
     virtual void resetRectPoint(const QPointF& pt1,const QPointF& pt2);
-
+    virtual void drawSelect(QPainter* painter);//单个选择
+    virtual void drawMulSelect(QPainter* painter,bool benchmark); //多选择
 public:
    QVector<QPointF> pylist;
    qreal width;

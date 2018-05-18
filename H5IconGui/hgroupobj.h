@@ -36,8 +36,9 @@ public:
     virtual QRectF getObjRect();
     virtual void setSubObjRect(qreal dx,qreal dy);
     //setstackobj
-
-
+    virtual void drawSelect(QPainter* painter);//单个选择
+    virtual void drawMulSelect(QPainter* painter,bool benchmark); //多选择
+public:
     void clear();
     void setTopLeft(const QPointF &pointF);
     QPointF getTopLeft();
