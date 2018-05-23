@@ -26,6 +26,7 @@ public:
     void resetRectPoint(const QPointF& pt1,const QPointF& pt2);
     void resize(double w,double h);
     void moveBy(qreal dx,qreal dy);
+    void clear();
 public:
     virtual QRectF boundingRect() const;
     virtual bool contains(const QPointF &point) const;

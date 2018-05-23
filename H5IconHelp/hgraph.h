@@ -81,6 +81,8 @@ public:
 
     void removeObj(HBaseObj* pObj);
 
+    void delObj(HBaseObj* pObj);
+
     int getObjID();
 
     bool findObjID(int nObjID);
@@ -101,7 +103,6 @@ public:
     virtual void clearIconTemplate();
 
     virtual void resetIconTemplate();
-
 
     //qreal zoomScale();
 

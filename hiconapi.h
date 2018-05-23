@@ -102,7 +102,8 @@ enum SELECTMODE
     enumNone,
     enumSelect, //选择对象
     enumMove,   //移动对象
-    enumSize   //改变对象
+    enumSize,   //改变对象
+    enumDraw
 };
 
 //填充方向

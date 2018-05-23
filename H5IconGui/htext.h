@@ -28,9 +28,9 @@ public:
     virtual void paint(QPainter* painter);
 
     //virtual void resize(double w,double h);
-  /*  virtual QRectF boundingRect() const;
+    virtual QRectF boundingRect() const;
     virtual bool contains(const QPointF &point) const;
-    virtual QPainterPath shape() const;*/
+    virtual QPainterPath shape() const;
 
 public:
     void setTopLeftPoint(QPointF topLeft);

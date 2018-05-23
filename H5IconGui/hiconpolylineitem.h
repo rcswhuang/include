@@ -26,7 +26,7 @@ public:
 public:
     virtual void setPolygon(const QPolygonF & polygon);
     QPolygonF	polygon() const;
-    void refreshBaseObj();
+    void refreshBaseObj();//
 public:
     virtual QRectF boundingRect() const;
     virtual bool contains(const QPointF &point) const;
@@ -47,6 +47,7 @@ public:
     virtual HBaseObj* getItemObj();
     virtual void moveItemBy(qreal dx,qreal dy);
     virtual void resizeItem(const QPolygonF& polygonF);
+    virtual void setRect(const QRectF& rect);
     virtual QRectF rect() const;
 
 public:

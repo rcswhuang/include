@@ -50,6 +50,7 @@ public:
     virtual HBaseObj* getItemObj();
     virtual void moveItemBy(qreal dx,qreal dy);
     virtual void resizeItem(const QPolygonF& polygonF);
+    virtual void setRect(const QRectF& rect);
     virtual QRectF rect() const;
 public:
     HPolygon* pPolygonObj;
