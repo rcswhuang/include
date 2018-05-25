@@ -139,7 +139,20 @@ enum SELECTMODE
 #define COMFIRM_MODE_STATION 0x01
 #define COMFIRM_MODE_GRAPH   0x02
 
-
+//工具栏状态变化
+#define SELECT_MODE_NO        00
+#define SELECT_MODE_SINGLE    01
+#define SELECT_MODE_2MULTIPLE 02
+#define SELECT_MODE_MULTIPLE  03
+//定义图元大小关系
+enum IconSize
+{
+	EqualWidth, //等宽
+	EqualHeight, //等高
+	EqualComplete, //完全相等
+	HEqualSpace, //横向等分间距
+	VEqualSpace //纵向等分间距
+};
 
 
 #endif // ICONAPI_H

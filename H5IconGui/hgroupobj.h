@@ -2,10 +2,11 @@
 #define HGROUPOBJ_H
 #include "hbaseobj.h"
 class HIconSymbol;
+class HGraph;
 class H5ICONGUI_EXPORT HGroupObj : public HBaseObj
 {
 public:
-    HGroupObj(HIconSymbol* symbol);
+    HGroupObj();
     ~HGroupObj();
 public:
 
@@ -39,6 +40,8 @@ public:
     virtual void drawSelect(QPainter* painter);//单个选择
     virtual void drawMulSelect(QPainter* painter,bool benchmark); //多选择
 public:
+    HBaseObj* newObj(QString tagName);
+    void setGraph(HGraph* graph);
     void clear();
     void setTopLeft(const QPointF &pointF);
     QPointF getTopLeft();
@@ -54,8 +57,9 @@ public:
     HBaseObj* takeFirst();
 
 private:
-    HIconSymbol* pIconSymbol;
+    HGraph* m_pGraph;
     QList<HBaseObj*> pObjList;
+    QString m_strUuid;
 private:
     QPointF topLeft;
     double rectWidth;

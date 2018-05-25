@@ -2,7 +2,7 @@
 #define HGRAPH_H
 
 #include <QObject>
-#include "h5iconhelpexport.h"
+#include "h5iconguiexport.h"
 #include "hiconapi.h"
 #include "hicontemplate.h"
 #include "hiconsymbol.h"
@@ -13,7 +13,7 @@ class QDomElement;
  * 记录单个画面信息，包含画面所含的模板列表信息，各种图元信息，颜色，背景等等信息
  *
 */
-class H5ICONHELP_EXPORT HGraph : public QObject
+class H5ICONGUI_EXPORT HGraph : public QObject
 {
 public:
     HGraph(const QString& name);

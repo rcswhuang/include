@@ -20,9 +20,6 @@ public:
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
 };*/
 
-
-
-
 class H5ICONHELP_EXPORT HPropertyDlg : public QDialog
 {
     Q_OBJECT
