@@ -8,6 +8,7 @@
 #include <QDomElement>
 #include <QPainterPath>
 #include <QPainter>
+#include <QTransform>
 #include "hiconapi.h"
 #include "h5iconguiexport.h"
 #include "hicongraphicsitem.h"
@@ -104,30 +105,35 @@ public:
     virtual void setRound(bool bcheck);
     virtual bool getRound();
 
+    //圆角x轴
     virtual void setXAxis(int xAxis);
     virtual int getXAxis();
 
+    //圆角y轴
     virtual void setYAxis(int yAxis);
     virtual int getYAxis();
 
+    //设置转换
+    virtual bool getTransform(QTransform& transform,quint8 flag);
+
+    //是否0值
+    virtual bool isZero(double value);
+
     //是否旋转
-    bool isRotated(qint8 nFlag);
+    virtual bool isRotated();
 
     //旋转角度
-    void setRotateAngle(float rotate);
-    float getRotateAngle();
+    virtual void setRotateAngle(float rotate);
+    virtual float getRotateAngle();
 
-    //增加一个角度
-    void setRotateAdd(float fAngle);
+    //增加角度
+    virtual void setRotateAdd(float fAngle);
 
     //翻转
-    bool isTurned(qint8 nFlag);
-
-    //是否水平翻转
-    bool isTurn(bool bHorizonTurn);
+    virtual bool isTurned(qint8 nFlag);
 
     //设置翻转
-    void setTurn(bool bHorizon,bool bVertical);
+    virtual void setTurn(bool bHorizon,bool bVertical);
 
     //是否可见
     virtual void setVisible(bool,int nFlag = 0);
@@ -163,7 +169,7 @@ public:
     virtual void setIconGraphicsItem(HIconGraphicsItem* item);
     virtual HIconGraphicsItem* getIconGraphicsItem();
 
-    //改变大写
+    //改变大小
     virtual void resize(double w,double h);
     virtual void resetRectPoint(const QPointF& pt1,const QPointF& pt2);
     //void setSubObjRect(qreal dx,qreal dy);

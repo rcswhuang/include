@@ -13,7 +13,6 @@ public:
     virtual void readData(QDataStream* data);
     virtual void writeData(QDataStream* data);
 
-
     //xml文件读写
     virtual void readXml(QDomElement* data);
     virtual void writeXml(QDomElement* data);

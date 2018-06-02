@@ -143,6 +143,12 @@ enum SELECTMODE
 #define SELECT_MODE_SINGLE    01
 #define SELECT_MODE_2MULTIPLE 02
 #define SELECT_MODE_MULTIPLE  03
+
+//graphEditor中多选返回的对象
+#define TYPE_SELECT_NONE     0x00 //没有选择到
+#define TYPE_SELECT_SINGLE   0x01 //1个选择
+#define TYPE_SELECT_MULTIPLE 0x02 //多个选择
+
 //定义图元大小关系
 enum IconSize
 {
@@ -153,5 +159,13 @@ enum IconSize
 	VEqualSpace //纵向等分间距
 };
 
+//定义旋转方向
+enum IconFlip
+{
+    LeftFlip90,
+    RightFlip90,
+    HorizonFlip,
+    VerticalFlip,
+};
 
 #endif // ICONAPI_H
