@@ -116,6 +116,9 @@ public:
     //设置转换
     virtual bool getTransform(QTransform& transform,quint8 flag);
 
+    //设置映射
+    virtual void Maps(QPolygonF& pylist,quint8 flag);
+
     //是否0值
     virtual bool isZero(double value);
 

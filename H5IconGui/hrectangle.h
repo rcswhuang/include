@@ -29,9 +29,9 @@ public:
     virtual void resize(double w,double h);
     virtual void paint(QPainter* painter);
     virtual void setPainter(QPainter* painter,const QRectF& rect);
-    virtual QRectF boundingRect() const;
-    virtual bool contains(const QPointF &point) const;
-    virtual QPainterPath shape() const;
+    virtual QRectF boundingRect();
+    virtual bool contains(const QPointF &point) ;
+    virtual QPainterPath shape() ;
     virtual void resetRectPoint(const QPointF& pt1,const QPointF& pt2);
     virtual void setObjRect(const QRectF& rect);
     virtual QRectF getObjRect();
@@ -45,6 +45,9 @@ public:
     virtual double getRectWidth();
     virtual void setRectHeight(double height);
     virtual double getRectHeight();
+    virtual QPolygonF getRectLists();
+
+
     //设置其他功能
     virtual QPainterPath getPath();//只提供矩形，圆，椭圆，文字三种支持图片
     //设置绘制选择状态

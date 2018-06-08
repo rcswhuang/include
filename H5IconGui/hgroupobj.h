@@ -28,14 +28,15 @@ public:
     virtual void moveBy(qreal dx,qreal dy);
     virtual void resize(double w,double h);
     virtual void paint(QPainter* painter);
-    virtual QRectF boundingRect() const;
-    virtual bool contains(const QPointF &point) const;
-    virtual QPainterPath shape() const;
+    virtual QRectF boundingRect();
+    virtual bool contains(const QPointF &point);
+    virtual QPainterPath shape();
 
     virtual void resetRectPoint(const QPointF& pt1,const QPointF& pt2);
     virtual void setObjRect(const QRectF& rect);
     virtual QRectF getObjRect();
     virtual void setSubObjRect(qreal dx,qreal dy);
+    virtual QPolygonF getRectLists();
     //setstackobj
     virtual void drawSelect(QPainter* painter);//单个选择
     virtual void drawMulSelect(QPainter* painter,bool benchmark); //多选择

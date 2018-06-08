@@ -6,14 +6,12 @@
 #include <QGraphicsItemGroup>
 class HBaseObj;
 class HGroupObj;
-//class QObject;
-//class QRectF;
 class QPainterPath;
-//class QPointF;
 class QPainter;
 class QStyleOptionGraphicsItem;
 class QKeyEvent;
 class QGraphicsSceneMouseEvent;
+class QGraphicsItemGroup;
 class H5ICONGUI_EXPORT HIconItemGroup : public HIconGraphicsItem
 {
 public:
@@ -22,6 +20,9 @@ public:
     HIconItemGroup(HIconGraphicsItem *parent = Q_NULLPTR);
     HIconItemGroup(const QRectF &rectF, HIconGraphicsItem *parent = Q_NULLPTR);
     virtual ~HIconItemGroup();
+
+    void addToGroup(HIconGraphicsItem* item);
+    void removeFromGroup(HIconGraphicsItem *item);
 public:
     virtual void setRect(const QRectF& rect);
     virtual QRectF rect() const;
@@ -47,6 +48,7 @@ public:
 private:
     QRectF rectF;
     HGroupObj* pGroupObj;
+    QGraphicsItemGroup* m_pGraphicsItemGroup;
     ushort pointLocation;
     QPointF pointStart;
 };

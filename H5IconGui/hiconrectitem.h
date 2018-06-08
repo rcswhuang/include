@@ -5,10 +5,7 @@
 #include "hicongraphicsitem.h"
 class HBaseObj;
 class HRectangle;
-//class QObject;
-//class QRectF;
 class QPainterPath;
-//class QPointF;
 class QPainter;
 class QStyleOptionGraphicsItem;
 class QKeyEvent;
