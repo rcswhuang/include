@@ -38,7 +38,7 @@ public:
 public:
     virtual QLineF line() const;
     virtual void setLine(const QLineF& lineF);
-    void refreshBaseObj();
+    void refreshBaseObj(const QLineF& lineF);
     void resizeItem(const QPolygonF& polygonF);
 public:
     virtual QRectF boundingRect() const;

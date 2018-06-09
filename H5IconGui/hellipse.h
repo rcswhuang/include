@@ -25,9 +25,9 @@ public:
     virtual DRAWSHAPE getShapeType();
     virtual void paint(QPainter* painter);
 
-    virtual QRectF boundingRect() const;
-    virtual bool contains(const QPointF &point) const;
-    virtual QPainterPath shape() const;
+    virtual QRectF boundingRect();
+    virtual bool contains(const QPointF &point);
+    virtual QPainterPath shape();
     virtual QPainterPath getPath();//只提供矩形，圆，椭圆，文字三种支持图片
 };
 #endif // HELLIPSE_H

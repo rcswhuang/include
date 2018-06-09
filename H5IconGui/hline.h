@@ -26,13 +26,14 @@ public:
     virtual void paint(QPainter* painter);
 
     virtual void resize(double w,double h);
-    virtual QRectF boundingRect() const;
-    virtual bool contains(const QPointF &point) const;
-    virtual QPainterPath shape() const;
+    virtual QRectF boundingRect();
+    virtual bool contains(const QPointF &point) ;
+    virtual QPainterPath shape();
     virtual void resetRectPoint(const QPointF& pt1,const QPointF& pt2);
-
+    virtual QPolygonF getPointLists();
     virtual void drawSelect(QPainter* painter);//单个选择
     virtual void drawMulSelect(QPainter* painter,bool benchmark); //多选择
+
 
 public:
 
