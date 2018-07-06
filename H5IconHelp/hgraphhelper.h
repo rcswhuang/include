@@ -27,7 +27,9 @@ public:
     void loadAllGraph(QList<HGraph*> *pGraphList);
     void saveAllGraph(QList<HGraph*> *pGraphList,HGraph* pCurGraph);
 
+
     //保存画面
+    void saveGraph(HGraph* graph);
     void saveGraph(HGraph* graph,QString& path,HGraph* pCurGraph);
 
     QString getIconFolder(int nType);

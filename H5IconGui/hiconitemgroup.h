@@ -17,7 +17,7 @@ public:
     enum {Type = enumGroup};
 
     HIconItemGroup(HIconGraphicsItem *parent = Q_NULLPTR);
-    HIconItemGroup(const QRectF &rectF, HIconGraphicsItem *parent = Q_NULLPTR);
+    HIconItemGroup(HBaseObj* obj, HIconGraphicsItem *parent = Q_NULLPTR);
     virtual ~HIconItemGroup();
 
 public:

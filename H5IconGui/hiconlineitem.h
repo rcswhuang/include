@@ -33,7 +33,7 @@ public:
         LOCATIONRIGHT
     };
     HIconLineItem(HIconGraphicsItem *parent = Q_NULLPTR);
-    HIconLineItem(const QLineF &line, HIconGraphicsItem *parent = Q_NULLPTR);
+    HIconLineItem(HBaseObj* obj, HIconGraphicsItem *parent = Q_NULLPTR);
     virtual ~HIconLineItem();
 public:
     virtual QLineF line() const;

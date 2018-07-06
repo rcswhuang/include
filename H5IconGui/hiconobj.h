@@ -35,9 +35,9 @@ public:
     virtual void moveBy(qreal dx,qreal dy);
     virtual void resize(qreal w,qreal h);
     virtual void paint(QPainter* painter);
-    virtual QRectF boundingRect() const;
-    virtual bool contains(const QPointF &point) const;
-    virtual QPainterPath shape() const;
+    virtual QRectF boundingRect();
+    virtual bool contains(const QPointF &point);
+    virtual QPainterPath shape();
     virtual void resetRectPoint(const QPointF& pt1,const QPointF& pt2);
 public:
     void setUuid(const QString&);

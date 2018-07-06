@@ -24,12 +24,12 @@ class H5ICONGUI_EXPORT HIconPolygonItem : public HIconGraphicsItem
 public:
     enum {Type = enumPolygon};
     HIconPolygonItem(HIconGraphicsItem *parent = Q_NULLPTR);
-    HIconPolygonItem(const QPolygonF &polygonF, HIconGraphicsItem *parent = Q_NULLPTR);
+    HIconPolygonItem(HBaseObj* obj, HIconGraphicsItem *parent = Q_NULLPTR);
     virtual ~HIconPolygonItem();
 public:
     virtual void setPolygon(const QPolygonF & polygon);
     QPolygonF	polygon() const;
-    void refreshBaseObj();
+    void refreshBaseObj(const QPolygonF& poly);
 public:
     virtual QRectF boundingRect() const;
     virtual bool contains(const QPointF &point) const;
@@ -52,6 +52,7 @@ public:
     virtual void resizeItem(const QPolygonF& polygonF);
     virtual void setRect(const QRectF& rect);
     virtual QRectF rect() const;
+
 public:
     HPolygon* pPolygonObj;
     ushort rectMode;

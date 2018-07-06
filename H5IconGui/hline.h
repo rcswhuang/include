@@ -21,6 +21,7 @@ public:
     virtual void copyTo(HBaseObj* obj);
     virtual void clone(HBaseObj* obj);
 
+    virtual QLineF getObjLine();
     virtual DRAWSHAPE getShapeType();
     virtual void moveBy(qreal dx,qreal dy);
     virtual void paint(QPainter* painter);
@@ -33,7 +34,6 @@ public:
     virtual QPolygonF getPointLists();
     virtual void drawSelect(QPainter* painter);//单个选择
     virtual void drawMulSelect(QPainter* painter,bool benchmark); //多选择
-
 
 public:
 

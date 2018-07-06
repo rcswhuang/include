@@ -21,12 +21,12 @@ class H5ICONGUI_EXPORT HIconPolylineItem : public HIconGraphicsItem
 public:
     enum {Type = enumPolyline};
     HIconPolylineItem(HIconGraphicsItem *parent = Q_NULLPTR);
-    HIconPolylineItem(const QPolygonF &polygonF, HIconGraphicsItem *parent = Q_NULLPTR);
+    HIconPolylineItem(HBaseObj* obj, HIconGraphicsItem *parent = Q_NULLPTR);
     virtual ~HIconPolylineItem();
 public:
     virtual void setPolygon(const QPolygonF & polygon);
     QPolygonF	polygon() const;
-    void refreshBaseObj();//
+    void refreshBaseObj(const QPolygonF& polygon);//
 public:
     virtual QRectF boundingRect() const;
     virtual bool contains(const QPointF &point) const;

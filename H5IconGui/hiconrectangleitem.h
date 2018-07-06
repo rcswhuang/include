@@ -1,5 +1,5 @@
-#ifndef HICONRECTITEM_H
-#define HICONRECTITEM_H
+#ifndef HICONRECTANGLEITEM_H
+#define HICONRECTANGLEITEM_H
 #include <QtGlobal>
 #include "hiconapi.h"
 #include "hicongraphicsitem.h"
@@ -10,14 +10,14 @@ class QPainter;
 class QStyleOptionGraphicsItem;
 class QKeyEvent;
 class QGraphicsSceneMouseEvent;
-class H5ICONGUI_EXPORT HIconRectItem : public HIconGraphicsItem
+class H5ICONGUI_EXPORT HIconRectangleItem : public HIconGraphicsItem
 {
 public:
     enum {Type = enumRectangle};
 
-    HIconRectItem(HIconGraphicsItem *parent = Q_NULLPTR);
-    HIconRectItem(const QRectF &rectF, HIconGraphicsItem *parent = Q_NULLPTR);
-    virtual ~HIconRectItem();
+    HIconRectangleItem(HIconGraphicsItem *parent = Q_NULLPTR);
+    HIconRectangleItem(HBaseObj* obj, HIconGraphicsItem *parent = Q_NULLPTR);
+    virtual ~HIconRectangleItem();
 public:
     virtual void setRect(const QRectF& rect);//no
     virtual QRectF rect() const; //no

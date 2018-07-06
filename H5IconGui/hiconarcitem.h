@@ -3,7 +3,7 @@
 
 #include <QtGlobal>
 #include "hiconapi.h"
-#include "hiconrectitem.h"
+#include "hiconrectangleitem.h"
 class HBaseObj;
 class HArc;
 //class QRectF;
@@ -14,12 +14,12 @@ class QStyleOptionGraphicsItem;
 class QKeyEvent;
 class QGraphicsSceneMouseEvent;
 
-class H5ICONGUI_EXPORT HIconArcItem : public HIconRectItem
+class H5ICONGUI_EXPORT HIconArcItem : public HIconRectangleItem
 {
 public:
     enum {Type = enumArc};
-    HIconArcItem(HIconRectItem *parent = Q_NULLPTR);
-    HIconArcItem(const QRectF &rectF, HIconRectItem *parent = Q_NULLPTR);
+    HIconArcItem(HIconRectangleItem *parent = Q_NULLPTR);
+    HIconArcItem(HBaseObj* obj, HIconRectangleItem *parent = Q_NULLPTR);
     ~HIconArcItem();
 public:
     virtual void setRect(const QRectF& rect);
@@ -32,7 +32,7 @@ public:
     virtual QPainterPath shape() const;
     virtual int type() const;
     virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
-    //virtual void mousePressEvent(QGraphicsSceneMouseEvent *event);
+    virtual void mousePressEvent(QGraphicsSceneMouseEvent *event);
     //virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
     //virtual void keyPressEvent(QKeyEvent *event);
 public:
