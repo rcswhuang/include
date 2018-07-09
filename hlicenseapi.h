@@ -23,7 +23,8 @@ extern "C"
     void LICENSE_EXPORT getActivateCode(char* pMachineID,char* pActCode,int len);//激活码
     void LICENSE_EXPORT getTempActivateCode(int year,int month,int day,char* pTempActCode,int len);
     bool LICENSE_EXPORT registerSystem(char* pActiveCode,quint16 wLen);
-    quint8 LICENSE_EXPORT validActiveCode();
+    quint8 LICENSE_EXPORT validActivateCode();
+    void LICENSE_EXPORT startActivate(quint8 licenseType);
 
 #ifdef __cplusplus
 }
