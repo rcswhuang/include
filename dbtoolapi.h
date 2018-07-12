@@ -44,12 +44,12 @@
 //定义组态工具 遥信 转发标志
 #define TRANS_DIGITAL_TOSCADA     0x01 //送监控
 #define TRANS_DIGITAL_FROMSCADA   0x02 //从监控接受
-#define TRANS_DIGITAL_FROMUT      0x04 //从优特接受
-#define TRANS_DIGITAL_TOMNP       0x08 //送模拟屏
+//#define TRANS_DIGITAL_FROMUT      0x04 //从优特接受
+//#define TRANS_DIGITAL_TOMNP       0x08 //送模拟屏
 
 
 //定义组态工具 遥测 转发标志
-#define TRANS_ANALOGUE_TOMNP      0x10
+//#define TRANS_ANALOGUE_TOMNP      0x10
 #define TRANS_ANALOGUE_FROMSCADA  0x20
 #define TRANS_ANALOGUE_TOSCADA    0x40
 

@@ -5,7 +5,6 @@
 #include "time.h"
 
 #include "fileexport.h"
-#include "hformulaexport.h"
 /*
  * 命名规则:类型统一采用qt定义的方式，对于变量bt表示1个字节,w表示2个字节,n表示4个字节,dw表示8个字节,sz表示字符串数组,str表示QString类
  * quint8 <-> BYTE<->uchar  quint16 <-> WORD <-> ushort  ulong <-> DWORD  uint <-> UINT <-> quint32
@@ -52,22 +51,41 @@ typedef struct _tagDATAFILEHEADER
 #define HEADER_SIZE   (sizeof(DATAFILEHEADER) )
 
 //#define MAX_PATH 256
-//各种文件路径
+//各种文件路径 多余的部分一律删除 ---huangw
 #define DFPATH_DATA 				0//数据
 #define DFPATH_GRAPH				1//图形
-#define DFPATH_SYMBOL				2//图符
+#define DFPATH_ICON				2//图符
 #define DFPATH_BITMAP				3//位图
 #define DFPATH_MACRO				4//图元组合
 #define DFPATH_MEDIA				5//媒体
-#define DFPATH_OPERATETICKET		6//操作票
+#define DFPATH_OPERATETICKET		        6//操作票
 #define DFPATH_WORKNOTE				7//工作票
 #define DFPATH_EVENT				8//事件
 #define DFPATH_REPORT				9//报表
 #define DFPATH_SIGNPAD 				10//接地牌
-#define DFPATH_FIL					11
-#define DFPATH_INI                  12
-#define DFPATH_PLUGIN               13
-#define DFPATH_LAST 				13
+#define DFPATH_FIL			        11
+#define DFPATH_INI                              12
+#define DFPATH_PLUGIN                           13
+#define DFPATH_BIN                              14
+#define DFPATH_LAST 				14
+
+#define PATH_DATA            "data"
+#define PATH_GRAPH           "graph"
+#define PATH_ICON            "icon"
+#define PATH_BITMAP          "bitmap"
+#define PATH_MACRO           "macro"
+#define PATH_MEDIA           "media"
+#define PATH_OPERATETICKET   "ticket"
+#define PATH_WORKNOTE        "worknote"
+#define PATH_EVENT	     "event"
+#define PATH_REPORT          "report"
+#define PATH_SIGNPAD         "signpad"
+#define PATH_FIL             "fil"
+#define PATH_INI             "ini"
+#define PATH_PLUGIN          "plugin"
+#define PATH_BIN             "bin"
+
+
 
 #define DFPATH_EXECUTE				1001 //当前执行路径
 #define DFPATH_SYSTEM				1002 //系统路径
@@ -133,7 +151,7 @@ typedef struct _tagGRAPHINFO
     int nGraphHeight; //高度
     int nRefreshInterval; //刷新间隔
     QString strFillColor;//背景填充颜色
-	QString strFillPicture;//填充图片路径
+    QString strFillPicture;//填充图片路径
     bool bStartGraph;//是不是启动画面
     uchar btType;//画面类型
     ushort wStationNo;//厂站ID
@@ -154,13 +172,15 @@ typedef struct _tagGRAPHINFO
 #define TREEPARAM_DIGITAL             5  //遥信
 #define TREEPARAM_ANALOGUE            6  //遥测
 
-#define TREEPARAM_DIGITALFROMSCADA    7  //从scada接受
-#define TREEPARAM_DIGITALTOSCADA      8  //送scada
-#define TREEPARAM_DIGITALTOSIM        10 //送模拟屏遥信
+#define TREEPARAM_SCADASYSTEM         7 //监控数据
+#define TREEPARAM_DIGITALFROMSCADA    8  //从scada接受
+#define TREEPARAM_DIGITALTOSCADA      9  //送scada
+#define TREEPARAM_ANALOGUEFROMSCADA   10
+#define TREEPARAM_ANALOGUETOSCADA     11 //送第二模拟屏
 
-#define TREEPARAM_ANALOGUEFROMSCADA   9
-#define TREEPARAM_ANALOGUETOSIM       11 //送模拟屏遥测
-#define TREEPARAM_ANALOGUETOSCADA     12 //送第二模拟屏
+
+#define TREEPARAM_DIGITALTOSIM        12 //送模拟屏遥信
+#define TREEPARAM_ANALOGUETOSIM       13 //送模拟屏遥测
 
 
 //操作术语树结构
@@ -169,7 +189,10 @@ typedef struct _tagGRAPHINFO
 #define TREEPARAM_GLOSSARY_OPEN       16 //分
 #define TREEPARAM_GLOSSARY_CLOSE      17 //合
 #define TREEPARAM_GLOSSARY_TISHI      18//提示
-#define TREEPARAM_USERDB              20 //用户定义
+
+//插件部分
+#define TREEPARAM_USERDBROOT          20
+#define TREEPARAM_USERDB              21 //用户定义
 
 //备注：等到测试结束以后，该结构还是需要进行扩展。但不用扩展很多。
 //有关五防厂站遥信遥测等数据结构定义
@@ -215,26 +238,23 @@ typedef struct _tagGRAPHINFO
 #define     ATTR_DGT_EQUIPMENTID 0x037
 #define     ATTR_DGT_GROUPID     0x038
 #define     ATTR_DGT_POWERGRADE  0x039
-#define     ATTR_DGT_GLOSSARYID  0x03A
-#define     ATTR_DGT_RULEFENID   0x03B
-#define     ATTR_DGT_RULEHEID    0x03C
-#define     ATTR_DGT_RULEJXFENID 0x03D
-#define     ATTR_DGT_RULEJXHEID  0x03E
-#define     ATTR_DGT_LOCKNO      0x03F
-#define     ATTR_DGT_HELOCKNO    0x040
-#define     ATTR_DGT_FENLOCKNO   0x041
-#define     ATTR_DGT_SENDFLAG    0x042
-#define     ATTR_DGT_DOUBLEDGTID 0x043
-#define     ATTR_DGT_OPFLAG      0x044
-#define     ATTR_DGT_FORMULAID   0x045
-#define     ATTR_DGT_VALUE       0x046
-#define     ATTR_DGT_RSNO        0x047
-#define     ATTR_DGT_RNO         0x048
-#define     ATTR_DGT_MEASURE     0x049
-#define     ATTR_DGT_4_STATE_VALUE     0x04A //4态遥信
-#define     ATTR_DGT_PFLAG       0x4B
-#define     ATTR_DGT_RFLAG       0x4C
-
+#define     ATTR_DGT_GLOSSARYID  0x040
+#define     ATTR_DGT_RULEFENID   0x041
+#define     ATTR_DGT_RULEHEID    0x042
+#define     ATTR_DGT_RULEJXFENID 0x043
+#define     ATTR_DGT_RULEJXHEID  0x044
+#define     ATTR_DGT_LOCKNO      0x045
+#define     ATTR_DGT_HELOCKNO    0x046
+#define     ATTR_DGT_FENLOCKNO   0x047
+#define     ATTR_DGT_SENDFLAG    0x048
+#define     ATTR_DGT_DOUBLEDGTID 0x049
+#define     ATTR_DGT_OPFLAG      0x050
+#define     ATTR_DGT_FORMULAID   0x051
+#define     ATTR_DGT_VALUE       0x052
+#define     ATTR_DGT_RSNO        0x053
+#define     ATTR_DGT_RNO         0x054
+#define     ATTR_DGT_MEASURE     0x055
+#define     ATTR_DGT_4_STATE_VALUE     0x056 //4态遥信
 #define     ATTR_DGT_TOTALNORMALCLOSE 0x030D   //正常合闸总数
 #define     ATTR_DGT_TOTALNORMALOPEN   0x030E //,       "正常分闸总数"},
 #define     ATTR_DGT_TOTALFAULTSWITCH  0x030F //,      "事故变位总数"},
@@ -320,11 +340,11 @@ typedef struct _tagGRAPHINFO
 //结果
 #define RESULT_MANUAL      ((ushort)0x0001) //人工置数
 #define RESULT_ACK         ((ushort)0x0002) //确认
-#define RESULT_WARNINGHI   ((ushort)0x0004) //模拟量 越上限
-#define RESULT_WARNINGLO   ((ushort)0x0008) //数字量 越下线
-#define RESULT_STOP        ((ushort)0x00010) //无效值
+#define ENABLE_WARNINGHI   ((ushort)0x0004) //模拟量 越上限
+#define ENABLE_WARNINGLO   ((ushort)0x0008) //数字量 越下线
+#define ENABLE_STOP        ((ushort)0x00010) //无效值
 #define RESULT_CHANGE      ((ushort)0x0004) //数字量 正常变位
-#define RESULT_ACCIDENT    ((ushort)0x0008) //数字量 事故变位
+#define ENABLE_ACCIDENT    ((ushort)0x0008) //数字量 事故变位
 
 
 
@@ -336,7 +356,7 @@ typedef struct _tagStation
     ushort wStationAddress;//装置地址
     uchar  btStationLock; //厂站解闭锁状态
 	
-    //厂站内部各种类型对象的个数
+   //厂站内部各种类型对象的个数
     ushort wDigitalCounts;
     ushort wAnalogueCounts;
     ushort wRelayCounts;
@@ -390,21 +410,32 @@ typedef struct _tagDigital
     ushort  wDoubleDgtID;//双点遥信
     uchar   btOPFlag;//操作标志 遥控/就地
     ushort  wFormulaID;//公式ID
-    int     wPFlag; //允许标志 遥控、遥调、取反、计算等允许标志
-    int     wRFlag; //结果标志 正常变位等
+    ushort  wPFlag; //允许标志 遥控、遥调、取反、计算等允许标志
+    ushort  wRFlag; //结果标志 正常变位等
     uchar   btFUN;
     uchar   btINF;
     uchar   btRunValue; //实际运行值
-	  time_t  tLastRunChange;//最后一次实际运行值改变时间
+    time_t  tLastRunChange;//最后一次实际运行值改变时间
     uchar   btPreviewValue;
-	  time_t  tLastPreviewChange;
+    time_t  tLastPreviewChange;
     ushort  wRSNo; //相关遥控点厂ID
     ushort  wRNo; //相关遥控点ID
     ushort  wDigitalLock;//遥信闭锁标志
     ushort  wToScadaIndex; //转发索引 到监控
     ushort  wFromScadaIndex; //从监控
     ushort  wToSimIndex; //发给第三方
-	
+    ushort  wFromUTWFIndex;
+    ushort  wSendIndex;//"发送"到模拟屏2的序号  多个模拟屏发送的情况下
+    ushort  wGroupTT;//间隔投入
+    ushort  wReserved1;
+    ushort  wReserved2;
+    ushort  wReserved3;
+    ushort  wReserved4;
+    ushort  wReserved5;
+    ushort  wReserved6;
+    ushort  wReserved7;
+    ushort  wReserved8;
+    ushort  wReserved9;
 }DIGITAL;
 
 
@@ -437,31 +468,42 @@ typedef struct _tagDigitalExt
 //遥测结构
 typedef struct _tagAnalogue
 {
-    ushort wStationID;
-    ushort wAnalogueID;
+    ushort  wStationID;
+    ushort  wAnalogueID;
     char   szAnalogueName[ANALOGUENAMELEN];
     char   szAnalogueOriginalName[ANALOGUENAMELEN];
-    uchar  btAnalogueType;//类型 电压电流
-    uchar  btUint;//单位
-    float  fCC1;
-    float  fCC2;
-    float  fCC3;
-    float  fDifference;//残差
-    float  fGrades;//梯度
-    ushort wSendFlag;//转发标志
-    ulong  dwEquipmentID;
+    uchar   btAnalogueType;//类型 电压电流
+    uchar   btUint;//单位
+    float   fCC1;
+    float   fCC2;
+    float   fCC3;
+    float   fDifference;//残差
+    float   fGrades;//梯度
+    ushort  wSendFlag;//转发标志
+    ulong   dwEquipmentID;
     char   szEquipmentID[EQUIPMENTLEN];
-    ushort wGroupID;
-    int    nPowerGrade;
-    ushort wRelDigitalID;//相关遥信
+    ushort  wGroupID;
+    int     nPowerGrade;
+    ushort  wRelDigitalID;//相关遥信
     ushort  wPFlag; //允许标志 遥控、遥调、取反、计算等允许标志
     ushort  wRFlag; //结果标志 正常变位等
-    quint8 btFUN;
-    quint8 btINF;
-	  float fValue;
+    quint8  btFUN;
+    quint8  btINF;
+    float   fValue;
     ushort  wToScadaIndex; //转发索引 到监控
     ushort  wFromScadaIndex; //从监控
     ushort  wToSimIndex; //发给第三方
+    ushort  wToSimulatorIndex2;
+    ushort  wSendIndex;
+    ushort  wReserved1;
+    ushort  wReserved2;
+    ushort  wReserved3;
+    ushort  wReserved4;
+    ushort  wReserved5;
+    ushort  wReserved6;
+    ushort  wReserved7;
+    ushort  wReserved8;
+    ushort  wReserved9;
 }ANALOGUE;
 
 typedef struct _tagAnalogueExt
@@ -520,8 +562,7 @@ typedef struct _tagGlossaryGroup
     ushort  wGlossaryGroupID;
     char    szGloassaryGroup[TERMGLOSSARYLEN];
     uchar   btGlossaryGroupType;//开关、刀闸等类型
-
-    ushort  wGlossaryCounts; //管理的操作术语的个数
+	ushort  wGlossaryCounts; //管理的操作术语的个数
 }GLOSSARYGROUP;
 
 //操作术语项
@@ -540,9 +581,8 @@ typedef struct _tagDgtToTerm
     ushort wDgtNo;
     ushort wTermID;
     ushort wGlossaryNum;
-    ushort wGlossaryID[1];
+    ushort wGlossaryID[1];//array 0 open 1 close 
 }DGTToTERM;
-
 
 //五防锁类型
 typedef struct _tagLockType
@@ -613,6 +653,7 @@ typedef struct _tagWfDigitalLockNo
     ulong	dwReserved15;   //备份15
 }DIGITALLOCKNO;
 
+
 ////////////////////////////////////////////////////////////////重写了
 //typedef bool (*LPFORMULAPROC)(int nMsgType,long wParam,long lParam,int nDBID);
 /////////////////////////////////////////对外接口///////////////////////////////////////
@@ -655,6 +696,7 @@ extern "C"
 #ifdef __cplusplus
 }
 #endif
+
 
 }
 #endif
