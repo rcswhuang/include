@@ -4,8 +4,7 @@
 #include "hformulaexport.h"
 #include <QList>
 #include <QString>
-extern "C"
-{
+
 typedef unsigned int WPARAM;
 typedef long LPARAM;
 
@@ -274,7 +273,7 @@ void FORMULA_EXPORT deleteFormula(ushort wNo);
 bool FORMULA_EXPORT createFormula(FORMULA* pFormula,ushort wNo);//创建某个测点wNo的公式
 bool FORMULA_EXPORT compileFormula(const char* szFormula,FORMULA* pFormula);//编译公式
 
-FORMULA_EXPORT const char*  getFormulaText(FORMULA* formula,bool bValue);
+FORMULA_EXPORT QString  getFormulaText(FORMULA* formula,bool bValue);
 void FORMULA_EXPORT replaceFormulaItem(FORMULA* pFormula,ITEM* pOld,ITEM* pNew);
 void FORMULA_EXPORT onFormulaIdle();
 
@@ -285,5 +284,4 @@ bool FORMULA_EXPORT checkRuleFormulaConflict(ushort wNo,ushort wStation,ushort w
 }
 #endif
 
-}
 #endif // FORMULAPI_H
