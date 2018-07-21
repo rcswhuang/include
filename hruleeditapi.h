@@ -1,4 +1,4 @@
-#ifndef RULEEDITAPI_H
+﻿#ifndef RULEEDITAPI_H
 #define RULEEDITAPI_H
 #include <QtGlobal>
 #include <QString>
@@ -104,26 +104,27 @@ enum SELECTMODE
 
 
 //比较符定义
+/*
 #define OP_RGREATER      0x01 //>
 #define OP_RLOWER        0x02  // <
 #define OP_REQUAL        0x03 // =
 #define OP_RGEQUAL       0x04 //>=
 #define OP_RLEQUAL       0x05 //<=
 #define OP_RNEQUAL       0x06 // !=
-
+*/
 #define TYPE_COMPARE_ANALOGUE 0x01
 #define TYPE_COMPARE_CONST    0x02
 //规则文件接口类型
 /*
- * 主要是接收接口传递过来的站内相关参数信息
+ * 主要是接收外部接口传递过来的站内相关参数信息
 */
-typedef struct _tagRuleFileData
+typedef struct _tagRuleApiParam
 {
     QString strStationName;
-    QString strProtectName;//装置/间隔
+    QString strDeviceName;//装置/间隔
     QString strPointName;
     quint16 wStationNo;
-    quint16 wProtectNo;
+    quint16 wDeviceNo;
     quint16 wPointNo;
     quint8  btPointType;//测点类型 遥测 遥信 遥控
     quint8  btYKType;
@@ -132,16 +133,16 @@ typedef struct _tagRuleFileData
     quint16 wReserve1;
     quint16 wReserve2;
     quint16 wReserve3;
-}RULEFILEDATA;
+}RULEAPIPARAM;
 
 /*
  * 规则模块采用此参数去组态模块或者运行模块获取测点信息
 */
-typedef struct _tagRULEPARAM
+typedef struct _tagRuleInfo
 {
     //
     quint16 wStationNo;//站号
-    quint16 wProtectNo; //装置ID 联锁组态用
+    quint16 wDeviceNo; //装置ID 联锁组态用
     quint8  btPointType; //测点类型 五防用
     quint16 wPointNo;//当联锁组态时为GIN号，当是测点类型时为点号
     quint16 wAttr;
@@ -156,8 +157,8 @@ typedef struct _tagRULEPARAM
     QString strProtectName;
     QString strPointName;
     QString strAttr;
-    float fRating;//额定值
-}RULEPARAM;
+    //float fRating;//额定值
+}RULEINFO;
 //对外接口
 
 /*
@@ -169,13 +170,13 @@ typedef struct _tagRULEPARAM
 extern "C"
 {
 #endif
-typedef RULE_EXPORT  bool (* LPRULEDATACALLBACK)(int msgType,RULEPARAM *ruleParam);
+typedef RULE_EXPORT  bool (* LPRULEDATACALLBACK)(int msgType,RULEINFO *ruleParam);
 
-bool RULE_EXPORT initRuleFiles(quint8 btType,char* szFilePath,LPRULEDATACALLBACK lpDataCallBack);
+bool RULE_EXPORT initRuleFiles(quint8 btType,LPRULEDATACALLBACK lpDataCallBack);
 
 void RULE_EXPORT exitRuleFiles();
 
-void RULE_EXPORT openRuleWindow(quint16 wStationNo, //厂站ID
+bool RULE_EXPORT openRuleWindow(quint16 wStationNo, //厂站ID
                                 quint16 wPointType, //测点类型 （如果有装置就是装置的地址)
                                 quint16 wPointNo,  //测点ID
                                 quint8  btRelayType, //分，合，检修分，检修合

@@ -5,8 +5,8 @@
 #include <QList>
 #include <QString>
 
-typedef unsigned int WPARAM;
-typedef long LPARAM;
+typedef unsigned int HWPARAM;
+typedef long HLPARAM;
 
 //定义相关类型 最好移到publicdata.h
 #define MAXATTRNAMELEN	32
@@ -254,7 +254,7 @@ typedef struct _tagITEMDATA
 extern "C"
 {
 #endif
-typedef FORMULA_EXPORT bool (*LPFORMULAPROC)(int nMsgType,WPARAM wParam,LPARAM lParam,int nDBID);
+typedef FORMULA_EXPORT bool (*LPFORMULAPROC)(int nMsgType,HWPARAM wParam,HLPARAM lParam,int nDBID);
 
 FORMULA_EXPORT bool initFormula(LPFORMULAPROC lpFormulaProc,uchar btModuleType /*= MODULE_ID*/);
 void FORMULA_EXPORT exitFormula();
