@@ -5,8 +5,6 @@
 #include <QList>
 #include <QString>
 
-typedef unsigned int HWPARAM;
-typedef long HLPARAM;
 
 //定义相关类型 最好移到publicdata.h
 #define MAXATTRNAMELEN	32
@@ -182,6 +180,7 @@ typedef struct _tagITEMDATA
 
 #define INVALID_FLOAT 3.4e+38F  //超大值
 #define INVALID_TIME 0
+
 //回调消息类型
 #define FM_GETDBINFO       0 //获取点或者厂站信息
 #define FM_FINDDBINFO      1 //根据index获取点或者厂站信息
@@ -273,7 +272,7 @@ void FORMULA_EXPORT deleteFormula(ushort wNo);
 bool FORMULA_EXPORT createFormula(FORMULA* pFormula,ushort wNo);//创建某个测点wNo的公式
 bool FORMULA_EXPORT compileFormula(const char* szFormula,FORMULA* pFormula);//编译公式
 
-FORMULA_EXPORT QString  getFormulaText(FORMULA* formula,bool bValue);
+FORMULA_EXPORT QString& getFormulaText(FORMULA* formula,bool bValue);//
 void FORMULA_EXPORT replaceFormulaItem(FORMULA* pFormula,ITEM* pOld,ITEM* pNew);
 void FORMULA_EXPORT onFormulaIdle();
 

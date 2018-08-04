@@ -3,8 +3,13 @@
 #include <QtGlobal>
 #include <QString>
 #include "time.h"
-
 #include "fileexport.h"
+
+#define SYSENVIRONMENTVAR "wfsystem_dir"
+
+typedef unsigned int HWPARAM;
+typedef long HLPARAM;
+
 /*
  * 命名规则:类型统一采用qt定义的方式，对于变量bt表示1个字节,w表示2个字节,n表示4个字节,dw表示8个字节,sz表示字符串数组,str表示QString类
  * quint8 <-> BYTE<->uchar  quint16 <-> WORD <-> ushort  ulong <-> DWORD  uint <-> UINT <-> quint32
@@ -337,6 +342,7 @@ typedef struct _tagGRAPHINFO
 
 #define ENABLE_ANALOGUE  (ENABLE_ABS | ENABLE_SETPOINT | ENABLE_WARNING | ENABLE_SOUND | ENABLE_FORMULA | ENABLE_SCAN)
 #define ENABLE_DIGITAL   (ENABLE_INE | ENABLE_RELAY | ENABLE_CHANGE | ENABLE_SOUND | ENABLE_REPAIR | ENABLE_FORMULA | ENABLE_SCAN)
+
 //结果
 #define RESULT_MANUAL      ((ushort)0x0001) //人工置数
 #define RESULT_ACK         ((ushort)0x0002) //确认
@@ -346,7 +352,8 @@ typedef struct _tagGRAPHINFO
 #define RESULT_CHANGE      ((ushort)0x0004) //数字量 正常变位
 #define ENABLE_ACCIDENT    ((ushort)0x0008) //数字量 事故变位
 
-
+//插件类型
+#define PLUGIN_ID_CDT 0x01
 
 //厂站结构
 typedef struct _tagStation

@@ -120,9 +120,9 @@ enum SELECTMODE
 */
 typedef struct _tagRuleApiParam
 {
-    QString strStationName;
-    QString strDeviceName;//装置/间隔
-    QString strPointName;
+    //QString strStationName;
+    //QString strDeviceName;//装置/间隔
+    //QString strPointName;
     quint16 wStationNo;
     quint16 wDeviceNo;
     quint16 wPointNo;
@@ -175,6 +175,8 @@ typedef RULE_EXPORT  bool (* LPRULEDATACALLBACK)(int msgType,RULEINFO *ruleParam
 bool RULE_EXPORT initRuleFiles(quint8 btType,LPRULEDATACALLBACK lpDataCallBack);
 
 void RULE_EXPORT exitRuleFiles();
+
+bool RULE_EXPORT saveRuleFiles();
 
 bool RULE_EXPORT openRuleWindow(quint16 wStationNo, //厂站ID
                                 quint16 wPointType, //测点类型 （如果有装置就是装置的地址)
