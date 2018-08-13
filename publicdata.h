@@ -82,7 +82,7 @@ typedef struct _tagDATAFILEHEADER
 #define PATH_MEDIA           "media"
 #define PATH_OPERATETICKET   "ticket"
 #define PATH_WORKNOTE        "worknote"
-#define PATH_EVENT	     "event"
+#define PATH_EVENT	         "event"
 #define PATH_REPORT          "report"
 #define PATH_SIGNPAD         "signpad"
 #define PATH_FIL             "fil"
@@ -212,6 +212,19 @@ typedef struct _tagGRAPHINFO
 #define POINTTERMLEN        64
 #define TERMGLOSSARYLEN     128
 #define LOCKTYPENAMELEN     64
+
+
+#define OPERASHEETNAMELEN	           256 //操作票标题
+#define OPERASHEETDESCRIBELEN          768 //任务描述
+//#define	REPORTNAMELEN				64  //操作票模板名称
+//#define	FRONTDESCLEN				128 //前景点描述
+#define	OPERASHEETCONTENTLEN	        512 //操作票语句
+#define	OPERASHEETREMARKLEN             1024//操作票备注
+#define OPERATORLEN                     64 //操作人员长度
+
+
+
+
 
 //实时库内部的数据类型
 #define TYPE_NULL            0
@@ -660,6 +673,50 @@ typedef struct _tagWfDigitalLockNo
     ulong	dwReserved15;   //备份15
 }DIGITALLOCKNO;
 
+//////////////////////////////////////////////////操作票相关结构//////////////////////////////////////////////////////////////////////
+//操作票信息类
+typedef struct _tagOperaSheetInfo
+{
+    ushort wStationID;
+    ushort wGroupID;
+    ushort wOpSheetID;
+    ushort wOpSheetNo;
+    char szOpSheetTitle[OPERASHEETNAMELEN];
+    char szOpSheetDescripe[OPERASHEETDESCRIBELEN];
+    char sz[];
+    uchar btOpSheetTaskType;//操作票任务类型/停/送/检修...
+    uchar btOpSheetType;//操作票类型
+    int   nOpSheetSteps;//操作票总步骤
+    char  szOperator[OPERATORLEN];//操作人
+    char  szGuardian[OPERATORLEN];//监护人
+    char  szEditor[OPERATORLEN];//编辑人
+    time_t tOperTime;//操作时间
+
+}OPSHEETINFO;
+
+
+//操作票步骤类
+typedef struct _tagOperatorSheetStep
+{
+    ushort wOpSheetID; //操作票号
+    int    nStepIndex;  //当前操作票步序号
+    int    nPreStepIndex; //前一步序号
+    int    nNextStepIndex; //后一步序号
+
+    ushort wOpStID;
+    ushort wOpPtID;
+    uchar  btOpType;
+    ushort wOpTerm; //操作术语
+    uchar  btLockType;//锁类型
+    ulong  dwMainLockNo;
+    ulong  dwOpenLockNo;
+    ulong  dwCloseLockNo;
+    char   szContent[OPERASHEETCONTENTLEN];
+    time_t tOpTime;
+    char   szRemark[OPERASHEETREMARKLEN];
+    ushort wOpFlag;
+
+}OPSHEETSTEP;
 
 ////////////////////////////////////////////////////////////////重写了
 //typedef bool (*LPFORMULAPROC)(int nMsgType,long wParam,long lParam,int nDBID);
