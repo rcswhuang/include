@@ -30,9 +30,9 @@ typedef struct _tagDBFILEHANDLE
     ushort wLockType;
     ushort wPowerGrade;
     ushort wRule;
-    ushort wPointTerm;
-    ushort wGlossary;
-    ushort wGlossaryGroup;
+    ushort wPointType;
+    ushort wOpTerm;
+    ushort wOpTermGroup;
     ushort wDigitalLockNo;
     ushort wReserved3;
     ushort wReserved4;
@@ -48,7 +48,7 @@ typedef struct _tagDATAFILEHEADER
     uchar   btVersion[2];//版本
     uchar   btType;
     ushort  wTotal; //保存的数据结构的个数
-    ushort  wRecLength;//所需保存的数据结构的长度
+    ushort  wTypeLen;//所需保存的数据结构的长度
     ushort  wReserved;
     ushort  wReserved1;
 } DATAFILEHEADER;
@@ -57,79 +57,58 @@ typedef struct _tagDATAFILEHEADER
 
 //#define MAX_PATH 256
 //各种文件路径 多余的部分一律删除 ---huangw
-#define DFPATH_DATA 				0//数据
-#define DFPATH_GRAPH				1//图形
-#define DFPATH_ICON				2//图符
-#define DFPATH_BITMAP				3//位图
-#define DFPATH_MACRO				4//图元组合
-#define DFPATH_MEDIA				5//媒体
-#define DFPATH_OPERATETICKET		        6//操作票
-#define DFPATH_WORKNOTE				7//工作票
-#define DFPATH_EVENT				8//事件
-#define DFPATH_REPORT				9//报表
-#define DFPATH_SIGNPAD 				10//接地牌
-#define DFPATH_FIL			        11
-#define DFPATH_INI                              12
-#define DFPATH_PLUGIN                           13
-#define DFPATH_BIN                              14
-#define DFPATH_LAST 				14
-
-#define PATH_DATA            "data"
-#define PATH_GRAPH           "graph"
-#define PATH_ICON            "icon"
-#define PATH_BITMAP          "bitmap"
-#define PATH_MACRO           "macro"
-#define PATH_MEDIA           "media"
-#define PATH_OPERATETICKET   "ticket"
-#define PATH_WORKNOTE        "worknote"
-#define PATH_EVENT	         "event"
-#define PATH_REPORT          "report"
-#define PATH_SIGNPAD         "signpad"
-#define PATH_FIL             "fil"
-#define PATH_INI             "ini"
-#define PATH_PLUGIN          "plugin"
-#define PATH_BIN             "bin"
-
-
-
-#define DFPATH_EXECUTE				1001 //当前执行路径
-#define DFPATH_SYSTEM				1002 //系统路径
+#define DFPATH_DATA 		0//数据
+#define DFPATH_GRAPH		1//图形
+#define DFPATH_ICON		2//图符
+#define DFPATH_BITMAP	        3//位图
+#define DFPATH_MACRO	        4//图元组合
+#define DFPATH_MEDIA		5//媒体
+#define DFPATH_OPSHEET		6//操作票
+#define DFPATH_WORKNOTE		7//工作票
+#define DFPATH_EVENT		8//事件
+#define DFPATH_REPORT		9//报表
+#define DFPATH_SIGNPAD 		10//接地牌
+#define DFPATH_FIL	        11
+#define DFPATH_INI              12
+#define DFPATH_PLUGIN           13
+#define DFPATH_BIN              14
+#define DFPATH_LAST 		14
 
 
 // 五防各种数据文件类型的定义
-#define FILE_TYPE_FIRST 			0x00 //
-#define FILE_TYPE_STATION			0x00 //厂站
-#define FILE_TYPE_DIGITAL			0x01 //遥信
-#define FILE_TYPE_ANALOGUE		    0x02
-#define FILE_TYPE_EQUIPMENTGROUP	0x03
-#define FILE_TYPE_EQUIPMENT			0x04
-#define FILE_TYPE_POWERGRADE		0x05
-#define FILE_TYPE_POINTTERM		    0x06
-#define FILE_TYPE_LOCKTYPE			0x07
-#define FILE_TYPE_OPERATERULE	    0x08
-#define FILE_TYPE_OPERATETICKETHEAD 0x09
-#define FILE_TYPE_RELAY 			0x0A
-#define FILE_TYPE_GLOSSARY	        0x0B
-#define FILE_TYPE_GLOSSARYGROUP		0x0C
-#define FILE_TYPE_EVENTTICKETDATA	0x0D
-#define FILE_TYPE_REPORTHEAD		0x0E
-#define FILE_TYPE_WORKNOTEHEAD		0x0F
-#define FILE_TYPE_REPORT			0x10
-#define FILE_TYPE_MEASURE			0x20
-#define FILE_TYPE_LIMIT 			0x21
-#define FILE_TYPE_SYMBOL			0x22
-#define FILE_TYPE_PASSWD			0x23
-#define FILE_TYPE_FORMULA			0x24
-#define FILE_TYPE_ITEM				0x25
-#define FILE_TYPE_GRAPHDB			0x26
-#define FILE_TYPE_STATECHANGEINFO	0x27
-#define FILE_TYPE_DIGITALLOCKNO	    0x28 //扩展锁类型
-#define FILE_TYPE_DIGITALEXT		0x29 //遥信转发 来此优特
-#define FILE_TYPE_STEPJDX			0x2A
-#define FILE_TYPE_ANALOGEXT			0x2B //遥测转发
-#define FILE_TYPE_JDPAD				0x2C
-#define FILE_TYPE_OPWF              0x2D 
-#define FILE_TYPE_LAST				0x2E
+#define FILE_TYPE_FIRST 	      0x00 //
+#define FILE_TYPE_STATION	      0x00 //厂站
+#define FILE_TYPE_DIGITAL	      0x01 //遥信
+#define FILE_TYPE_ANALOGUE	      0x02
+#define FILE_TYPE_EQUIPMENTGROUP      0x03
+#define FILE_TYPE_EQUIPMENT	      0x04
+#define FILE_TYPE_POWERGRADE	      0x05
+#define FILE_TYPE_POINTTYPE	      0x06
+#define FILE_TYPE_LOCKTYPE	      0x07
+#define FILE_TYPE_RULE	              0x08
+#define FILE_TYPE_OPSHEETINFO         0x09
+#define FILE_TYPE_RELAY 	      0x0A
+#define FILE_TYPE_OPTERM	      0x0B
+#define FILE_TYPE_OPTERMGROUP	      0x0C
+#define FILE_TYPE_EVENTTICKETDATA     0x0D
+#define FILE_TYPE_OPSHEETHEAD	      0x0E
+#define FILE_TYPE_WORKNOTEHEAD	      0x0F
+#define FILE_TYPE_REPORT	      0x10
+#define FILE_TYPE_MEASURE	      0x20
+#define FILE_TYPE_LIMIT 	      0x21
+#define FILE_TYPE_SYMBOL	      0x22
+#define FILE_TYPE_PASSWD	      0x23
+#define FILE_TYPE_FORMULA	      0x24
+#define FILE_TYPE_ITEM		      0x25
+#define FILE_TYPE_GRAPHDB	      0x26
+#define FILE_TYPE_STATECHANGEINFO     0x27
+#define FILE_TYPE_DIGITALLOCKNO	      0x28 //扩展锁类型
+#define FILE_TYPE_DIGITALEXT	      0x29 //遥信转发 来此优特
+#define FILE_TYPE_STEPJDX	      0x2A
+#define FILE_TYPE_ANALOGEXT	      0x2B //遥测转发
+#define FILE_TYPE_JDPAD		      0x2C
+#define FILE_TYPE_OPWF                0x2D
+#define FILE_TYPE_LAST		      0x2E
 /*
 uchar == unsigned char == BYTE == quint8
 uint  == unsigned int  == UINT = quint32
@@ -210,17 +189,17 @@ typedef struct _tagGRAPHINFO
 #define EQUIPMENTLEN        64
 #define POWERGRADENAMELEN   64
 #define POINTTERMLEN        64
-#define TERMGLOSSARYLEN     128
+#define OPTERMLEN     128
 #define LOCKTYPENAMELEN     64
 
 
-#define OPERASHEETNAMELEN	           256 //操作票标题
+#define OPERASHEETNAMELEN	       256 //操作票标题
 #define OPERASHEETDESCRIBELEN          768 //任务描述
 //#define	REPORTNAMELEN				64  //操作票模板名称
 //#define	FRONTDESCLEN				128 //前景点描述
-#define	OPERASHEETCONTENTLEN	        512 //操作票语句
-#define	OPERASHEETREMARKLEN             1024//操作票备注
-#define OPERATORLEN                     64 //操作人员长度
+#define	OPERASHEETCONTENTLEN	       512 //操作票语句
+#define	OPERASHEETREMARKLEN            1024//操作票备注
+#define OPERATORLEN                    64 //操作人员长度
 
 
 
@@ -238,7 +217,7 @@ typedef struct _tagGRAPHINFO
 #define TYPE_PULSE           8 //遥脉
 //实时库相关数据类型
 //厂站
-#define     ATTR_ST_NO          0x001
+#define     ATTR_ST_NO           0x001
 #define     ATTR_ST_ADDR         0x002
 #define     ATTR_ST_NAME         0x003
 #define     ATTR_ST_SLOCK        0x004
@@ -248,32 +227,32 @@ typedef struct _tagGRAPHINFO
 #define     ATTR_ST_TOTALLOCK    0x008
 
 //遥信
-#define     ATTR_DGT_SNO         0x032 //50
-#define     ATTR_DGT_NO          0x033
-#define     ATTR_DGT_COMBONAME   0x034
-#define     ATTR_DGT_ORINAME     0x035
-#define     ATTR_DGT_POINTTERMID 0x036
-#define     ATTR_DGT_EQUIPMENTID 0x037
-#define     ATTR_DGT_GROUPID     0x038
-#define     ATTR_DGT_POWERGRADE  0x039
-#define     ATTR_DGT_GLOSSARYID  0x040
-#define     ATTR_DGT_RULEFENID   0x041
-#define     ATTR_DGT_RULEHEID    0x042
-#define     ATTR_DGT_RULEJXFENID 0x043
-#define     ATTR_DGT_RULEJXHEID  0x044
-#define     ATTR_DGT_LOCKNO      0x045
-#define     ATTR_DGT_HELOCKNO    0x046
-#define     ATTR_DGT_FENLOCKNO   0x047
-#define     ATTR_DGT_SENDFLAG    0x048
-#define     ATTR_DGT_DOUBLEDGTID 0x049
-#define     ATTR_DGT_OPFLAG      0x050
-#define     ATTR_DGT_FORMULAID   0x051
-#define     ATTR_DGT_VALUE       0x052
-#define     ATTR_DGT_RSNO        0x053
-#define     ATTR_DGT_RNO         0x054
-#define     ATTR_DGT_MEASURE     0x055
+#define     ATTR_DGT_SNO               0x032 //50
+#define     ATTR_DGT_NO                0x033
+#define     ATTR_DGT_COMBONAME         0x034
+#define     ATTR_DGT_ORINAME           0x035
+#define     ATTR_DGT_POINTTERMID       0x036
+#define     ATTR_DGT_EQUIPMENTID       0x037
+#define     ATTR_DGT_GROUPID           0x038
+#define     ATTR_DGT_POWERGRADE        0x039
+#define     ATTR_DGT_GLOSSARYID        0x040
+#define     ATTR_DGT_RULEFENID         0x041
+#define     ATTR_DGT_RULEHEID          0x042
+#define     ATTR_DGT_RULEJXFENID       0x043
+#define     ATTR_DGT_RULEJXHEID        0x044
+#define     ATTR_DGT_LOCKNO            0x045
+#define     ATTR_DGT_HELOCKNO          0x046
+#define     ATTR_DGT_FENLOCKNO         0x047
+#define     ATTR_DGT_SENDFLAG          0x048
+#define     ATTR_DGT_DOUBLEDGTID       0x049
+#define     ATTR_DGT_OPFLAG            0x050
+#define     ATTR_DGT_FORMULAID         0x051
+#define     ATTR_DGT_VALUE             0x052
+#define     ATTR_DGT_RSNO              0x053
+#define     ATTR_DGT_RNO               0x054
+#define     ATTR_DGT_MEASURE           0x055
 #define     ATTR_DGT_4_STATE_VALUE     0x056 //4态遥信
-#define     ATTR_DGT_TOTALNORMALCLOSE 0x030D   //正常合闸总数
+#define     ATTR_DGT_TOTALNORMALCLOSE  0x030D   //正常合闸总数
 #define     ATTR_DGT_TOTALNORMALOPEN   0x030E //,       "正常分闸总数"},
 #define     ATTR_DGT_TOTALFAULTSWITCH  0x030F //,      "事故变位总数"},
 
@@ -289,38 +268,38 @@ typedef struct _tagGRAPHINFO
 #define     ATTR_DGT_YEARFAULTSWITCH   0x0318 //,       "年事故变位次数"},
    
 //遥测
-#define     ATTR_ANA_SNO          0x096 //150
-#define     ATTR_ANA_NO           0x097
-#define     ATTR_ANA_NAME         0x098
-#define     ATTR_ANA_ORINAME      0x099
-#define     ATTR_ANA_TYPE         0x100
-#define     ATTR_ANA_UINT         0x101
-#define     ATTR_ANA_CC1          0x102
-#define     ATTR_ANA_CC2          0x103
-#define     ATTR_ANA_CC3          0x104
-#define     ATTR_ANA_DIFF         0x105
-#define     ATTR_ANA_GRADE        0x106
-#define     ATTR_ANA_SENDFLAG     0x107
-#define     ATTR_ANA_GROUPID      0x108
-#define     ATTR_ANA_POWERGRADE   0x109
-#define     ATTR_ANA_RELDIGITALID 0x110
-#define     ATTR_ANA_VALUE        0x111
+#define     ATTR_ANA_SNO           0x096 //150
+#define     ATTR_ANA_NO            0x097
+#define     ATTR_ANA_NAME          0x098
+#define     ATTR_ANA_ORINAME       0x099
+#define     ATTR_ANA_TYPE          0x100
+#define     ATTR_ANA_UINT          0x101
+#define     ATTR_ANA_CC1           0x102
+#define     ATTR_ANA_CC2           0x103
+#define     ATTR_ANA_CC3           0x104
+#define     ATTR_ANA_DIFF          0x105
+#define     ATTR_ANA_GRADE         0x106
+#define     ATTR_ANA_SENDFLAG      0x107
+#define     ATTR_ANA_GROUPID       0x108
+#define     ATTR_ANA_POWERGRADE    0x109
+#define     ATTR_ANA_RELDIGITALID  0x110
+#define     ATTR_ANA_VALUE         0x111
 
-#define     ATTR_ANA_DAYMAXVALUE  0x120
-#define     ATTR_ANA_DAYMINVALUE  0x121
-#define     ATTR_ANA_DAYAVEVALUE  0x122
-#define     ATTR_ANA_MONMAXVALUE  0x123
-#define     ATTR_ANA_MONMINVALUE  0x124
-#define     ATTR_ANA_MONAVEVALUE  0x125
-#define     ATTR_ANA_YEARMAXVALUE  0x126
-#define     ATTR_ANA_YEARMINVALUE  0x127
-#define     ATTR_ANA_YEARAVEVALUE  0x128
-#define     ATTR_VOLTAGE_DAYNORMALTIME 0x153
-#define     ATTR_VOLTAGE_DAYLOWTIME 0x154
-#define     ATTR_VOLTAGE_DAYHIGHTIME 0x155
-#define     ATTR_VOLTAGE_MONNORMALTIME 0x156
-#define     ATTR_VOLTAGE_MONLOWTIME 0x157
-#define     ATTR_VOLTAGE_MONHIGHTIME 0x158
+#define     ATTR_ANA_DAYMAXVALUE          0x120
+#define     ATTR_ANA_DAYMINVALUE          0x121
+#define     ATTR_ANA_DAYAVEVALUE          0x122
+#define     ATTR_ANA_MONMAXVALUE          0x123
+#define     ATTR_ANA_MONMINVALUE          0x124
+#define     ATTR_ANA_MONAVEVALUE          0x125
+#define     ATTR_ANA_YEARMAXVALUE         0x126
+#define     ATTR_ANA_YEARMINVALUE         0x127
+#define     ATTR_ANA_YEARAVEVALUE         0x128
+#define     ATTR_VOLTAGE_DAYNORMALTIME    0x153
+#define     ATTR_VOLTAGE_DAYLOWTIME       0x154
+#define     ATTR_VOLTAGE_DAYHIGHTIME      0x155
+#define     ATTR_VOLTAGE_MONNORMALTIME    0x156
+#define     ATTR_VOLTAGE_MONLOWTIME       0x157
+#define     ATTR_VOLTAGE_MONHIGHTIME      0x158
 #define     ATTR_VOLTAGE_DAYQUALIFIEDRATE 0x159
 #define     ATTR_VOLTAGE_MONQUALIFIEDRATE 0x160
 
@@ -556,13 +535,13 @@ typedef struct _tagRELAY
 
 //测点类型定义
 //每种测点类型都有一个ID号 遥信遥测结构需要保存这个ID号以对应
-typedef struct _tagPointTerm
+typedef struct _tagPointType
 {
     ushort wTermID;
     char   szTermName[POINTTERMLEN];//测点名称：开关、刀闸
     uchar  btType;
     char   szTermAttr[POINTTERMLEN];//属性 K,D
-}POINTTERM;
+}POINTTYPE;
 
 //操作术语定义 老的操作术语 抛弃
 typedef struct _tagPointTermGlossary
@@ -577,22 +556,22 @@ typedef struct _tagPointTermGlossary
 
 //操作术语重新定义
 //操作术语组
-typedef struct _tagGlossaryGroup
+typedef struct _tagOpTermGroup
 {
-    ushort  wGlossaryGroupID;
-    char    szGloassaryGroup[TERMGLOSSARYLEN];
-    uchar   btGlossaryGroupType;//开关、刀闸等类型
-	ushort  wGlossaryCounts; //管理的操作术语的个数
-}GLOSSARYGROUP;
+    ushort  wOpTermGroupID;
+    char    szOpTermGroup[OPTERMLEN];
+    uchar   btOpTermGroupType;//开关、刀闸等类型
+	ushort  wOpTermCounts; //管理的操作术语的个数
+}OPTERMGROUP;
 
 //操作术语项
-typedef struct _tagGlossary
+typedef struct _tagOpTerm
 {
-    ushort wGlossaryGroupID;
-    ushort wGlossaryID;
-    uchar  btGlossaryType;//合、分、提示
-    char   szGlossary[TERMGLOSSARYLEN];//具体术语
-}GLOSSARY;
+    ushort wOpTermGroupID;
+    ushort wOpTermID;
+    uchar  btOpTermType;//合、分、提示
+    char   szOpTerm[OPTERMLEN];//具体术语
+}OPTERM;
 
 //包含遥信、测点类型以及操作术语的结构
 typedef struct _tagDgtToTerm
@@ -683,7 +662,7 @@ typedef struct _tagOperaSheetInfo
     ushort wOpSheetNo;
     char szOpSheetTitle[OPERASHEETNAMELEN];
     char szOpSheetDescripe[OPERASHEETDESCRIBELEN];
-    char sz[];
+    char szOpSheetTask[OPERASHEETDESCRIBELEN];
     uchar btOpSheetTaskType;//操作票任务类型/停/送/检修...
     uchar btOpSheetType;//操作票类型
     int   nOpSheetSteps;//操作票总步骤
