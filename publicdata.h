@@ -83,7 +83,7 @@ typedef struct _tagDATAFILEHEADER
 #define FILE_TYPE_EQUIPMENTGROUP      0x03
 #define FILE_TYPE_EQUIPMENT	      0x04
 #define FILE_TYPE_POWERGRADE	      0x05
-#define FILE_TYPE_POINTTYPE	      0x06
+#define FILE_TYPE_POINTTERM	      0x06
 #define FILE_TYPE_LOCKTYPE	      0x07
 #define FILE_TYPE_RULE	              0x08
 #define FILE_TYPE_OPSHEETINFO         0x09
@@ -168,11 +168,11 @@ typedef struct _tagGRAPHINFO
 
 
 //操作术语树结构
-#define TREEPARAM_GLOSSARYLIST        14 //开关 刀闸 信号 缺省
-#define TREEPARAM_GLOSSARY            15 //分 合 提示
-#define TREEPARAM_GLOSSARY_OPEN       16 //分
-#define TREEPARAM_GLOSSARY_CLOSE      17 //合
-#define TREEPARAM_GLOSSARY_TISHI      18//提示
+#define TREEPARAM_OPTERMLIST        14 //开关 刀闸 信号 缺省
+#define TREEPARAM_OPTERM           15 //分 合 提示
+#define TREEPARAM_OPTERM_OPEN       16 //分
+#define TREEPARAM_OPTERM_CLOSE      17 //合
+#define TREEPARAM_OPTERM_TISHI      18//提示
 
 //插件部分
 #define TREEPARAM_USERDBROOT          20
@@ -194,7 +194,8 @@ typedef struct _tagGRAPHINFO
 
 
 #define OPERASHEETNAMELEN	       256 //操作票标题
-#define OPERASHEETDESCRIBELEN          768 //任务描述
+#define OPERASHEETDESCRIBELEN      768 //任务描述
+#define OPERASHEETTASKLEN          768 //任务定义
 //#define	REPORTNAMELEN				64  //操作票模板名称
 //#define	FRONTDESCLEN				128 //前景点描述
 #define	OPERASHEETCONTENTLEN	       512 //操作票语句
@@ -235,7 +236,7 @@ typedef struct _tagGRAPHINFO
 #define     ATTR_DGT_EQUIPMENTID       0x037
 #define     ATTR_DGT_GROUPID           0x038
 #define     ATTR_DGT_POWERGRADE        0x039
-#define     ATTR_DGT_GLOSSARYID        0x040
+#define     ATTR_DGT_OPTERMID          0x040
 #define     ATTR_DGT_RULEFENID         0x041
 #define     ATTR_DGT_RULEHEID          0x042
 #define     ATTR_DGT_RULEJXFENID       0x043
@@ -344,6 +345,17 @@ typedef struct _tagGRAPHINFO
 #define RESULT_CHANGE      ((ushort)0x0004) //数字量 正常变位
 #define ENABLE_ACCIDENT    ((ushort)0x0008) //数字量 事故变位
 
+//操作步骤
+#define STEP_TYPE_FEN  				0	//拉开，工作转试验
+#define STEP_TYPE_HE  				1	//合上，试验转工作
+#define STEP_TYPE_SJ				2	//试验转检修
+#define STEP_TYPE_JS				3	//检修转试验
+#define STEP_TYPE_GJ				4	//工作转检修
+#define STEP_TYPE_JG				5	//检修转工作
+#define STEP_TYPE_JL				6	//检查在分
+#define STEP_TYPE_JH				7	//检查在合
+#define STEP_TYPE_TISHI				8	//提示
+
 //插件类型
 #define PLUGIN_ID_CDT 0x01
 
@@ -396,7 +408,7 @@ typedef struct _tagDigital
     char    szEquipmentID[EQUIPMENTLEN];//设备编号
     ushort  wGroupID;//设备组
     int     nPowerGrade;//电压等级
-    ushort  wGlossaryID;//操作术语组
+    ushort  wOpTermID;//操作术语组
     ushort  wRuleFenID;//分规则
     ushort  wRuleHeID;//合规则
     ushort  wRuleJXFenID;//检修分规则
@@ -535,23 +547,23 @@ typedef struct _tagRELAY
 
 //测点类型定义
 //每种测点类型都有一个ID号 遥信遥测结构需要保存这个ID号以对应
-typedef struct _tagPointType
+typedef struct _tagPointTerm
 {
     ushort wTermID;
     char   szTermName[POINTTERMLEN];//测点名称：开关、刀闸
     uchar  btType;
     char   szTermAttr[POINTTERMLEN];//属性 K,D
-}POINTTYPE;
+}POINTTERM;
 
 //操作术语定义 老的操作术语 抛弃
 typedef struct _tagPointTermGlossary
 {
     ushort  wGlossaryGroupID;
-    char    szGloassaryGroup[TERMGLOSSARYLEN];
+    char    szGloassaryGroup[OPTERMLEN];
     uchar   btGlossaryGroupType;//开关、刀闸等类型
     ushort  wGlossaryID;
     uchar   btType;//合、分、提示
-    char   szGlossary[TERMGLOSSARYLEN];//具体术语
+    char   szGlossary[OPTERMLEN];//具体术语
 }POINTTERMGLOSSARY;
 
 //操作术语重新定义
@@ -656,13 +668,13 @@ typedef struct _tagWfDigitalLockNo
 //操作票信息类
 typedef struct _tagOperaSheetInfo
 {
-    ushort wStationID;
-    ushort wGroupID;
-    ushort wOpSheetID;
-    ushort wOpSheetNo;
-    char szOpSheetTitle[OPERASHEETNAMELEN];
-    char szOpSheetDescripe[OPERASHEETDESCRIBELEN];
-    char szOpSheetTask[OPERASHEETDESCRIBELEN];
+    ushort wStationID;//厂站
+    ushort wGroupID;//设置
+    ushort wOpSheetID;//操作票id
+    ushort wOpSheetNo;//操作票号
+    char szOpSheetTitle[OPERASHEETNAMELEN];//标题
+    char szOpSheetDescripe[OPERASHEETDESCRIBELEN];//描述
+    char szOpSheetTask[OPERASHEETTASKLEN];//任务
     uchar btOpSheetTaskType;//操作票任务类型/停/送/检修...
     uchar btOpSheetType;//操作票类型
     int   nOpSheetSteps;//操作票总步骤

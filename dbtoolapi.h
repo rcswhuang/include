@@ -67,18 +67,18 @@
 #define TYPE_POINT_DEFAULT    255
 
 //定义测点操作术语
-#define TYPE_GLOSSARY_HE    0x01
-#define TYPE_GLOSSARY_FEN   0x00
-#define TYPE_GLOSSARY_TISHI 0x03
+#define TYPE_OPTERM_HE    0x01
+#define TYPE_OPTERM_FEN   0x00
+#define TYPE_OPTERM_TISHI 0x03
 
 //特别的操作术语符号
-#define STRING_GLOSSARY_STATIONNAME "$" //遥信厂站符号
-#define STRING_GLOSSARY_GROUPNAME   "~" //遥信间隔符号
-#define STRING_GLOSSARY_DIGITALNAME "@" //遥信组合符号
-#define STRING_GLOSSARY_DIGITALORINAME "%" //遥信原始名称
-#define STRING_GLOSSARY_DIGITALEQUIPNO "!"//遥信设备编号
-#define STRING_GLOSSARY_AUTOCHECK "&" //自动检测
-#define STRING_GLOSSARY_OPENCLOSE "^" //分合操作
+#define STRING_OPTERM_STATIONNAME "$" //遥信厂站符号
+#define STRING_OPTERM_GROUPNAME   "~" //遥信间隔符号
+#define STRING_OPTERM_DIGITALNAME "@" //遥信组合符号
+#define STRING_OPTERM_DIGITALORINAME "%" //遥信原始名称
+#define STRING_OPTERM_DIGITALEQUIPNO "!"//遥信设备编号
+#define STRING_OPTERM_AUTOCHECK "&" //自动检测
+#define STRING_OPTERM_OPENCLOSE "^" //分合操作
 
 
 enum def_station_column
