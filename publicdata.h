@@ -719,14 +719,17 @@ extern "C"
 
     //文件数据库 对外接口
 
-    bool FILE_EXPORT createDB( int uFileType );
-    bool FILE_EXPORT openDB( int uFileType );
+    int  FILE_EXPORT createDBFile(const char* szFile);
+    int  FILE_EXPORT openDBFile(const char* szFile);
+    void FILE_EXPORT closeDBFile(const char* szFile);
+    int FILE_EXPORT createDB( int uFileType );
+    int FILE_EXPORT openDB( int uFileType );
     void FILE_EXPORT closeDB( int uFileType );
-    //bool FILE_EXPORT loadDBRecord( int uFileType, int wRec, void* pRecord );
-    bool FILE_EXPORT loadDataFileHeader( int nFileType, DATAFILEHEADER* pHeader );
-    bool FILE_EXPORT saveDataFileHeader( int nFileType, DATAFILEHEADER* pHeader );
-    bool FILE_EXPORT loadDBRecord( int nFileType, quint16 wRec, void* pRecord );
-    bool FILE_EXPORT saveDBRecord( int nFileType, quint16 wRec, void* pRecord );
+    
+    int FILE_EXPORT loadDataFileHeader( int fd, DATAFILEHEADER* pHeader );
+    int FILE_EXPORT saveDataFileHeader( int fd, DATAFILEHEADER* pHeader );
+    int FILE_EXPORT loadDBRecord( int fd, quint16 wRec, void* pRecord );
+    int FILE_EXPORT saveDBRecord( int fd, quint16 wRec, void* pRecord );
 
     void FILE_EXPORT getDataFilePath(int nPath,char* filename);
 

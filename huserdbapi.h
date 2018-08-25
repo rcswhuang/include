@@ -47,8 +47,6 @@ typedef struct _tagDBDATAPARAM
 extern "C"
 {
 #endif
-
-
     bool PLUGIN_EXPORT pluginProc(int type,unsigned int param1,long long param2);
 
 #ifdef __cplusplus

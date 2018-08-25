@@ -8,7 +8,7 @@
         #define PLUGIN_EXPORT __declspec(dllimport)
     #endif
 #else
-    #define RULE_EXPORT
+    #define PLUGIN_EXPORT
 
 #endif
 #endif // HPLUGINEXPORT_H
