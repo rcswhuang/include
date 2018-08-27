@@ -9,7 +9,7 @@ typedef struct _tagSysSet
 {
     QString strObjName;
     ushort type;
-    ushort id;
+    int id;
     QVariant var;
 }SYSSET;
 
@@ -96,18 +96,21 @@ typedef QList<SETTING*> HSettingList;
 
 //路径设置 0x90
 #define SYS_PATH_UNITE_SET 0x090
-#define SYS_PATH_DATA_SET 0x091
-#define SYS_PATH_SYMBOL_SET 0x092
-#define SYS_PATH_EVENT_SET 0x093
-#define SYS_PATH_MACRO_SET 0x094
-#define SYS_PATH_OPNOTE_SET 0x095
+#define SYS_PATH_DATA_SET 0x091//data
+#define SYS_PATH_ICON_SET 0x092//icon
+#define SYS_PATH_EVENT_SET 0x093//event
+//#define SYS_PATH_MACRO_SET 0x094
+#define SYS_PATH_OPSHEET_SET 0x095
 #define SYS_PATH_BITMAP_SET 0x096
 #define SYS_PATH_WORKNOTE_SET 0x097
 #define SYS_PATH_MEDIR_SET 0x098
 #define SYS_PATH_GRAPH_SET 0x099
 #define SYS_PATH_SIGNPAD_SET 0x09A
 #define SYS_PATH_FIL_SET 0x09B
-#define SYS_PATH_UNITE_CHECK 0x09C
+#define SYS_PATH_INI_SET 0x09C
+#define SYS_PATH_REPORT_SET 0x09D
+#define SYS_PATH_PLUGIN_SET 0x09E
+#define SYS_PATH_UNITE_CHECK 0x09F
 
 //功能设置 0xD0
 #define SYS_FUN_OPNOTE_MANAGER 0xD0
@@ -189,7 +192,7 @@ extern "C"
      void  SYSCONFIG_EXPORT initSysConfig(const char* file);
      void  SYSCONFIG_EXPORT exitSysConfig();
      void  SYSCONFIG_EXPORT getSysConfigByID(int nSettingID,HSysSetList* &sysSetList);
-     void  SYSCONFIG_EXPORT getSettingValue(int  nSettingID,int nSysSetID,QVariant* &value);
+     void  SYSCONFIG_EXPORT getSettingValue(int  nSettingID,int nSysSetID,QVariant &value);
      bool  SYSCONFIG_EXPORT applySysConfig();
   
 

@@ -59,9 +59,9 @@ typedef struct _tagDATAFILEHEADER
 //各种文件路径 多余的部分一律删除 ---huangw
 #define DFPATH_DATA 		0//数据
 #define DFPATH_GRAPH		1//图形
-#define DFPATH_ICON		2//图符
-#define DFPATH_BITMAP	        3//位图
-#define DFPATH_MACRO	        4//图元组合
+#define DFPATH_ICON		    2//图符
+#define DFPATH_BITMAP	    3//位图
+//#define DFPATH_MACRO	        4//图元组合
 #define DFPATH_MEDIA		5//媒体
 #define DFPATH_OPSHEET		6//操作票
 #define DFPATH_WORKNOTE		7//工作票
@@ -71,8 +71,7 @@ typedef struct _tagDATAFILEHEADER
 #define DFPATH_FIL	        11
 #define DFPATH_INI              12
 #define DFPATH_PLUGIN           13
-#define DFPATH_BIN              14
-#define DFPATH_LAST 		14
+#define DFPATH_LAST 		13
 
 
 // 五防各种数据文件类型的定义
