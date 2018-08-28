@@ -90,7 +90,7 @@ typedef struct _tagDATAFILEHEADER
 #define FILE_TYPE_OPTERM	      0x0B
 #define FILE_TYPE_OPTERMGROUP	      0x0C
 #define FILE_TYPE_EVENTTICKETDATA     0x0D
-#define FILE_TYPE_OPSHEETHEAD	      0x0E
+#define FILE_TYPE_OPSHEET	      0x0E
 #define FILE_TYPE_WORKNOTEHEAD	      0x0F
 #define FILE_TYPE_REPORT	      0x10
 #define FILE_TYPE_MEASURE	      0x20
