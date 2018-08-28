@@ -189,8 +189,7 @@ extern "C"
 #endif
 
     //系统配置对外接口
-     void  SYSCONFIG_EXPORT initSysConfig(const char* file);
-     void  SYSCONFIG_EXPORT exitSysConfig();
+     void  SYSCONFIG_EXPORT initSysConfig();
      void  SYSCONFIG_EXPORT getSysConfigByID(int nSettingID,HSysSetList* &sysSetList);
      void  SYSCONFIG_EXPORT getSettingValue(int  nSettingID,int nSysSetID,QVariant &value);
      bool  SYSCONFIG_EXPORT applySysConfig();
