@@ -108,6 +108,22 @@ typedef struct _tagDATAFILEHEADER
 #define FILE_TYPE_JDPAD		      0x2C
 #define FILE_TYPE_OPWF                0x2D
 #define FILE_TYPE_LAST		      0x2E
+
+#define PATH_DATA            "data"
+#define PATH_GRAPH           "graph"
+#define PATH_ICON            "icon"
+#define PATH_BITMAP          "bitmap"
+#define PATH_MACRO           "macro"
+#define PATH_MEDIA           "media"
+#define PATH_OPERATETICKET   "ticket"
+#define PATH_WORKNOTE        "worknote"
+#define PATH_EVENT	     "event"
+#define PATH_REPORT          "report"
+#define PATH_SIGNPAD         "signpad"
+#define PATH_FIL             "fil"
+#define PATH_INI             "ini"
+#define PATH_PLUGIN          "plugin"
+#define PATH_BIN             "bin"
 /*
 uchar == unsigned char == BYTE == quint8
 uint  == unsigned int  == UINT = quint32
