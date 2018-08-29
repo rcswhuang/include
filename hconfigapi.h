@@ -169,6 +169,12 @@ typedef QList<SETTING*> HSettingList;
 #define WF_FUJIAN_MODEL_CHECK 0x170
 #define WF_PROMPT_UNDOWN_CHECK 0x171
 #define WF_PRINT_FORBID_WM_CHECK 0x172
+#define WF_TICKET_NUM     0x0173
+#define WF_TICKET_WINDOWS 0x0174
+#define WF_ADD_END_TEXT   0x175
+#define WF_END_TEXT       0x176
+#define WF_ALIGN_CENTER   0x177
+#define WF_PAGE_SPECIAL   0x178
 
 //其他设置
 #define PRIV_SAVE_PRE_TICKET 0x200
