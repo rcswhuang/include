@@ -21,7 +21,7 @@ typedef struct _tagUpdataPoint
     void* pData;
 }UPDATAPOINT;
 
-typedef struct _tagDBDATAPARAM
+typedef struct _tagPLUGINPARAM
 {
     ushort wStation;
     uchar btType;
