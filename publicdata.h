@@ -449,10 +449,6 @@ typedef struct _tagDigital
     ushort  wDigitalLock;//遥信闭锁标志
     ushort  wToScadaIndex; //转发索引 到监控
     ushort  wFromScadaIndex; //从监控
-    ushort  wToSimIndex; //发给第三方
-    ushort  wFromUTWFIndex;
-    ushort  wSendIndex;//"发送"到模拟屏2的序号  多个模拟屏发送的情况下
-    ushort  wGroupTT;//间隔投入
     ushort  wReserved1;
     ushort  wReserved2;
     ushort  wReserved3;
@@ -518,8 +514,6 @@ typedef struct _tagAnalogue
     float   fValue;
     ushort  wToScadaIndex; //转发索引 到监控
     ushort  wFromScadaIndex; //从监控
-    ushort  wToSimIndex; //发给第三方
-    ushort  wToSimulatorIndex2;
     ushort  wSendIndex;
     ushort  wReserved1;
     ushort  wReserved2;
