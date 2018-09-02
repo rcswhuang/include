@@ -34,6 +34,18 @@ typedef struct _tagDBFILEHANDLE
     ushort wOpTerm;
     ushort wOpTermGroup;
     ushort wDigitalLockNo;
+    ushort wStationID;
+    ushort wAnalogueID;
+    ushort wDigitalID;
+    ushort wRelayID;
+    ushort wEquipmentGroupID;
+    ushort wLockTypeID;
+    ushort wPowerGradeID;
+    ushort wRuleID;
+    ushort wPointTypeID;
+    ushort wOpTermID;
+    ushort wOpTermGroupID;
+    ushort wDigitalLockNoID;
     ushort wReserved3;
     ushort wReserved4;
     ushort wReserved5;
@@ -730,15 +742,17 @@ extern "C"
 
     int  FILE_EXPORT createDBFile(const char* szFile);
     int  FILE_EXPORT openDBFile(const char* szFile);
-    void FILE_EXPORT closeDBFile(const char* szFile);
+    void FILE_EXPORT closeDBFile(int fd);
     int FILE_EXPORT createDB( int uFileType );
     int FILE_EXPORT openDB( int uFileType );
     void FILE_EXPORT closeDB( int uFileType );
     
     int FILE_EXPORT loadDataFileHeader( int fd, DATAFILEHEADER* pHeader );
     int FILE_EXPORT saveDataFileHeader( int fd, DATAFILEHEADER* pHeader );
-    int FILE_EXPORT loadDBRecord( int fd, quint16 wRec, void* pRecord );
-    int FILE_EXPORT saveDBRecord( int fd, quint16 wRec, void* pRecord );
+    int FILE_EXPORT loadDBRecord( int nFileType, quint16 wRec, void* pRecord );
+    int FILE_EXPORT saveDBRecord( int nFileType, quint16 wRec, void* pRecord );
+    int FILE_EXPORT ﻿loadDataFileRecord( int fd, quint16 wRec, void* pRecord );
+    int FILE_EXPORT ﻿saveDataFileRecord( int fd, quint16 wRec, void* pRecord );
 
     void FILE_EXPORT getDataFilePath(int nPath,char* filename);
 
