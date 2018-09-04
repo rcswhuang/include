@@ -137,6 +137,7 @@ typedef struct _tagRuleApiParam
 
 /*
  * 规则模块采用此参数去组态模块或者运行模块获取测点信息
+ 不能memset()
 */
 typedef struct _tagRuleInfo
 {
