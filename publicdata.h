@@ -111,7 +111,7 @@ typedef struct _tagDATAFILEHEADER
 #define FILE_TYPE_PASSWD	      0x23
 #define FILE_TYPE_FORMULA	      0x24
 #define FILE_TYPE_ITEM		      0x25
-#define FILE_TYPE_GRAPHDB	      0x26
+#define FILE_TYPE_GRAPH	              0x26
 #define FILE_TYPE_STATECHANGEINFO     0x27
 #define FILE_TYPE_DIGITALLOCKNO	      0x28 //扩展锁类型
 #define FILE_TYPE_DIGITALEXT	      0x29 //遥信转发 来此优特
