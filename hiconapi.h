@@ -78,7 +78,7 @@
 enum DRAWSHAPE
 {
     enumSelection, //选择模式
-
+    enumMulSelection,
 
     //绘制对象
     enumNo,
