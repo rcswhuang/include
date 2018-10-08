@@ -8,7 +8,7 @@
 #define SYSENVIRONMENTVAR "wfsystem_dir"
 
 typedef unsigned int HWPARAM;
-typedef long HLPARAM;
+typedef qlonglong HLPARAM; //统一64位平台
 
 /*
  * 命名规则:类型统一采用qt定义的方式，对于变量bt表示1个字节,w表示2个字节,n表示4个字节,dw表示8个字节,sz表示字符串数组,str表示QString类
