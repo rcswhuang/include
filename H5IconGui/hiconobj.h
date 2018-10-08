@@ -79,6 +79,9 @@ public:
 
     void updateResize();
 
+    void reObjSize(qreal w,qreal h);
+    void resetObjPoint(const QPointF& pt1,const QPointF& pt2);
+
 protected:
     //模板主要是引用其他对象，或者拷贝过来
     HIconTemplate* pIconTemplate;//模板信息
