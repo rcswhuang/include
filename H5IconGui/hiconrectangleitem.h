@@ -32,6 +32,7 @@ public:
     virtual void mousePressEvent(QGraphicsSceneMouseEvent *event);//ok?
     virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);//ok
     virtual void keyPressEvent(QKeyEvent *event);//ok
+    QVariant itemChange(GraphicsItemChange change, const QVariant &value);
 public:
     virtual ushort pointInRect(QPointF& point);//ok
     virtual void setItemCursor(int position);//ok
