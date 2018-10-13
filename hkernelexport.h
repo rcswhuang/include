@@ -11,5 +11,20 @@
     #define KERNEL_EXPORT
 
 #endif
+
+
+
+#if defined (_WIN32) || defined (WIN32)
+    #if defined(KERAPI_DLL)
+        #define KERAPI_EXPORT __declspec(dllexport)
+    #else
+        #define KERAPI_EXPORT __declspec(dllimport)
+    #endif
+#else
+    #define KERAPI_EXPORT
+
+#endif
+
+
 #endif // HKERNELEXPORT_H
 

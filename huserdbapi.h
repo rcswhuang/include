@@ -40,6 +40,7 @@ typedef struct _tagPLUGINPARAM
 #define PLG_PLUGINCONFIG       0x07  //插件配置
 #define PLG_SHOWMSGWIN         0x08  //报文窗口
 #define PLG_SHOWCONFIGWIN      0x09  //配置窗口
+#define PLG_PARENT             0x0A  //Event窗口
 
 
 //导出函数
