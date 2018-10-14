@@ -9,7 +9,11 @@
 //回调函数的参数类型
 typedef unsigned int HWPARAM;
 #if defined(WIN32) || defined(_WIN32)
-    typedef long HLPARAM; //WIN32平台
+#if defined(_WIN64)
+    typedef qlonglong HLPARAM; //WIN32平台
+#else
+    typedef long HLPARAM;
+#endif
 #else
     typedef qlonglong HLPARAM; //统一64位平台
 #endif
