@@ -1,13 +1,132 @@
-#ifndef RULEEDITAPI_H
-#define RULEEDITAPI_H
+#ifndef HKERNELAPI_H
+#define HKERNELAPI_H
+#include "hkernelexport.h"
 #include <QtGlobal>
 #include <QtWidgets/QWidget>
 #include <QFlags>
 #include <QEvent>
-#include "publicdata.h"
-#include "hkernelexport.h"
+#include "hfileapi.h"
+#include "hnamespace.h"
 
-const int kerEventUser = QEvent::User + 9000; //from 10000
+//实时库内部的数据类型
+#define TYPE_NULL            0
+#define TYPE_STATION         1
+#define TYPE_ANALOGUE        2
+#define TYPE_DIGITAL         3
+#define TYPE_RELAY           4//遥控
+#define TYPE_GROUP           5//间隔
+#define TYPE_GROUPIP         6
+#define TYPE_SETPOINT        7 //遥调
+#define TYPE_PULSE           8 //遥脉
+
+//实时库相关数据类型
+//厂站
+#define     ATTR_ST_NO           0x001
+#define     ATTR_ST_ADDR         0x002
+#define     ATTR_ST_NAME         0x003
+#define     ATTR_ST_SLOCK        0x004
+#define     ATTR_ST_TOTALANA     0x005
+#define     ATTR_ST_TOTALDGT     0x006
+#define     ATTR_ST_TOTALEGROUP  0x007
+#define     ATTR_ST_TOTALLOCK    0x008
+
+//遥信
+#define     ATTR_DGT_SNO               0x032 //50
+#define     ATTR_DGT_NO                0x033
+#define     ATTR_DGT_COMBONAME         0x034
+#define     ATTR_DGT_ORINAME           0x035
+#define     ATTR_DGT_POINTTERMID       0x036
+#define     ATTR_DGT_EQUIPMENTID       0x037
+#define     ATTR_DGT_GROUPID           0x038
+#define     ATTR_DGT_POWERGRADE        0x039
+#define     ATTR_DGT_OPTERMID          0x040
+#define     ATTR_DGT_RULEFENID         0x041
+#define     ATTR_DGT_RULEHEID          0x042
+#define     ATTR_DGT_RULEJXFENID       0x043
+#define     ATTR_DGT_RULEJXHEID        0x044
+#define     ATTR_DGT_LOCKNO            0x045
+#define     ATTR_DGT_HELOCKNO          0x046
+#define     ATTR_DGT_FENLOCKNO         0x047
+#define     ATTR_DGT_SENDFLAG          0x048
+#define     ATTR_DGT_DOUBLEDGTID       0x049
+#define     ATTR_DGT_OPFLAG            0x050
+#define     ATTR_DGT_FORMULAID         0x051
+#define     ATTR_DGT_VALUE             0x052
+#define     ATTR_DGT_RSNO              0x053
+#define     ATTR_DGT_RNO               0x054
+#define     ATTR_DGT_MEASURE           0x055
+#define     ATTR_DGT_4_STATE_VALUE     0x056 //4态遥信
+#define     ATTR_DGT_TOTALNORMALCLOSE  0x030D   //正常合闸总数
+#define     ATTR_DGT_TOTALNORMALOPEN   0x030E //,       "正常分闸总数"},
+#define     ATTR_DGT_TOTALFAULTSWITCH  0x030F //,      "事故变位总数"},
+
+#define     ATTR_DGT_TOTALFAULTSWITCH  0x030F //,      "事故变位总数"},
+#define     ATTR_DGT_DAYNORMALCLOSE    0x0310 //,        "日正常合闸次数"},
+#define     ATTR_DGT_DAYNORMALOPEN     0x0311 //         "日正常分闸次数"},
+#define     ATTR_DGT_DAYFAULTSWITCH    0x0312 //,		"日事故变位次数"},
+#define     ATTR_DGT_MONNORMALCLOSE    0x0313 //,        "月正常合闸次数"},
+#define     ATTR_DGT_MONNORMALOPEN     0x0314 //,         "月正常分闸次数"},
+#define     ATTR_DGT_MONFAULTSWITCH    0x0315 //,		"月事故变位次数"},
+#define     ATTR_DGT_YEARNORMALCLOSE   0x0316 //,       "年正常合闸次数"},
+#define     ATTR_DGT_YEARNORMALOPEN    0x0317 //,        "年正常分闸次数"},
+#define     ATTR_DGT_YEARFAULTSWITCH   0x0318 //,       "年事故变位次数"},
+   
+//遥测
+#define     ATTR_ANA_SNO           0x096 //150
+#define     ATTR_ANA_NO            0x097
+#define     ATTR_ANA_NAME          0x098
+#define     ATTR_ANA_ORINAME       0x099
+#define     ATTR_ANA_TYPE          0x100
+#define     ATTR_ANA_UINT          0x101
+#define     ATTR_ANA_CC1           0x102
+#define     ATTR_ANA_CC2           0x103
+#define     ATTR_ANA_CC3           0x104
+#define     ATTR_ANA_DIFF          0x105
+#define     ATTR_ANA_GRADE         0x106
+#define     ATTR_ANA_SENDFLAG      0x107
+#define     ATTR_ANA_GROUPID       0x108
+#define     ATTR_ANA_POWERGRADE    0x109
+#define     ATTR_ANA_RELDIGITALID  0x110
+#define     ATTR_ANA_VALUE         0x111
+
+#define     ATTR_ANA_DAYMAXVALUE          0x120
+#define     ATTR_ANA_DAYMINVALUE          0x121
+#define     ATTR_ANA_DAYAVEVALUE          0x122
+#define     ATTR_ANA_MONMAXVALUE          0x123
+#define     ATTR_ANA_MONMINVALUE          0x124
+#define     ATTR_ANA_MONAVEVALUE          0x125
+#define     ATTR_ANA_YEARMAXVALUE         0x126
+#define     ATTR_ANA_YEARMINVALUE         0x127
+#define     ATTR_ANA_YEARAVEVALUE         0x128
+#define     ATTR_VOLTAGE_DAYNORMALTIME    0x153
+#define     ATTR_VOLTAGE_DAYLOWTIME       0x154
+#define     ATTR_VOLTAGE_DAYHIGHTIME      0x155
+#define     ATTR_VOLTAGE_MONNORMALTIME    0x156
+#define     ATTR_VOLTAGE_MONLOWTIME       0x157
+#define     ATTR_VOLTAGE_MONHIGHTIME      0x158
+#define     ATTR_VOLTAGE_DAYQUALIFIEDRATE 0x159
+#define     ATTR_VOLTAGE_MONQUALIFIEDRATE 0x160
+
+
+//pulse
+#define     ATTR_PUL_RAW            0x532     //"原始值"},
+#define     ATTR_PUL_COUNTERVALUE   0x50F   //,    "工程值"},
+#define     ATTR_PUL_COUNTERMIN     0x509   //,      "分钟电量"},
+#define     ATTR_PUL_COUNTERHOUR    0x50A   //,     "小时电量"},
+#define     ATTR_PUL_COUNTERDAY     0x50B   //,      "日总电量"},
+#define     ATTR_PUL_COUNTERMON     0x50D   //,      "月总电量"},
+
+
+#define     ATTR_POWER_DAYPEKVALUE  0x0610  //,   "日峰电量"},
+#define     ATTR_POWER_DAYVOLVALUE  0x0611  //,   "日谷电量"},
+#define     ATTR_POWER_DAYPINVALUE  0x0612  //,   "日平电量"},
+#define     ATTR_POWER_MONPEKVALUE  0x0617  //,   "月峰电量"},
+#define     ATTR_POWER_MONVOLVALUE  0x0618  //,   "月谷电量"},
+#define     ATTR_POWER_MONPINVALUE  0x0619  //,   "月平电量"},
+
+
+
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -132,6 +251,8 @@ bool KERAPI_EXPORT setAttrEx(QWidget* pWidget,DBHANDLE dbHandle,ushort wAttrib,v
 }
 #endif
 
+//事件消息定义
+const int kerEventUser = QEvent::User + 9000; //插件向五防系统发送消息
 
 //定义事件类型
 class KERAPI_EXPORT HKerEvent : public QEvent
@@ -149,7 +270,6 @@ public:
     };
     Q_ENUM(event)
 
-    //Q_DECLARE_FLAGS(kerEvents, kerEvent)
     static const Type kerType;
 public:
     HKerEvent(Type type,HLPARAM hLParam) : QEvent(type)

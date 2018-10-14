@@ -1,10 +1,10 @@
 ﻿#ifndef HCONFIGAPI_H
 #define HCONFIGAPI_H
+#include "hconfigexport.h"
 #include <QList>
 #include <QString>
 #include <QVariant>
-
-#include "hconfigexport.h"
+#include "hnamespace.h"
 typedef struct _tagSysSet
 {
     QString strObjName;
@@ -23,8 +23,9 @@ typedef struct _tagSetting
 typedef QList<SETTING*> HSettingList;
 
 
-
+//每个应用读配置都需要
 //定义功能
+
 #define SYS_SET_START   0x000
 #define SYS_SET_NET     0x001
 #define SYS_SET_NORMAL  0x002
@@ -186,7 +187,6 @@ typedef QList<SETTING*> HSettingList;
 #define STATE_CHANGE_INTERVAL_NAME 0x206
 #define STATE_CHANGE_DIGITAL_NAME 0x207
 #define STATE_CHANGE_NULL 0x208
-
 
 //导出函数
 #ifdef __cplusplus

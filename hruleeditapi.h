@@ -1,5 +1,5 @@
-﻿#ifndef RULEEDITAPI_H
-#define RULEEDITAPI_H
+﻿#ifndef HRULEEDITAPI_H
+#define HRULEEDITAPI_H
 #include <QtGlobal>
 #include <QString>
 #include "hruleexport.h"
@@ -76,7 +76,7 @@ enum SELECTMODE
 
 //TYPE_INPUT的子类型
 #define TYPE_INPUT_DIGITAL  102
-#define TYPE_INPUT_COMP 103
+#define TYPE_INPUT_COMP     103
 
 
 //遥控:分 合 检修分 检修合 规则

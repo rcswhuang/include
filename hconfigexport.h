@@ -1,5 +1,5 @@
-﻿#ifndef HSYSCONFIGEXPORT_H
-#define HSYSCONFIGEXPORT_H
+﻿#ifndef HCONFIGEXPORT_H
+#define HCONFIGEXPORT_H
 
 #if defined(WIN32) || defined(_WIN32)
     #if defined (SYSCONIFG_DLL)

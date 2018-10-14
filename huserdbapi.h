@@ -1,9 +1,13 @@
-#ifndef USERDBAPI_H
-#define USERDBAPI_H
-#include <QtGlobal>
-#include "publicdata.h"
+#ifndef HUSERDBAPI_H
+#define HUSERDBAPI_H
 #include "hpluginexport.h"
+#include "hnamespace.h"
+#include <QtGlobal>
 /***************************************************有关插件部分定义****************************************************/
+//插件类型
+#define PLUGIN_ID_CDT 0x01
+
+//插件消息
 #define PM_GETDBINFO       0 //获取点或者厂站信息
 #define PM_FINDDBINFO      1 //根据index获取点或者厂站信息
 

@@ -1,7 +1,9 @@
 ﻿#ifndef HFORMULAPI_H
 #define HFORMULAPI_H
-#include "publicdata.h"
 #include "hformulaexport.h"
+#include "hfileapi.h"
+#include "hkernelapi.h"
+#include "hnamespace.h"
 #include <QList>
 #include <QString>
 
@@ -273,6 +275,7 @@ bool FORMULA_EXPORT createFormula(FORMULA* pFormula,ushort wNo);//创建某个�
 bool FORMULA_EXPORT compileFormula(const char* szFormula,FORMULA* pFormula);//编译公式
 
 FORMULA_EXPORT QString& getFormulaText(FORMULA* formula,bool bValue);//
+//FORMULA_EXPORT const char* getFormulaText(FORMULA* formula,bool bValue);//
 void FORMULA_EXPORT replaceFormulaItem(FORMULA* pFormula,ITEM* pOld,ITEM* pNew);
 void FORMULA_EXPORT onFormulaIdle();
 

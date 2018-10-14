@@ -1,5 +1,5 @@
-#ifndef LICENSEAPI_H
-#define LICENSEEAPI_H
+#ifndef HLICENSEAPI_H
+#define HLICENSEEAPI_H
 #include <QtGlobal>
 #include <QString>
 #include "hlicenseexport.h"
