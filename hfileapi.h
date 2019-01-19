@@ -545,6 +545,16 @@ typedef struct _tagOperatorSheetStep
 
 }OPSHEETSTEP;
 
+
+//操作票模板文件头
+typedef struct _tagGRIDPREPORT
+{
+    quint16 wReportID;			//模板文件ID
+    quint8  btType;				//报表类型：模板\工作票
+    quint32    nMaxRow;			//最大行数
+    quint32    nMaxCol;			//最大列数
+    QString strReportName;	//模板名称\工作票任务名
+}GRIDPREPORT;
 ////////////////////////////////////////////////////////////////重写了
 //typedef bool (*LPFORMULAPROC)(int nMsgType,long wParam,long lParam,int nDBID);
 /////////////////////////////////////////对外接口///////////////////////////////////////
