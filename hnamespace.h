@@ -103,6 +103,67 @@ Q_DECLARE_OPERATORS_FOR_FLAGS(HFlags::enableflags)
 Q_DECLARE_OPERATORS_FOR_FLAGS(HFlags::resultflags)
 
 
+class HVarFlags
+{
+public:
+    //权限
+    enum varflag
+    {
+        VarNoFlag        =  0x01,
+        //任务
+        varStName			= 1,	//厂站名称
+        varSheetNo			= 2,	//操作票号
+        varSheetTitle			= 3,	//操作票标题
+        varSheetDescribe                = 4,	//任务描述
+        varOrderNo      	        = 5,	//调度指令号
+        varSheetType		        = 6,	//操作票类型(模板票、预开票)
+        varTaskType 		        = 7,	//任务类型(送电、停电，其它)
+        varOpStepNum			= 8,	//操作总步数
+        varSheetPageNum			= 9,	//页数
+        varSheetPageNo			= 10,	//页号
+        varPrintInput		        = 11,	//打印输入
+        varSheetPrevPage	        = 12,	//接上页
+        varSheetNextPage		= 13,	//接下页
+        //人
+        varOperator    		        = 20,	//操作人
+        varGuardian			= 21,	//监护人
+        //FRONT_TYPE_ORDER			= 22,	//下令人
+        //FRONT_TYPE_PREORDER		= 23,	//预令人
+        //FRONT_TYPE_DUTY   		= 24,	//值班责任人
+        //FRONT_TYPE_DUTYLEADER		= 25,	//值长
+        varEditor   		        = 26,	//操作票生成（保存）人
+        //时间
+        varStartTime		        = 40,	//操作开始时间,不用
+        //FRONT_TYPE_ORDERTIME		= 41,	//下令时间
+        //FRONT_TYPE_PREORDERTIME	= 42,	//预令时间
+        varSheetStepTime	        = 43,	//每步操作时间
+        varSheetMakeTime		= 44,	//操作票生成时间
+        varNowTime			= 45,	//当前时间
+        varSheetEneTime			= 46,	//操作结束时间,不用
+        varSheetStepHour		= 47,	//每步操作时间(时)
+        varSheetStepMin		        = 48,	//每步操作时间(分)
+        //内容
+        varSheetStepNo			= 60,	//操作序号
+        varSheetStep			= 61,	//操作项目
+        varSheetRemark			= 62,   //操作备注
+        varSheetStepType		= 63,	//操作类型(分操作、合操作、提示操作)
+        varSheetLockType                = 64,   //锁类型
+        varLockNO	                = 65,   //锁号
+        varOperatTeamNo			= 66,	//班次
+        varStateChange		        = 67,	//状态转换
+        varLastSheetNo		        = 68,	//上接票号
+        varNextSheetNo		        = 69,	//下接票号
+        varSheetEndDesc		        = 70,	//结束语
+        varBitmap			= 71,
+        varTextEdit			= 72,
+        varDeivceState			= 73,
+        varSheetOperatrNo               = 74,
+        varRunningNo                    = 75,
+        varDate                         = 76,
+    };
+    Q_DECLARE_FLAGS(varflags,varflag)
+};
+Q_DECLARE_OPERATORS_FOR_FLAGS(HVarFlags::varflags)
 /*
 
 
