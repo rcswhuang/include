@@ -34,7 +34,8 @@ typedef QList<SETTING*> HSettingList;
 #define SYS_SET_TICKET  0x005
 #define SYS_SET_FORMAT  0x006
 #define SYS_SET_OTHER   0x007
-#define SYS_SET_MAX     0x007
+#define SYS_SET_PRINT   0x008
+#define SYS_SET_MAX     0x008
 
 //通讯设置
 //电脑钥匙通讯
@@ -178,16 +179,42 @@ typedef QList<SETTING*> HSettingList;
 #define WF_PAGE_SPECIAL   0x178
 
 //其他设置
-#define PRIV_SAVE_PRE_TICKET 0x200
-#define PRIV_OPERA_PRE_TICKET 0x201
-#define NAME_GROUP_NAME 0x202
-#define NAME_CUSTOM_NAME 0x203
-#define STATE_CHANGE_STATION_NAME 0x204
-#define STATE_CHANGE_VOLTAGE 0x205
-#define STATE_CHANGE_INTERVAL_NAME 0x206
-#define STATE_CHANGE_DIGITAL_NAME 0x207
-#define STATE_CHANGE_NULL 0x208
+#define PRIV_SAVE_PRE_TICKET         0x200
+#define PRIV_OPERA_PRE_TICKET        0x201
+#define NAME_GROUP_NAME              0x202
+#define NAME_CUSTOM_NAME             0x203
+#define STATE_CHANGE_STATION_NAME    0x204
+#define STATE_CHANGE_VOLTAGE         0x205
+#define STATE_CHANGE_INTERVAL_NAME   0x206
+#define STATE_CHANGE_DIGITAL_NAME    0x207
+#define STATE_CHANGE_NULL            0x208
 
+//打印设置
+#define PRINT_SHEETNO_PREFIX         0x300
+#define PRINT_SHEETNO_PREFIX_TEXT    0x301
+#define PRINT_SHEETNO_SUFFIX         0x302
+#define PRINT_SHEETNO_SUFFIX_TEXT    0x303
+#define PRINT_SHEETNO_LENGTH         0x304
+#define PRINT_SHEETNO_LENGTH_TEXT    0x305
+#define PRINT_SHEET_TEMPNO           0x306
+#define PRINT_SHEET_TEMPNO_TEXT      0x307
+#define PRINT_OPTASK_LENGTH          0x308
+#define PRINT_OPITEM_LENGTH          0x309
+#define PRINT_STATECHANGE_LENGTH     0x30A
+#define PRINT_SERIALNO_LENGTH        0x30B
+
+#define PRINT_LEFT_MARGIN         0x330
+#define PRINT_RIGHT_MARGIN        0x331
+#define PRINT_TOP_MARGIN          0x332
+#define PRINT_BOTTOM_MARGIN       0x333
+#define PRINT_HEAD_MARGIN         0x334
+#define PRINT_FOOT_MARGIN         0x335
+#define PRINT_HEAD_TEXT           0x336
+#define PRINT_FOOT_TEXT           0x337
+#define PRINT_SHOW_GRIDLINE       0x338
+#define PRINT_HORIZONTAL_HEAD     0x339
+#define PRINT_VERTICVAL_HEAD      0x33A
+#define PRINT_SHOW_COLOR          0x33B
 //导出函数
 #ifdef __cplusplus
 extern "C"
@@ -195,10 +222,11 @@ extern "C"
 #endif
 
     //系统配置对外接口
-     void  SYSCONFIG_EXPORT initSysConfig();
+     void  SYSCONFIG_EXPORT loadSysConfig();
      void  SYSCONFIG_EXPORT getSysConfigByID(int nSettingID,HSysSetList* &sysSetList);
      void  SYSCONFIG_EXPORT getSettingValue(int  nSettingID,int nSysSetID,QVariant &value);
-     bool  SYSCONFIG_EXPORT applySysConfig();
+     void  SYSCONFIG_EXPORT setSettingValue(int  nSettingID,int nSysSetID,QVariant &value,QString& sysSetName);
+     bool  SYSCONFIG_EXPORT saveSysConfig();
   
 
 #ifdef __cplusplus
